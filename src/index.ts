@@ -33,5 +33,5 @@ app.get("/", async (req, res) => {
 
 // Start Server
 app.listen(process.env.PORT, () => {
-    console.log(`Server started at http://localhost:${process.env.PORT}`);
+    console.log(chalk.green(`✗ Server started at http://localhost:${process.env.PORT}`));
 });
