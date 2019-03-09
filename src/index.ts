@@ -3,6 +3,8 @@ import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 
+import User from './models/user';
+
 // Init dotenv config
 dotenv.config();
 
@@ -20,8 +22,13 @@ mongoose.connection.on("error", (err) => {
 });
 
 // Routes
-app.get("/", (req, res) => {
-    res.json("Hello world!");
+app.get("/", async (req, res) => {
+    try {
+        const users = await User.find({});
+        res.send(users);
+    } catch (error) {
+        throw error;
+    }
 });
 
 // Start Server
