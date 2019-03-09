@@ -5,10 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "clean": "rimraf dist/*",
-    "copy-assets": "ts-node tools/copyAssets",
     "lint": "tslint -c tslint.json -p tsconfig.json --fix",
     "tsc": "tsc",
-    "build": "npm-run-all clean lint tsc copy-assets",
+    "build": "npm-run-all clean lint tsc",
     "dev:start": "npm-run-all build start",
     "dev": "nodemon --watch src -e ts,ejs --exec npm run dev:start",
     "start": "node .",
@@ -18,13 +17,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^2.4.2",
     "dotenv": "^6.2.0",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mongoose": "^5.4.18"
   },
   "devDependencies": {
     "@types/dotenv": "^6.1.0",
     "@types/express": "^4.16.1",
     "@types/fs-extra": "^5.0.5",
+    "@types/mongoose": "^5.3.21",
     "@types/node": "^11.11.0",
     "@types/shelljs": "^0.8.3",
     "fs-extra": "^7.0.1",

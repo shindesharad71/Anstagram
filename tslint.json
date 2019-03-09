@@ -5,7 +5,10 @@
     ],
     "jsRules": {},
     "rules": {
-        "trailing-comma": [ false ]
+        "trailing-comma": [ false ],
+        "quotemark": false,
+        "no-console": false,
+        "object-literal-sort-keys": false
     },
     "rulesDirectory": []
 }
