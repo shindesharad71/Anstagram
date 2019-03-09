@@ -25,7 +25,7 @@ mongoose.connection.on("error", (err) => {
 app.get("/", async (req, res) => {
     try {
         const users = await User.find({});
-        res.send(users);
+        res.json(users);
     } catch (error) {
         throw error;
     }
