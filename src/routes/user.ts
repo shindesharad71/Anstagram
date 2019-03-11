@@ -1,9 +1,8 @@
 import express from 'express';
+import { logout } from '../controllers/user';
 
 const userRouter = express.Router();
 
-userRouter.get('/logout', (req, res) => {
-    res.json({ message: 'logout test' });
-});
+userRouter.get('/logout', logout);
 
 export default userRouter;
