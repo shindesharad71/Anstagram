@@ -5,7 +5,6 @@ import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 
-import User from './models/user';
 import { Routes } from './routes';
 
 // Init dotenv config

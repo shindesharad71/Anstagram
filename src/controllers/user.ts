@@ -1,3 +1,5 @@
+import User from '../models/user';
+
 const register = async (req: any, res: any) => {
     try {
         res.json({ message: 'register' });
