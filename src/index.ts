@@ -4,6 +4,7 @@ import express from "express";
 import mongoose from "mongoose";
 
 import User from './models/user';
+import { Routes } from './routes';
 
 // Init dotenv config
 dotenv.config();
@@ -22,14 +23,22 @@ mongoose.connection.on("error", (err) => {
 });
 
 // Routes
-app.get("/", async (req, res) => {
-    try {
-        const users = await User.find({});
-        res.json(users);
-    } catch (error) {
-        throw error;
-    }
+Routes.forEach((route) => app.use(route.path, route.router));
+
+app.use('*', (req: Request, res: any, next: any) => {
+    const message = `Cannot ${req.method} ${req.url}`;
+    res.sendStatus(404).json({ error: message });
+    next();
 });
+
+// app.get("/", async (req, res) => {
+//     try {
+//         const users = await User.find({});
+//         res.json(users);
+//     } catch (error) {
+//         throw error;
+//     }
+// });
 
 // Start Server
 app.listen(process.env.PORT, () => {
