@@ -27,6 +27,12 @@ mongoose_1.default.connection.on("error", (err) => {
 app.use(cors_1.default());
 app.use(body_parser_1.default.json({ limit: '50mb' }));
 app.use(body_parser_1.default.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
+app.use('/public', express_1.default.static('uploads'));
+// Request, Response Entry Point
+app.use((req, res, next) => {
+    console.log(chalk_1.default.yellow(`${req.method} - ${req.url}`));
+    next();
+});
 // Routes
 routes_1.Routes.forEach((route) => app.use(route.path, route.router));
 app.use('*', (req, res, next) => {
