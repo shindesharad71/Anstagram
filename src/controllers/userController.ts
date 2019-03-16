@@ -2,8 +2,17 @@ import User from '../models/userModel';
 
 const register = async (req: any, res: any) => {
     try {
-        res.json({ message: 'register' });
+        const user = new User({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            dateOfBirth: req.body.dateOfBirth,
+            password: req.body.password
+        });
+        const userCreated = await user.save();
+        res.json({ message: userCreated });
     } catch (error) {
+        res.status(400).json({error: error.name, message: error.message});
         throw error;
     }
 };
