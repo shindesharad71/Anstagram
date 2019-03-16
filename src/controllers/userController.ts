@@ -1,3 +1,5 @@
+import bcrypt from 'bcrypt-nodejs';
+
 import passport from 'passport';
 import passportLocal from "passport-local";
 import User from '../models/userModel';
@@ -6,12 +8,13 @@ const LocalStrategy = passportLocal.Strategy;
 
 const register = async (req: any, res: any) => {
     try {
+        const hashedPassword = bcrypt.hashSync(req.body.password);
         const user = new User({
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
             dateOfBirth: req.body.dateOfBirth,
-            password: req.body.password
+            password: hashedPassword
         });
         const userCreated = await user.save();
         res.json({ message: userCreated });
@@ -23,23 +26,18 @@ const register = async (req: any, res: any) => {
 
 const login = async (req: any, res: any) => {
     try {
-        const localOptions = { usernameField: 'email' };
-        const passportData = passport.use(new LocalStrategy(localOptions, (email, password, done) => {
-            User.findOne({ email: email.toLowerCase() }, (error, user: any) => {
-                if (error) { return done(error); }
-                if (!user) {
-                    return done(undefined, false, { message: `Email ${email} not found.` });
-                }
-                user.comparePassword(password, (err: Error, isMatch: boolean) => {
-                    if (err) { return done(err); }
-                    if (isMatch) {
-                        return done(undefined, user);
-                    }
-                    return done(undefined, false, { message: "Invalid email or password." });
-                });
-            });
-        }));
-        res.json({ message: passportData });
+        const email = req.body.email;
+        const password = req.body.password;
+        const userFound = await User.findOne({ email });
+        if (userFound && Object.keys(userFound).length > 1) {
+            if (bcrypt.compareSync(password, userFound.password)) {
+                res.json({ message: `login successfully` });
+            } else {
+                res.status(400).json({ error: `wrong username and password, try again` });
+            }
+        } else {
+            res.status(404).json({ error: `no user found with email ${email}` });
+        }
     } catch (error) {
         res.status(400).json(error);
         throw error;
