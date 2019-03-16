@@ -3,6 +3,14 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 
+type UserType = mongoose.Document & {
+    id: string,
+    firstName: string,
+    lastName: string,
+    email: string,
+    password: string,
+};
+
 const userSchema = new Schema({
     id: { type: ObjectId, index: true },
     firstName: { type: String, trim: true, required: 'required firstName' },
@@ -18,4 +26,4 @@ const userSchema = new Schema({
 
 const User = mongoose.model('User', userSchema);
 
-export default User;
+export { UserType, User };

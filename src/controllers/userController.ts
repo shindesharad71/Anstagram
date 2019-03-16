@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt-nodejs';
-import User from '../models/userModel';
+import { User, UserType} from '../models/userModel';
 
 const register = async (req: any, res: any) => {
     try {
@@ -23,16 +23,17 @@ const login = async (req: any, res: any) => {
     try {
         const email = req.body.email;
         const password = req.body.password;
-        const userFound = await User.findOne({ email });
-        if (userFound && Object.keys(userFound).length > 1) {
-            if (bcrypt.compareSync(password, userFound.password)) {
-                res.json({ message: `login successfully` });
+        User.findOne({ email }, (err, userFound: UserType) => {
+            if (userFound && Object.keys(userFound).length > 1) {
+                if (bcrypt.compareSync(password, userFound.password)) {
+                    res.json({ message: `login successfully` });
+                } else {
+                    res.status(400).json({ error: `wrong username and password, try again` });
+                }
             } else {
-                res.status(400).json({ error: `wrong username and password, try again` });
+                res.status(404).json({ error: `no user found with email ${email}` });
             }
-        } else {
-            res.status(404).json({ error: `no user found with email ${email}` });
-        }
+        });
     } catch (error) {
         res.status(400).json(error);
         throw error;
