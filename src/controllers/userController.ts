@@ -1,5 +1,4 @@
 import bcrypt from 'bcrypt-nodejs';
-import { CLIENT_RENEG_LIMIT } from 'tls';
 import { User, UserType } from '../models/userModel';
 
 const register = async (req: any, res: any) => {
