@@ -1,9 +1,11 @@
+import bodyParser from 'body-parser';
 import chalk from "chalk";
+import cors from 'cors';
 import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 
-import User from './models/user';
+import { Routes } from './routes';
 
 // Init dotenv config
 dotenv.config();
@@ -21,14 +23,25 @@ mongoose.connection.on("error", (err) => {
     process.exit();
 });
 
+// Middleware Initialization
+app.use(cors());
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
+app.use('/public', express.static('uploads'));
+
+// Request, Response Entry Point
+app.use((req, res, next) => {
+    console.log(chalk.yellow(`${req.method} - ${req.url}`));
+    next();
+});
+
 // Routes
-app.get("/", async (req, res) => {
-    try {
-        const users = await User.find({});
-        res.json(users);
-    } catch (error) {
-        throw error;
-    }
+Routes.forEach((route) => app.use(route.path, route.router));
+
+app.use('*', (req, res, next) => {
+    const message = `Cannot ${req.method} ${req.url}`;
+    res.status(404).json({ error: message });
+    next();
 });
 
 // Start Server
