@@ -1,10 +1,5 @@
 import bcrypt from 'bcrypt-nodejs';
-
-import passport from 'passport';
-import passportLocal from "passport-local";
 import User from '../models/userModel';
-
-const LocalStrategy = passportLocal.Strategy;
 
 const register = async (req: any, res: any) => {
     try {
