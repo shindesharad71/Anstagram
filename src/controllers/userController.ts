@@ -1,4 +1,6 @@
 import bcrypt from 'bcrypt-nodejs';
+import jwt from 'jsonwebtoken';
+import { JWT_CONFIG } from '../configs/jwt';
 import { User, UserType } from '../models/userModel';
 
 const register = async (req: any, res: any) => {
@@ -12,7 +14,7 @@ const register = async (req: any, res: any) => {
             password: hashedPassword
         });
         const userCreated = await user.save();
-        res.json({ message: userCreated });
+        res.status(201).json({ message: userCreated });
     } catch (error) {
         res.status(400).json({ error: error.name, message: error.message });
         throw error;
@@ -27,7 +29,8 @@ const login = async (req: any, res: any) => {
 
         if (userFound && Object.keys(userFound).length > 1) {
             if (bcrypt.compareSync(password, userFound.password)) {
-                res.json({ message: `login successfully` });
+                const token = jwt.sign({ user: userFound._id }, JWT_CONFIG.JWT_SECRET, { expiresIn: '24h' });
+                res.json({ token, message: `login successfully` });
             } else {
                 res.status(400).json({ error: `wrong username and password, try again` });
             }
