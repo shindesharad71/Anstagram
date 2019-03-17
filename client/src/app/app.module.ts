@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +19,8 @@ library.add(fas);
   imports: [
     BrowserModule,
     CoreModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     FontAwesomeModule,
     AuthModule
