@@ -1,0 +1,44 @@
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <h3 class="title is-3">Login</h3>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-medium" type="email" placeholder="Email" [ngClass]="{'is-danger': isEmailInvalid}"
+                formControlName="email" (blur)="onInputBlur()">
+              <span class="icon is-small is-left">
+                <fa-icon icon="envelope"></fa-icon>
+              </span>
+              <span class="icon is-small is-right" *ngIf="isEmailInvalid">
+                <fa-icon icon="exclamation-triangle"></fa-icon>
+              </span>
+            </div>
+            <p class="help is-danger" *ngIf="isEmailInvalid">This email is invalid</p>
+          </div>
+
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-medium" type="password" placeholder="Password" formControlName="password">
+              <span class="icon is-small is-left">
+                <fa-icon icon="lock"></fa-icon>
+              </span>
+            </div>
+          </div>
+
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link" [disabled]="!loginForm.valid">Login</button>
+            </div>
+            <div class="control">
+              <button class="button is-text" routerLink="/register">Register</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
