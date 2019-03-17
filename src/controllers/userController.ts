@@ -32,7 +32,7 @@ const login = async (req: any, res: any) => {
                 const token = jwt.sign({ user: userFound._id }, JWT_CONFIG.JWT_SECRET, { expiresIn: '24h' });
                 res.json({ token, message: `login successfully` });
             } else {
-                res.status(400).json({ error: `wrong username and password, try again` });
+                res.status(403).json({ error: `wrong username and password, try again` });
             }
         } else {
             res.status(404).json({ error: `no user found with email ${email}` });
@@ -45,7 +45,7 @@ const login = async (req: any, res: any) => {
 
 const logout = async (req: any, res: any) => {
     try {
-        res.json({ message: 'logout' });
+        res.json({ message: 'logout test' });
     } catch (error) {
         throw error;
     }
