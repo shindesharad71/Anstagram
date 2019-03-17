@@ -12,7 +12,7 @@ export class InterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token: string = this.authService.getToken();
-
+    // Enable Loader
     if (token) {
       req = req.clone({
         setHeaders: {
@@ -20,7 +20,17 @@ export class InterceptorService implements HttpInterceptor {
         }
       });
     }
-    return next.handle(req);
+    return next.handle(req).pipe(
+      map((res: any) => {
+        // Hide Loader
+        const a = 'test';
+        return res;
+      }, (err: any) => {
+        // Hide Loader
+        const a = 'test';
+        return err;
+      })
+    );
   }
 }
 
