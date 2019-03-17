@@ -8,7 +8,7 @@
             <label class="label">Email</label>
             <div class="control has-icons-left has-icons-right">
               <input class="input is-medium" type="email" placeholder="Email" [ngClass]="{'is-danger': isEmailInvalid}"
-                formControlName="email">
+                formControlName="email" (blur)="onInputBlur()">
               <span class="icon is-small is-left">
                 <fa-icon icon="envelope"></fa-icon>
               </span>

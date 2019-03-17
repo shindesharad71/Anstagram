@@ -4,9 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './services/auth/auth.service';
 import { InterceptorService } from './services/interceptor.service';
+import { LoaderComponent } from './components/loader/loader.component';
+import { LoaderService } from './components/loader/loader.service';
 
 @NgModule({
-  declarations: [],
+  declarations: [LoaderComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -17,7 +19,8 @@ import { InterceptorService } from './services/interceptor.service';
       useClass: InterceptorService,
       multi: true
     },
-    AuthService
+    AuthService,
+    LoaderService
   ]
 })
 export class CoreModule { }

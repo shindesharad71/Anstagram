@@ -3,16 +3,17 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/c
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { AuthService } from './auth/auth.service';
+import { LoaderService } from '../components/loader/loader.service';
 @Injectable({
   providedIn: 'root'
 })
 export class InterceptorService implements HttpInterceptor {
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthService, private loaderService: LoaderService) {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token: string = this.authService.getToken();
-    // Enable Loader
+    this.loaderService.show();
     if (token) {
       req = req.clone({
         setHeaders: {
@@ -22,12 +23,10 @@ export class InterceptorService implements HttpInterceptor {
     }
     return next.handle(req).pipe(
       map((res: any) => {
-        // Hide Loader
-        const a = 'test';
+        this.loaderService.dismiss();
         return res;
       }, (err: any) => {
-        // Hide Loader
-        const a = 'test';
+        this.loaderService.dismiss();
         return err;
       })
     );

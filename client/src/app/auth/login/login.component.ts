@@ -28,4 +28,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  onInputBlur() {
+    this.isEmailInvalid = this.loginForm.controls.email.value && !this.loginForm.controls.email.valid;
+  }
+
 }
