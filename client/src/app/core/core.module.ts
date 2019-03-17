@@ -21,6 +21,9 @@ import { LoaderService } from './components/loader/loader.service';
     },
     AuthService,
     LoaderService
+  ],
+  entryComponents: [
+    LoaderComponent
   ]
 })
 export class CoreModule { }
