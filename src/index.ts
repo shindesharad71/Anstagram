@@ -6,7 +6,7 @@ import express from "express";
 import jwt from 'express-jwt';
 import mongoose from "mongoose";
 
-import { JWT_CONFIG } from './configs/jwt';
+import { JWT_CONFIG, requestValidator } from './configs/jwt';
 import { Routes } from './routes';
 
 // Init dotenv config
@@ -30,12 +30,20 @@ app.use(cors());
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
 app.use('/public', express.static('uploads'));
-app.use(jwt({ secret: JWT_CONFIG.JWT_SECRET }).unless({path: JWT_CONFIG.noAuthUrls}));
+app.use(jwt({
+    secret: JWT_CONFIG.JWT_SECRET,
+}).unless({ path: JWT_CONFIG.noAuthUrls }));
 
 // Request, Response Entry Point
 app.use((req, res, next) => {
     console.log(chalk.yellow(`${req.method} - ${req.url}`));
-    next();
+    if (requestValidator(req)) {
+        next();
+    } else {
+        res.status(400).json({
+            message: 'invalid auth token, or token is not supplied'
+        });
+    }
 });
 
 // Routes
