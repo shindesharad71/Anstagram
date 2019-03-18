@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt-nodejs';
 import jwt from 'jsonwebtoken';
-import { JWT_CONFIG } from '../configs/jwt';
-import { User, UserType } from '../models/userModel';
+import { JWT_CONFIG } from '../../configs/jwt';
+import { User, UserType } from './userModel';
 
 const register = async (req: any, res: any) => {
     try {
