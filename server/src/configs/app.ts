@@ -6,7 +6,7 @@ import express from "express";
 import jwt from 'express-jwt';
 import mongoose from "mongoose";
 
-import { Routes } from '../routes';
+import { Routes } from '../api';
 import { JWT_CONFIG, requestValidator } from './jwt';
 
 // Init dotenv config

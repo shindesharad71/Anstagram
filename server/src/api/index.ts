@@ -1,4 +1,4 @@
-import userRouter from './userRouter';
+import userRouter from './user/userRouter';
 
 const Routes = [
     {
