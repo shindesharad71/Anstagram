@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    this.authService.login(this.registerForm.value).subscribe(res => {
+    this.authService.register(this.registerForm.value).subscribe(res => {
       console.log(res);
     }, err => {
       console.log(err);

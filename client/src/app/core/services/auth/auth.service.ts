@@ -15,7 +15,7 @@ export class AuthService {
   }
 
   register(user) {
-    return this.http.post(`${environment.BASE_URL}users/login`, user);
+    return this.http.post(`${environment.BASE_URL}users/register`, user);
   }
 
   getToken() {
