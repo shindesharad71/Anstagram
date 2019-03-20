@@ -53,10 +53,12 @@ export class RegisterComponent implements OnInit {
   }
 
   removeErrorMessage() {
-    const allNotifications = (document.querySelectorAll('.notification') || []);
-    allNotifications.forEach((notificationToDelete) => {
-      notificationToDelete.remove();
-    });
+    if (document.readyState === 'complete') {
+      const allNotifications = (document.querySelectorAll('.notification') || []);
+      allNotifications.forEach((notificationToDelete: any) => {
+        notificationToDelete.remove();
+      });
+    }
   }
 
 }
