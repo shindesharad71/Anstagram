@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 
@@ -11,7 +12,9 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isEmailInvalid = false;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private titleService: Title) {
+    this.titleService.setTitle('Login');
+  }
 
   ngOnInit() {
     this.loginForm = new FormGroup({

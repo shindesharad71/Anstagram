@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 
@@ -16,7 +17,9 @@ export class RegisterComponent implements OnInit {
   isError = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private titleService: Title) {
+    this.titleService.setTitle('Register');
+  }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
