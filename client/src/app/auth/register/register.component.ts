@@ -11,6 +11,7 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
   isEmailInvalid = false;
+  isPasswordsMatch = true;
 
   constructor(private authService: AuthService) { }
 
@@ -37,6 +38,10 @@ export class RegisterComponent implements OnInit {
 
   onInputBlur() {
     this.isEmailInvalid = this.registerForm.controls.email.value && !this.registerForm.controls.email.valid;
+  }
+
+  validatePassword() {
+    this.isPasswordsMatch = this.registerForm.controls.password.value === this.registerForm.controls.confirmPassword.value;
   }
 
 }

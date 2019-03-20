@@ -42,29 +42,29 @@
           <div class="field">
             <label class="label">Password</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input is-danger" type="password" placeholder="Password" formControlName="password">
+              <input class="input" type="password" placeholder="Password" formControlName="password" [ngClass]="{'is-danger': !isPasswordsMatch}" (blur)="validatePassword()">
               <span class="icon is-small is-left">
                 <fa-icon icon="key"></fa-icon>
               </span>
-              <span class="icon is-small is-right">
+              <span class="icon is-small is-right" *ngIf="!isPasswordsMatch">
                 <fa-icon icon="exclamation-triangle"></fa-icon>
               </span>
             </div>
-            <p class="help is-danger">This email is invalid</p>
+            <p class="help is-danger" *ngIf="!isPasswordsMatch">Password do not match</p>
           </div>
 
           <div class="field">
             <label class="label">Confirm Password</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input is-danger" type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+              <input class="input" type="password" placeholder="Confirm Password" formControlName="confirmPassword" [ngClass]="{'is-danger': !isPasswordsMatch}" (blur)="validatePassword()">
               <span class="icon is-small is-left">
                 <fa-icon icon="key"></fa-icon>
               </span>
-              <span class="icon is-small is-right">
+              <span class="icon is-small is-right" *ngIf="!isPasswordsMatch">
                 <fa-icon icon="exclamation-triangle"></fa-icon>
               </span>
             </div>
-            <p class="help is-danger">This email is invalid</p>
+            <p class="help is-danger" *ngIf="!isPasswordsMatch">Password do not match</p>
           </div>
 
           <div class="field">
