@@ -14,7 +14,7 @@ const register = async (req: any, res: any) => {
             password: hashedPassword
         });
         const userCreated = await user.save();
-        res.status(201).json({ message: userCreated });
+        res.status(201).json({ message: `registered successfully` });
     } catch (error) {
         res.status(400).json({ error: error.name, message: error.message });
         throw error;
@@ -32,10 +32,10 @@ const login = async (req: any, res: any) => {
                 const token = jwt.sign({ user: userFound._id }, JWT_CONFIG.JWT_SECRET, { expiresIn: '24h' });
                 res.json({ token, message: `login successfully` });
             } else {
-                res.status(403).json({ error: `wrong username and password, try again` });
+                res.status(403).json({ message: `wrong username and password, try again` });
             }
         } else {
-            res.status(404).json({ error: `no user found with email ${email}` });
+            res.status(404).json({ message: `no user found with email ${email}` });
         }
     } catch (error) {
         res.status(400).json(error);

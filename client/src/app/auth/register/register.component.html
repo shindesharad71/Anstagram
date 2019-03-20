@@ -1,90 +1,133 @@
-<section class="section">
+<section class="section" *ngIf="!isRegistrationComplete">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-half">
         <h3 class="title is-3">Register</h3>
-        <div class="field">
-          <label class="label">Name</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="Text input">
-          </div>
+        <div class="notification is-danger" *ngIf="isError">
+          <button class="delete" (click)="removeErrorMessage($event)"></button>
+          {{ errorMessage }}
         </div>
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
 
-        <div class="field">
-          <label class="label">Username</label>
-          <div class="control has-icons-left has-icons-right">
-            <input class="input is-success" type="text" placeholder="Text input" value="bulma">
-            <span class="icon is-small is-left">
-              <fa-icon icon="coffee"></fa-icon>
-            </span>
-            <span class="icon is-small is-right">
-              <fa-icon icon="check"></fa-icon>
-            </span>
-          </div>
-          <p class="help is-success">This username is available</p>
-        </div>
-
-        <div class="field">
-          <label class="label">Email</label>
-          <div class="control has-icons-left has-icons-right">
-            <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
-            <span class="icon is-small is-left">
-              <fa-icon icon="envelope"></fa-icon>
-            </span>
-            <span class="icon is-small is-right">
-              <fa-icon icon="exclamation-triangle"></fa-icon>
-            </span>
-          </div>
-          <p class="help is-danger">This email is invalid</p>
-        </div>
-
-        <div class="field">
-          <label class="label">Subject</label>
-          <div class="control">
-            <div class="select">
-              <select>
-                <option>Select dropdown</option>
-                <option>With options</option>
-              </select>
+          <div class="field">
+            <label class="label">First Name</label>
+            <div class="control has-icons-left">
+              <input class="input" type="text" placeholder="First Name" formControlName="firstName">
+              <span class="icon is-small is-left">
+                <fa-icon icon="user"></fa-icon>
+              </span>
             </div>
           </div>
-        </div>
 
-        <div class="field">
-          <label class="label">Message</label>
-          <div class="control">
-            <textarea class="textarea" placeholder="Textarea"></textarea>
+          <div class="field">
+            <label class="label">Last Name</label>
+            <div class="control has-icons-left">
+              <input class="input" type="text" placeholder="Last Name" formControlName="lastName">
+              <span class="icon is-small is-left">
+                <fa-icon icon="user"></fa-icon>
+              </span>
+            </div>
           </div>
-        </div>
 
-        <div class="field">
-          <div class="control">
-            <label class="checkbox">
-              <input type="checkbox">
-              I agree to the <a href="#">terms and conditions</a>
-            </label>
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" type="email" placeholder="Email" [ngClass]="{'is-danger': isEmailInvalid}"
+                formControlName="email" (blur)="onInputBlur()">
+              <span class="icon is-small is-left">
+                <fa-icon icon="envelope"></fa-icon>
+              </span>
+              <span class="icon is-small is-right" *ngIf="isEmailInvalid">
+                <fa-icon icon="exclamation-triangle"></fa-icon>
+              </span>
+            </div>
+            <p class="help is-danger" *ngIf="isEmailInvalid">This email is invalid</p>
           </div>
-        </div>
 
-        <div class="field">
-          <div class="control">
-            <label class="radio">
-              <input type="radio" name="question">
-              Yes
-            </label>
-            <label class="radio">
-              <input type="radio" name="question">
-              No
-            </label>
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" type="password" placeholder="Password" formControlName="password"
+                [ngClass]="{'is-danger': !isPasswordsMatch}" (blur)="validatePassword()">
+              <span class="icon is-small is-left">
+                <fa-icon icon="key"></fa-icon>
+              </span>
+              <span class="icon is-small is-right" *ngIf="!isPasswordsMatch">
+                <fa-icon icon="exclamation-triangle"></fa-icon>
+              </span>
+            </div>
+            <p class="help is-danger" *ngIf="!isPasswordsMatch">Password do not match</p>
           </div>
-        </div>
 
+          <div class="field">
+            <label class="label">Confirm Password</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" type="password" placeholder="Confirm Password" formControlName="confirmPassword"
+                [ngClass]="{'is-danger': !isPasswordsMatch}" (blur)="validatePassword()">
+              <span class="icon is-small is-left">
+                <fa-icon icon="key"></fa-icon>
+              </span>
+              <span class="icon is-small is-right" *ngIf="!isPasswordsMatch">
+                <fa-icon icon="exclamation-triangle"></fa-icon>
+              </span>
+            </div>
+            <p class="help is-danger" *ngIf="!isPasswordsMatch">Password do not match</p>
+          </div>
+
+          <div class="field">
+            <label class="label">Date of Birth</label>
+            <div class="control has-icons-left">
+              <input class="input" type="date" placeholder="Date of Birth" formControlName="dateOfBirth">
+              <span class="icon is-small is-left">
+                <fa-icon icon="calendar"></fa-icon>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Gender</label>
+            <div class="control">
+              <div class="select">
+                <select formControlName="gender" placeholder="Select Gender">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control">
+              <label class="checkbox">
+                <input type="checkbox" formControlName="termsAndConditions">
+                I agree to the <a>terms and conditions</a>
+              </label>
+            </div>
+          </div>
+
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link" [disabled]="!registerForm.valid">Submit</button>
+            </div>
+            <div class="control">
+              <button class="button is-text" routerLink="/login">Cancel</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Show After Registration is Successful -->
+<section class="section" *ngIf="isRegistrationComplete">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <h3 class="title is-3">Registered Successfully</h3>
         <div class="field is-grouped">
           <div class="control">
-            <button class="button is-link">Submit</button>
-          </div>
-          <div class="control">
-            <button class="button is-text">Cancel</button>
+            <button class="button is-text" routerLink="/login">Let's Login!</button>
           </div>
         </div>
       </div>

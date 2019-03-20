@@ -23,10 +23,10 @@ export class InterceptorService implements HttpInterceptor {
     }
     return next.handle(req).pipe(
       map((res: any) => {
-        // this.loaderService.dismiss();
+        this.loaderService.dismiss();
         return res;
       }, (err: any) => {
-        // this.loaderService.dismiss();
+        this.loaderService.dismiss();
         return err;
       })
     );
