@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
   isEmailInvalid = false;
   isPasswordsMatch = true;
   isRegistrationComplete = false;
-  isError = true;
+  isError = false;
   errorMessage = '';
 
   constructor(private authService: AuthService) { }
