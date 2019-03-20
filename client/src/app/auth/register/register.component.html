@@ -3,6 +3,10 @@
     <div class="columns is-centered">
       <div class="column is-half">
         <h3 class="title is-3">Register</h3>
+        <div class="notification is-danger" *ngIf="isError">
+          <button class="delete" (click)="removeErrorMessage($event)"></button>
+          {{ errorMessage }}
+        </div>
         <form [formGroup]="registerForm" (ngSubmit)="register()">
 
           <div class="field">

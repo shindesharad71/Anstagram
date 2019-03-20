@@ -13,6 +13,8 @@ export class RegisterComponent implements OnInit {
   isEmailInvalid = false;
   isPasswordsMatch = true;
   isRegistrationComplete = false;
+  isError = true;
+  errorMessage = '';
 
   constructor(private authService: AuthService) { }
 
@@ -34,6 +36,8 @@ export class RegisterComponent implements OnInit {
       console.log(res);
       this.isRegistrationComplete = true;
     }, err => {
+      this.errorMessage = err.message;
+      this.isError = true;
       console.log(err);
     });
   }
@@ -44,6 +48,13 @@ export class RegisterComponent implements OnInit {
 
   validatePassword() {
     this.isPasswordsMatch = this.registerForm.controls.password.value === this.registerForm.controls.confirmPassword.value;
+  }
+
+  removeErrorMessage() {
+    const allNotifications = (document.querySelectorAll('.notification') || []);
+    allNotifications.forEach((notificationToDelete) => {
+      notificationToDelete.remove();
+    });
   }
 
 }
