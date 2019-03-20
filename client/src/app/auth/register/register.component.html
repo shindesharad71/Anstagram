@@ -8,7 +8,7 @@
           <div class="field">
             <label class="label">First Name</label>
             <div class="control has-icons-left">
-              <input class="input" type="text" placeholder="First Name">
+              <input class="input" type="text" placeholder="First Name" formControlName="firstName">
               <span class="icon is-small is-left">
                 <fa-icon icon="user"></fa-icon>
               </span>
@@ -18,7 +18,7 @@
           <div class="field">
             <label class="label">Last Name</label>
             <div class="control has-icons-left">
-              <input class="input" type="text" placeholder="Last Name">
+              <input class="input" type="text" placeholder="Last Name" formControlName="lastName">
               <span class="icon is-small is-left">
                 <fa-icon icon="user"></fa-icon>
               </span>
@@ -28,7 +28,7 @@
           <div class="field">
             <label class="label">Email</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input" type="email" placeholder="Email" [ngClass]="{'is-danger': isEmailInvalid}">
+              <input class="input" type="email" placeholder="Email" [ngClass]="{'is-danger': isEmailInvalid}" formControlName="email" (blur)="onInputBlur()">
               <span class="icon is-small is-left">
                 <fa-icon icon="envelope"></fa-icon>
               </span>
@@ -42,7 +42,7 @@
           <div class="field">
             <label class="label">Password</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input is-danger" type="password" placeholder="Password">
+              <input class="input is-danger" type="password" placeholder="Password" formControlName="password">
               <span class="icon is-small is-left">
                 <fa-icon icon="key"></fa-icon>
               </span>
@@ -56,7 +56,7 @@
           <div class="field">
             <label class="label">Confirm Password</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input is-danger" type="password" placeholder="Confirm Password">
+              <input class="input is-danger" type="password" placeholder="Confirm Password" formControlName="confirmPassword">
               <span class="icon is-small is-left">
                 <fa-icon icon="key"></fa-icon>
               </span>
@@ -70,7 +70,7 @@
           <div class="field">
             <label class="label">Date of Birth</label>
             <div class="control has-icons-left">
-              <input class="input" type="date" placeholder="Date of Birth">
+              <input class="input" type="date" placeholder="Date of Birth" formControlName="dateOfBirth">
               <span class="icon is-small is-left">
                 <fa-icon icon="calendar"></fa-icon>
               </span>
@@ -81,7 +81,7 @@
             <label class="label">Gender</label>
             <div class="control">
               <div class="select">
-                <select>
+                <select formControlName="gender" placeholder="Select Gender">
                   <option>Male</option>
                   <option>Female</option>
                 </select>
@@ -92,7 +92,7 @@
           <div class="field">
             <div class="control">
               <label class="checkbox">
-                <input type="checkbox">
+                <input type="checkbox" formControlName="termsAndConditions">
                 I agree to the <a>terms and conditions</a>
               </label>
             </div>
@@ -100,7 +100,7 @@
 
           <div class="field is-grouped">
             <div class="control">
-              <button class="button is-link">Submit</button>
+              <button class="button is-link" [disabled]="!registerForm.valid">Submit</button>
             </div>
             <div class="control">
               <button class="button is-text" routerLink="/login">Cancel</button>
