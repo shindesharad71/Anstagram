@@ -14,7 +14,7 @@ const register = async (req: any, res: any) => {
             password: hashedPassword
         });
         const userCreated = await user.save();
-        res.status(201).json({ message: userCreated });
+        res.status(201).json({ message: `registered successfully` });
     } catch (error) {
         res.status(400).json({ error: error.name, message: error.message });
         throw error;

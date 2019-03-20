@@ -1,4 +1,4 @@
-<section class="section">
+<section class="section" *ngIf="!isRegistrationComplete">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-half">
@@ -28,7 +28,8 @@
           <div class="field">
             <label class="label">Email</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input" type="email" placeholder="Email" [ngClass]="{'is-danger': isEmailInvalid}" formControlName="email" (blur)="onInputBlur()">
+              <input class="input" type="email" placeholder="Email" [ngClass]="{'is-danger': isEmailInvalid}"
+                formControlName="email" (blur)="onInputBlur()">
               <span class="icon is-small is-left">
                 <fa-icon icon="envelope"></fa-icon>
               </span>
@@ -42,7 +43,8 @@
           <div class="field">
             <label class="label">Password</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input" type="password" placeholder="Password" formControlName="password" [ngClass]="{'is-danger': !isPasswordsMatch}" (blur)="validatePassword()">
+              <input class="input" type="password" placeholder="Password" formControlName="password"
+                [ngClass]="{'is-danger': !isPasswordsMatch}" (blur)="validatePassword()">
               <span class="icon is-small is-left">
                 <fa-icon icon="key"></fa-icon>
               </span>
@@ -56,7 +58,8 @@
           <div class="field">
             <label class="label">Confirm Password</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input" type="password" placeholder="Confirm Password" formControlName="confirmPassword" [ngClass]="{'is-danger': !isPasswordsMatch}" (blur)="validatePassword()">
+              <input class="input" type="password" placeholder="Confirm Password" formControlName="confirmPassword"
+                [ngClass]="{'is-danger': !isPasswordsMatch}" (blur)="validatePassword()">
               <span class="icon is-small is-left">
                 <fa-icon icon="key"></fa-icon>
               </span>
@@ -107,6 +110,22 @@
             </div>
           </div>
         </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Show After Registration is Successful -->
+<section class="section" *ngIf="isRegistrationComplete">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <h3 class="title is-3">Registered Successfully</h3>
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-text" routerLink="/login">Let's Login!</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

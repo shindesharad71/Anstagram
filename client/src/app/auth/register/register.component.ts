@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   isEmailInvalid = false;
   isPasswordsMatch = true;
+  isRegistrationComplete = false;
 
   constructor(private authService: AuthService) { }
 
@@ -31,6 +32,7 @@ export class RegisterComponent implements OnInit {
   register() {
     this.authService.register(this.registerForm.value).subscribe(res => {
       console.log(res);
+      this.isRegistrationComplete = true;
     }, err => {
       console.log(err);
     });
