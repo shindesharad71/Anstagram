@@ -107,10 +107,11 @@
 
           <div class="field is-grouped">
             <div class="control">
-              <button class="button is-link" [disabled]="!registerForm.valid">Submit</button>
+              <button type="button" class="button is-link" [disabled]="!registerForm.valid"
+                (click)="register()">Submit</button>
             </div>
             <div class="control">
-              <button class="button is-text" routerLink="/login">Cancel</button>
+              <button type="button" class="button is-text" routerLink="/login">Cancel</button>
             </div>
           </div>
         </form>
@@ -127,7 +128,7 @@
         <h3 class="title is-3">Registered Successfully</h3>
         <div class="field is-grouped">
           <div class="control">
-            <button class="button is-text" routerLink="/login">Let's Login!</button>
+            <button type="button" class="button is-text" routerLink="/login">Let's Login!</button>
           </div>
         </div>
       </div>
