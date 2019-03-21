@@ -12,7 +12,7 @@
           <div class="field">
             <label class="label">First Name</label>
             <div class="control has-icons-left">
-              <input class="input" type="text" placeholder="First Name" formControlName="firstName">
+              <input class="input" type="text" placeholder="First Name" formControlName="firstName" name="firstName">
               <span class="icon is-small is-left">
                 <fa-icon icon="user"></fa-icon>
               </span>
@@ -22,7 +22,7 @@
           <div class="field">
             <label class="label">Last Name</label>
             <div class="control has-icons-left">
-              <input class="input" type="text" placeholder="Last Name" formControlName="lastName">
+              <input class="input" type="text" placeholder="Last Name" formControlName="lastName" name="lastName">
               <span class="icon is-small is-left">
                 <fa-icon icon="user"></fa-icon>
               </span>
@@ -33,7 +33,7 @@
             <label class="label">Email</label>
             <div class="control has-icons-left has-icons-right">
               <input class="input" type="email" placeholder="Email" [ngClass]="{'is-danger': isEmailInvalid}"
-                formControlName="email" (blur)="onInputBlur()">
+                formControlName="email" (blur)="onInputBlur()" name="email">
               <span class="icon is-small is-left">
                 <fa-icon icon="envelope"></fa-icon>
               </span>
@@ -48,7 +48,7 @@
             <label class="label">Password</label>
             <div class="control has-icons-left has-icons-right">
               <input class="input" type="password" placeholder="Password" formControlName="password"
-                [ngClass]="{'is-danger': !isPasswordsMatch}" (blur)="validatePassword()">
+                [ngClass]="{'is-danger': !isPasswordsMatch}" (blur)="validatePassword()" name="password">
               <span class="icon is-small is-left">
                 <fa-icon icon="key"></fa-icon>
               </span>
@@ -63,7 +63,7 @@
             <label class="label">Confirm Password</label>
             <div class="control has-icons-left has-icons-right">
               <input class="input" type="password" placeholder="Confirm Password" formControlName="confirmPassword"
-                [ngClass]="{'is-danger': !isPasswordsMatch}" (blur)="validatePassword()">
+                [ngClass]="{'is-danger': !isPasswordsMatch}" (blur)="validatePassword()" name="confirmPassword">
               <span class="icon is-small is-left">
                 <fa-icon icon="key"></fa-icon>
               </span>
@@ -77,7 +77,7 @@
           <div class="field">
             <label class="label">Date of Birth</label>
             <div class="control has-icons-left">
-              <input class="input" type="date" placeholder="Date of Birth" formControlName="dateOfBirth">
+              <input class="input" type="date" placeholder="Date of Birth" formControlName="dateOfBirth" name="dateOfBirth">
               <span class="icon is-small is-left">
                 <fa-icon icon="calendar"></fa-icon>
               </span>
@@ -88,7 +88,7 @@
             <label class="label">Gender</label>
             <div class="control">
               <div class="select">
-                <select formControlName="gender" placeholder="Select Gender">
+                <select formControlName="gender" placeholder="Select Gender" name="gender">
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                 </select>
@@ -99,7 +99,7 @@
           <div class="field">
             <div class="control">
               <label class="checkbox">
-                <input type="checkbox" formControlName="termsAndConditions">
+                <input type="checkbox" formControlName="termsAndConditions" name="termsAndConditions">
                 I agree to the <a>terms and conditions</a>
               </label>
             </div>

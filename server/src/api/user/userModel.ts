@@ -17,11 +17,11 @@ const userSchema = new Schema({
     id: { type: ObjectId, index: true },
     firstName: { type: String, trim: true, required: 'required firstName' },
     lastName: { type: String, trim: true, required: 'required lastName' },
-    gender: { type: String, required: 'required gender' },
     email: {
         type: String, unique: true, required: 'required email', index: true, lowercase: true
     },
     dateOfBirth: { type: Date, required: 'required dateOfBirth' },
+    gender: { type: String, required: 'required gender' },
     password: { type: String, required: 'required password' },
     resetOtp: { type: Number },
 }, {

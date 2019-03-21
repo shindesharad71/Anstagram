@@ -10,8 +10,9 @@ const register = async (req: any, res: any) => {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
+            password: hashedPassword,
             dateOfBirth: req.body.dateOfBirth,
-            password: hashedPassword
+            gender: req.body.gender,
         });
         const userCreated = await user.save();
         res.status(201).json({ message: `registered successfully` });
