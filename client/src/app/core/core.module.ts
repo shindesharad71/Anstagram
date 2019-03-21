@@ -6,6 +6,7 @@ import { AuthService } from './services/auth/auth.service';
 import { InterceptorService } from './services/interceptor.service';
 import { LoaderComponent } from './components/loader/loader.component';
 import { LoaderService } from './components/loader/loader.service';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 @NgModule({
   declarations: [LoaderComponent],
@@ -20,7 +21,8 @@ import { LoaderService } from './components/loader/loader.service';
       multi: true
     },
     AuthService,
-    LoaderService
+    LoaderService,
+    AuthGuardService
   ],
   entryComponents: [
     LoaderComponent
