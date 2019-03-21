@@ -10,9 +10,10 @@ library.add(fas);
 import { HomeRoutingModule } from './home-routing.module';
 import { HomepageComponent } from './homepage/homepage.component';
 import { FeedCardComponent } from './homepage/feed-card/feed-card.component';
+import { NavbarComponent } from './homepage/navbar/navbar.component';
 
 @NgModule({
-  declarations: [HomepageComponent, FeedCardComponent],
+  declarations: [HomepageComponent, FeedCardComponent, NavbarComponent],
   imports: [
     CommonModule,
     FontAwesomeModule,
