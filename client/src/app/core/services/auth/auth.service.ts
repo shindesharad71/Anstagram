@@ -31,4 +31,12 @@ export class AuthService {
     this.cookieService.set('_auth', token);
     return true;
   }
+
+  removeToken() {
+    this.cookieService.deleteAll();
+    if (!this.checkToken()) {
+      return true;
+    }
+    return false;
+  }
 }
