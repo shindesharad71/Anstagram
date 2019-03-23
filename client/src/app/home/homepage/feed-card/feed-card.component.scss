@@ -15,7 +15,8 @@
   }
 }
 
-.left, .right {
+.left,
+.right {
   img {
     cursor: pointer;
   }
@@ -23,4 +24,17 @@
 
 time {
   font-size: 11px;
+}
+
+.comment-box {
+  margin-top: 4px;
+  border-top: 1px solid #eee;
+  input {
+    width: 100%;
+    border: none;
+    &:focus, &:active {
+      border: none;
+      outline: none;
+    }
+  }
 }
