@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
 
   removeErrorMessage() {
     if (document.readyState === 'complete') {
-      const allNotifications = (document.querySelectorAll('.notification') || []);
+      const allNotifications = document.querySelectorAll('.notification');
       allNotifications.forEach((notificationToDelete: any) => {
         notificationToDelete.remove();
       });

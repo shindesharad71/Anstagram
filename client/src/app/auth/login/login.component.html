@@ -12,7 +12,7 @@
             <label class="label">Email</label>
             <div class="control has-icons-left has-icons-right">
               <input class="input is-medium" type="email" placeholder="Email" [ngClass]="{'is-danger': isEmailInvalid}"
-                formControlName="email" (blur)="onInputBlur()">
+                formControlName="email" (blur)="onInputBlur()" name="email">
               <span class="icon is-small is-left">
                 <fa-icon icon="envelope"></fa-icon>
               </span>
@@ -26,7 +26,7 @@
           <div class="field">
             <label class="label">Password</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input is-medium" type="password" placeholder="Password" formControlName="password">
+              <input class="input is-medium" type="password" name="password" placeholder="Password" formControlName="password">
               <span class="icon is-small is-left">
                 <fa-icon icon="lock"></fa-icon>
               </span>
@@ -35,10 +35,10 @@
 
           <div class="field is-grouped">
             <div class="control">
-              <button class="button is-link" [disabled]="!loginForm.valid">Login</button>
+              <button type="button" class="button is-link" [disabled]="!loginForm.valid" (click)="login()">Login</button>
             </div>
             <div class="control">
-              <button class="button is-text" routerLink="/register">Register</button>
+              <button type="button" class="button is-text" routerLink="/register">Register</button>
             </div>
           </div>
         </form>

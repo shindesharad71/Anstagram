@@ -7,8 +7,10 @@ type UserType = mongoose.Document & {
     id: string,
     firstName: string,
     lastName: string,
+    gender: string,
     email: string,
     password: string,
+    dateOfBirth: string
 };
 
 const userSchema = new Schema({
@@ -19,7 +21,9 @@ const userSchema = new Schema({
         type: String, unique: true, required: 'required email', index: true, lowercase: true
     },
     dateOfBirth: { type: Date, required: 'required dateOfBirth' },
+    gender: { type: String, required: 'required gender' },
     password: { type: String, required: 'required password' },
+    resetOtp: { type: Number },
 }, {
         timestamps: true
     });

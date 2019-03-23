@@ -7,16 +7,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { CookieService } from 'ngx-cookie-service';
 import { AppComponent } from './app.component';
 
+import { AuthModule } from './auth/auth.module';
+import { HomeModule } from './home/home.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
+// Icon Imports
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import { AuthModule } from './auth/auth.module';
-import { HomeModule } from './home/home.module';
 library.add(fas);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageNotFoundComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

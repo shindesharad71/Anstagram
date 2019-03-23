@@ -10,10 +10,11 @@ const register = async (req: any, res: any) => {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
+            password: hashedPassword,
             dateOfBirth: req.body.dateOfBirth,
-            password: hashedPassword
+            gender: req.body.gender,
         });
-        const userCreated = await user.save();
+        await user.save();
         res.status(201).json({ message: `registered successfully` });
     } catch (error) {
         res.status(400).json({ error: error.name, message: error.message });
