@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 import { CookieService } from 'ngx-cookie-service';
-import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -10,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private cookieService: CookieService, private router: Router) { }
+  constructor(private http: HttpClient, private cookieService: CookieService) { }
 
   login(loginPayload) {
     return this.http.post(`${environment.BASE_URL}users/login`, loginPayload);
