@@ -1,3 +1,7 @@
+![Anstagram][logo]
+
+[logo]: https://github.com/shindesharad71/Anstagram/blob/master/client/src/assets/logo/anstagram-transperent-logo.png?raw=true "Anstragram"
+
 # Anstagram [Side Project] [Work In Progress]
 
 Instagram Clone with Angular, Node and Typescript.
