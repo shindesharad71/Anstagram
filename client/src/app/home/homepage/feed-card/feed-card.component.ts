@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feed-card.component.scss']
 })
 export class FeedCardComponent implements OnInit {
-
+  heartIcon = '/assets/icons/heart-icon.png';
   constructor() { }
 
   ngOnInit() {
+  }
+
+  like() {
+    this.heartIcon = this.heartIcon === '/assets/icons/heart-icon.png' ?
+      '/assets/icons/heart-red-icon.png' : '/assets/icons/heart-icon.png';
   }
 
 }

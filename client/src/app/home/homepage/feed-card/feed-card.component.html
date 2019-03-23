@@ -20,7 +20,7 @@
       </div>
       <div class="card-content space-between">
         <div class="left">
-          <img class="feed-icons" src="/assets/icons/heart-icon.png" alt="like">
+          <img class="feed-icons" [src]="heartIcon" (click)="like()" alt="like">
           <img class="feed-icons" src="/assets/icons/comment-icon.png" alt="comment">
         </div>
 
