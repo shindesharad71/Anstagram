@@ -1,5 +1,6 @@
 import { Component, ViewContainerRef, AfterViewInit, OnInit } from '@angular/core';
 import { LoaderService } from './core/components/loader/loader.service';
+import { AuthService } from './core/services/auth/auth.service';
 
 @Component({
   selector: 'ia-root',
@@ -8,12 +9,12 @@ import { LoaderService } from './core/components/loader/loader.service';
 })
 
 export class AppComponent implements OnInit {
-  
-  constructor(private loaderService: LoaderService, private vcr: ViewContainerRef) {
+  isUserLoggedIn = false;
+  constructor(private loaderService: LoaderService, private vcr: ViewContainerRef, private authService: AuthService) {
     this.loaderService.setViewContainer(vcr);
   }
 
   ngOnInit() {
-
+    this.isUserLoggedIn = this.authService.checkToken();
   }
 }
