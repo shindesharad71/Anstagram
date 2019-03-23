@@ -1,4 +1,4 @@
-# MEAN Stack
+# Anstagram [Side Project] [Worik In Progress]
 
 * [Node Backend](https://github.com/shindesharad71/Node-Typescript-Restful-APIs/tree/master/server)
 * [Angular App](https://github.com/shindesharad71/Node-Typescript-Restful-APIs/tree/master/client)
