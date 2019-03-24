@@ -10,6 +10,6 @@ export class FeedService {
   constructor(private http: HttpClient) {}
 
   getUserFeed() {
-    return this.http.get(`${environment.BASE_URL}home`);
+    return this.http.get(`${environment.BASE_URL}feed`);
   }
 }

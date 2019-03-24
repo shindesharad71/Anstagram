@@ -1,4 +1,4 @@
-import homeRouter from './home/homeRouter';
+import feedRouter from './feed/feedRouter';
 import userRouter from './user/userRouter';
 
 const Routes = [
@@ -7,8 +7,8 @@ const Routes = [
         router: userRouter
     },
     {
-        path: '/home',
-        router: homeRouter
+        path: '/feed',
+        router: feedRouter
     }
 ];
 
