@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { FeedService } from 'src/app/core/services/feed/feed.service';
 
 @Component({
   selector: 'ia-homepage',
@@ -10,11 +11,12 @@ import { Title } from '@angular/platform-browser';
 
 export class HomepageComponent implements OnInit {
   items = [1, 2, 3, 4, 5];
-  constructor(private router: Router, private titleService: Title) {
+  constructor(private router: Router, private titleService: Title, private feedService: FeedService) {
     this.titleService.setTitle('Home');
   }
 
   ngOnInit() {
+    this.getFeed();
   }
 
   @HostListener('window:scroll', [])
@@ -26,4 +28,11 @@ export class HomepageComponent implements OnInit {
     }
   }
 
+  getFeed() {
+    this.feedService.getUserFeed().subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
+  }
 }
