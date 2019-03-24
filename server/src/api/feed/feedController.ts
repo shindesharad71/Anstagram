@@ -2,7 +2,7 @@ import { Feed, FeedType } from './feedModel';
 
 const getUserFeed = async (req: any, res: any) => {
     try {
-        const feed = await Feed.find({});
+        const feed = await Feed.find({}).sort({createdAt: 'desc'});
         res.json(feed);
     } catch (error) {
         res.status(400).json({ error: error.name, message: error.message });

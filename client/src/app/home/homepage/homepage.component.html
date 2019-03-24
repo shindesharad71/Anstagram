@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="section">
+  <div class="section" *ngIf="feedItems && feedItems?.length">
     <ia-feed-card *ngFor="let feed of feedItems" [feed]="feed"></ia-feed-card>
   </div>
 </div>
