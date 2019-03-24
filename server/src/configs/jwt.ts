@@ -21,12 +21,13 @@ const requestValidator = (req: any): boolean => {
                 if (err) {
                     return false;
                 } else {
-                    req.decoded = decoded;
+                    req.user = decoded.user;
                     return true;
                 }
             });
+        } else {
+            return false;
         }
-        return false;
     }
     return true;
 };

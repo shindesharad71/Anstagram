@@ -1,8 +1,8 @@
 import express from 'express';
-import { getFeed } from './homeController';
+import { getUserFeed } from './homeController';
 
 const homeRouter = express.Router();
 
-homeRouter.get('/', getFeed);
+homeRouter.get('/', getUserFeed);
 
 export default homeRouter;
