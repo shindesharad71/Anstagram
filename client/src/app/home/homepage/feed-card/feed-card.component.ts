@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'ia-feed-card',
@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feed-card.component.scss']
 })
 export class FeedCardComponent implements OnInit {
+  @Input() feed;
   heartIcon = '/assets/icons/heart-icon.png';
+
   constructor() { }
 
   ngOnInit() {

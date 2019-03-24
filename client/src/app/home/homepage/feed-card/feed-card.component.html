@@ -15,7 +15,7 @@
       </div>
       <div class="card-image">
         <figure class="image">
-          <img src="https://source.unsplash.com/Gnxquq4oYQc" alt="Image">
+          <img [src]="feed.media[0]" alt="Image">
         </figure>
       </div>
       <div class="card-content space-between">
@@ -30,9 +30,9 @@
       </div>
       <div class="card-content">
         <div class="content">
-          This is Demo Post for Testing
+          {{ feed.description }}
           <br>
-          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+          <time datetime="2016-1-1">{{feed.createdAt | date: 'medium'}}</time>
           <br>
           <div class="comment-box">
             <input type="text" placeholder="Add a comment...">
