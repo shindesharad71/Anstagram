@@ -10,7 +10,7 @@ import { FeedService } from 'src/app/core/services/feed/feed.service';
 })
 
 export class HomepageComponent implements OnInit {
-  items = [1, 2, 3, 4, 5];
+  feedItems = [];
   constructor(private router: Router, private titleService: Title, private feedService: FeedService) {
     this.titleService.setTitle('Home');
   }
@@ -23,14 +23,14 @@ export class HomepageComponent implements OnInit {
   onScroll(): void {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
       console.log('at bottom');
-      const b = [14, 58, 47, 96];
-      this.items.push(...b);
+      this.getFeed();
     }
   }
 
   getFeed() {
-    this.feedService.getUserFeed().subscribe(res => {
+    this.feedService.getUserFeed().subscribe((res: any) => {
       console.log(res);
+      this.feedItems.push(...res);
     }, err => {
       console.log(err);
     });
