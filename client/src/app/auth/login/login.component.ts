@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       console.log(res);
       this.authService.setToken(res.token);
       if (this.authService.checkToken()) {
-        window.location.href = '/home';
+        this.router.navigateByUrl('/home');
       } else {
         this.router.navigateByUrl('/login');
       }

@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     if (this.authService.removeToken()) {
-      window.location.href = '/login';
+      this.router.navigateByUrl('/login');
     }
   }
 

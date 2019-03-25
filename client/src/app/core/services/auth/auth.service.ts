@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 import { CookieService } from 'ngx-cookie-service';
-
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  private isLoggedInSource = new Subject();
+  isLoggedIn = this.isLoggedInSource.asObservable();
 
   constructor(private http: HttpClient, private cookieService: CookieService) { }
 
@@ -20,6 +23,7 @@ export class AuthService {
   }
 
   checkToken(): boolean {
+    this.isLoggedInSource.next(this.cookieService.check('_auth'));
     return this.cookieService.check('_auth');
   }
 

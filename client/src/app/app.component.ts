@@ -1,4 +1,4 @@
-import { Component, ViewContainerRef, AfterViewInit, OnInit } from '@angular/core';
+import { Component, ViewContainerRef, OnInit } from '@angular/core';
 import { LoaderService } from './core/components/loader/loader.service';
 import { AuthService } from './core/services/auth/auth.service';
 
@@ -15,6 +15,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.isUserLoggedIn = this.authService.checkToken();
+    this.authService.isLoggedIn.subscribe((loginStatus: any) => {
+      this.isUserLoggedIn = loginStatus;
+    });
   }
 }
