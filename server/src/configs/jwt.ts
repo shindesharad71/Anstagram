@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 const JWT_CONFIG = {
     JWT_SECRET: 'F&6j5WgTx"&mfn@',
     noAuthUrls: [
+        '/',
         '/users/register',
         '/users/login'
     ]

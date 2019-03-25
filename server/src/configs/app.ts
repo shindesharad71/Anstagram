@@ -54,6 +54,11 @@ app.use((req, res, next) => {
 // Routes
 Routes.forEach((route) => app.use(route.path, route.router));
 
+// API Status Open URL
+app.get('/', (req, res) => {
+    res.json({status: 'ok'});
+});
+
 app.use('*', (req, res, next) => {
     const message = `Cannot ${req.method} ${req.url}`;
     res.status(404).json({ error: message });
