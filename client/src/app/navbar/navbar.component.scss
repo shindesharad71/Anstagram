@@ -1,7 +1,3 @@
-nav {
-  padding: 0px 170px;
-}
-
 .sprite-icon {
   background-image: url(/assets/icons/icons-sprite.png);
   background-repeat: no-repeat;
@@ -19,4 +15,11 @@ nav {
 
 .explore-icon {
   background-position: -241px -52px;
+}
+
+/* Media Queries */
+@media screen and (min-width: 1089px) {
+  nav {
+    padding: 0px 170px;
+  }
 }
