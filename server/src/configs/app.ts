@@ -3,11 +3,10 @@ import chalk from "chalk";
 import cors from 'cors';
 import dotenv from "dotenv";
 import express from "express";
-import jwt from 'express-jwt';
 import mongoose from "mongoose";
 
 import { Routes } from '../api';
-import { JWT_CONFIG, requestValidator } from './jwt';
+import { requestValidator } from './jwt';
 
 // Init dotenv config
 dotenv.config();
@@ -35,9 +34,6 @@ app.use(cors());
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
 app.use('/public', express.static('uploads'));
-app.use(jwt({
-    secret: JWT_CONFIG.JWT_SECRET,
-}).unless({ path: JWT_CONFIG.noAuthUrls }));
 
 // Request, Response Entry Point
 app.use((req, res, next) => {
@@ -53,16 +49,5 @@ app.use((req, res, next) => {
 
 // Routes
 Routes.forEach((route) => app.use(route.path, route.router));
-
-// API Status Open URL
-app.get('/', (req, res) => {
-    res.json({status: 'ok'});
-});
-
-app.use('*', (req, res, next) => {
-    const message = `Cannot ${req.method} ${req.url}`;
-    res.status(404).json({ error: message });
-    next();
-});
 
 export { app };
