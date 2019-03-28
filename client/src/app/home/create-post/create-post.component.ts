@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'ia-create-post',
@@ -23,9 +24,10 @@ export class CreatePostComponent implements OnInit {
     imagePreviewMaxInstantPreviewFileSize: 1000000
   };
 
-  constructor() { }
+  constructor(private titleService: Title) { }
 
   ngOnInit() {
+    this.titleService.setTitle('Create Post');
   }
 
   pondHandleAddFile(event) {
