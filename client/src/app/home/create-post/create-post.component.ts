@@ -9,6 +9,7 @@ export class CreatePostComponent implements OnInit {
   @ViewChild('myPond') myPond: any;
   isError = false;
   errorMessage = '';
+
   pondOptions = {
     class: 'my-filepond',
     multiple: true,
@@ -17,24 +18,18 @@ export class CreatePostComponent implements OnInit {
     allowImageExifOrientation: true,
     allowImagePreview: true,
     imagePreviewMinHeight: 44,
-    imagePreviewMaxHeight: 150,
+    imagePreviewMaxHeight: 256,
     imagePreviewMaxFileSize: 100,
     imagePreviewMaxInstantPreviewFileSize: 1000000
   };
-
-  pondFiles = [];
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  pondHandleInit() {
-    console.log('FilePond has initialised', this.myPond);
-  }
-
-  pondHandleAddFile(event: any) {
-    console.log('A file was added', event);
+  pondHandleAddFile(event) {
+    console.log(event.file);
   }
 
   removeErrorMessage() {
