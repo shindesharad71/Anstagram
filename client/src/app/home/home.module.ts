@@ -13,8 +13,8 @@ import { FilePondModule, registerPlugin } from 'ngx-filepond';
 // import and register filepond file type validation plugin
 import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
-registerPlugin(FilePondPluginFileValidateType, FilePondPluginImagePreview, FilePondPluginImagePreview);
-
+import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation';
+registerPlugin(FilePondPluginFileValidateType, FilePondPluginImagePreview, FilePondPluginImageExifOrientation);
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomepageComponent } from './homepage/homepage.component';

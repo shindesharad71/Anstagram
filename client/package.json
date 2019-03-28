@@ -27,6 +27,7 @@
     "core-js": "^2.5.4",
     "filepond": "^4.3.5",
     "filepond-plugin-file-validate-type": "^1.2.4",
+    "filepond-plugin-image-exif-orientation": "^1.0.6",
     "filepond-plugin-image-preview": "^4.0.5",
     "ngx-cookie-service": "^2.1.0",
     "ngx-filepond": "^5.0.0",

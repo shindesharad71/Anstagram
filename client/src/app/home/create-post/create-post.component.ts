@@ -14,9 +14,12 @@ export class CreatePostComponent implements OnInit {
     multiple: true,
     labelIdle: 'Drop files here or Browse',
     acceptedFileTypes: 'image/jpeg, image/png',
+    allowImageExifOrientation: true,
     allowImagePreview: true,
     imagePreviewMinHeight: 44,
-    imagePreviewMaxHeight: 256
+    imagePreviewMaxHeight: 150,
+    imagePreviewMaxFileSize: 100,
+    imagePreviewMaxInstantPreviewFileSize: 1000000
   };
 
   pondFiles = [];
@@ -27,7 +30,7 @@ export class CreatePostComponent implements OnInit {
   }
 
   pondHandleInit() {
-    // console.log('FilePond has initialised', this.myPond);
+    console.log('FilePond has initialised', this.myPond);
   }
 
   pondHandleAddFile(event: any) {
