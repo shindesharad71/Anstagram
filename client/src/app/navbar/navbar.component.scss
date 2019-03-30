@@ -17,9 +17,28 @@
   background-position: -241px -52px;
 }
 
+.mobile-nav {
+  display: flex;
+  justify-content: space-between;
+  background: #F5F5F5;
+  .items {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+nav {
+  visibility: hidden;
+}
+
 /* Media Queries */
 @media screen and (min-width: 1089px) {
   nav {
+    visibility: visible;
     padding: 0px 170px;
+  }
+
+  .mobile-nav {
+    display: none;
   }
 }
