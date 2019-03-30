@@ -15,10 +15,63 @@
   <link rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
+  <style>
+    @keyframes placeHolderShimmer {
+      0% {
+        background-position: -468px 0
+      }
+
+      100% {
+        background-position: 468px 0
+      }
+    }
+
+    .animate {
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+      animation-name: placeHolderShimmer;
+      animation-timing-function: linear;
+      background: #f6f7f8;
+      background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+      background-size: 1000px 104px;
+      overflow: hidden;
+    }
+
+    .wrapper {
+      text-align: center;
+      padding: 16px;
+    }
+
+    .logo-placeholder {
+      height: 100px;
+      width: 100px;
+      margin: 0 auto;
+    }
+
+    .input-placeholder {
+      height: 32px;
+      width: 100%;
+      margin-top: 32px;
+    }
+
+    .button-placeholder {
+      height: 64px;
+      width: 100%;
+      margin-top: 128px;
+    }
+  </style>
 </head>
 
 <body>
-  <ia-root></ia-root>
+  <ia-root>
+    <div class="wrapper">
+      <div class="animate logo-placeholder"></div>
+      <div class="animate input-placeholder"></div>
+      <div class="animate input-placeholder"></div>
+      <div class="animate button-placeholder"></div>
+    </div>
+  </ia-root>
 </body>
 
 </html>
