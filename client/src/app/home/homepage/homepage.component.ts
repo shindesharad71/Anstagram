@@ -28,7 +28,7 @@ export class HomepageComponent implements OnInit {
   }
 
   getFeed() {
-    this.feedService.getUserFeed().subscribe((res: any) => {
+    this.feedService.getUserFeed(this.feedItems.length).subscribe((res: any) => {
       console.log(res);
       this.feedItems.push(...res);
     }, err => {

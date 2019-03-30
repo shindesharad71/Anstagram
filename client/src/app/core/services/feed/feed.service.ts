@@ -9,8 +9,8 @@ export class FeedService {
 
   constructor(private http: HttpClient) { }
 
-  getUserFeed() {
-    return this.http.get(`${environment.BASE_URL}feed`);
+  getUserFeed(feedItemsToSkip: number) {
+    return this.http.get(`${environment.BASE_URL}feed/${feedItemsToSkip}`);
   }
 
   createUserFeed(feedPayload) {

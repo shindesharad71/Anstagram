@@ -9,13 +9,13 @@
             </figure>
           </div>
           <div class="media-content">
-            <p class="title is-5 no-padding">Alex Mack</p>
+            <p class="title is-5 no-padding">{{ feed?.userInfo?.firstName }} {{ feed?.userInfo?.lastName }}</p>
           </div>
         </div>
       </div>
       <div class="card-image">
         <figure class="image">
-          <img [src]="feed.media[0]" alt="Image">
+          <img [src]="feed?.media[0]" alt="Image">
         </figure>
       </div>
       <div class="card-content space-between">
