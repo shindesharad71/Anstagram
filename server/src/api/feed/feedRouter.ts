@@ -7,6 +7,6 @@ const upload = multer({ dest: 'uploads/' });
 const feedRouter = express.Router();
 
 feedRouter.get('/', getUserFeed);
-feedRouter.post('/', upload.single('images'), addUserFeed);
+feedRouter.post('/', upload.array('images', 12), addUserFeed);
 
 export default feedRouter;

@@ -33,13 +33,13 @@ export class CreatePostComponent implements OnInit {
     this.titleService.setTitle('Create Post');
   }
 
-  pondHandleAddFile(event) {
-    console.log(event.file);
-    this.uploadedFiles.push(event.file);
-  }
+  async createPost() {
+    const images = await this.myPond.getFiles();
+    for (const img of images) {
+      this.uploadedFiles.push(img.file);
+    }
 
-  createPost() {
-    this.formData.set('jsonData', this.uploadedFiles[0].name);
+    console.log(this.uploadedFiles);
     this.formData.set('images', this.uploadedFiles);
     this.feedService.createUserFeed(this.formData).subscribe(res => {
       console.log(res);
