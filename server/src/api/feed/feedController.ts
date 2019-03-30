@@ -21,7 +21,7 @@ const addUserFeed = async (req: any, res: any) => {
         // await feed.save();
         // res.status(201).json({ message: `feed created successfully` });
         console.log(req.files);
-        res.send(req.files);
+        res.send({ files: req.files, body: req.body });
     } catch (error) {
         res.status(400).json({ error: error.name, message: error.message });
         throw error;

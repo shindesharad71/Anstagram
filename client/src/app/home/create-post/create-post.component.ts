@@ -39,6 +39,7 @@ export class CreatePostComponent implements OnInit {
   }
 
   createPost() {
+    this.formData.set('jsonData', this.uploadedFiles[0].name);
     this.formData.set('images', this.uploadedFiles);
     this.feedService.createUserFeed(this.formData).subscribe(res => {
       console.log(res);

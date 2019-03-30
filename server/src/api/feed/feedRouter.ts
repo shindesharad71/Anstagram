@@ -2,7 +2,7 @@ import express from 'express';
 import multer from 'multer';
 import { addUserFeed, getUserFeed } from './feedController';
 
-const upload = multer({dest: '../../uploads/'});
+const upload = multer({ storage: multer.memoryStorage() });
 
 const feedRouter = express.Router();
 

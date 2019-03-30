@@ -9,13 +9,14 @@
         </div>
         <form enctype="multipart/form-data">
           <div class="field">
-            <file-pond
-              #myPond
-              [options]="pondOptions"
-              (onaddfile)="pondHandleAddFile($event.file)"
-            >
+            <file-pond #myPond [options]="pondOptions" (onaddfile)="pondHandleAddFile($event.file)">
             </file-pond>
             <p class="help is-danger" *ngIf="isError">This email is invalid</p>
+          </div>
+
+          <div class="field">
+            <label for="description"></label>
+            <textarea name="description" id="description" cols="30" rows="10"></textarea>
           </div>
 
           <div class="field is-grouped">

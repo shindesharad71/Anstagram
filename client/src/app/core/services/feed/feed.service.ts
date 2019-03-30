@@ -16,9 +16,9 @@ export class FeedService {
   createUserFeed(feedPayload) {
     const httpOptions = {
       headers: new HttpHeaders({
-        'content-type': 'multipart/form-data; boundary=..'
+        'content-type': 'multipart/form-data'
       })
     };
-    return this.http.post(`${environment.BASE_URL}feed`, feedPayload, httpOptions);
+    return this.http.post(`${environment.BASE_URL}feed`, feedPayload);
   }
 }
