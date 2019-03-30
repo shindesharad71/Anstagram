@@ -9,15 +9,26 @@
         </div>
         <form enctype="multipart/form-data">
           <div class="field">
-            <file-pond #myPond [options]="pondOptions">
+            <file-pond #myPond [options]="pondOptions" (onaddfile)="onFilesAdded()" (onremovefile)="onFilesAdded()">
             </file-pond>
             <p class="help is-danger" *ngIf="isError">This email is invalid</p>
           </div>
 
-          <div class="field">
-            <label for="description"></label>
-            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+          <div class="field" *ngIf="uploadedFiles?.length">
+            <div class="control">
+              <label for="description">Caption</label>
+              <textarea class="textarea" name="description" id="description"
+                placeholder="Write a caption..."></textarea>
+            </div>
           </div>
+
+          <div class="field" *ngIf="uploadedFiles?.length">
+            <div class="control">
+              <label for="location">Add Location (Optional)</label>
+              <input class="input" type="text" placeholder="Add Location" name="location" (focus)="getGeoLocation()">
+            </div>
+          </div>
+
           <div class="field is-grouped">
             <div class="control">
               <button type="button" class="button is-link" (click)="createPost()">Post</button>

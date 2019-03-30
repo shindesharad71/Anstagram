@@ -13,6 +13,7 @@ export class CreatePostComponent implements OnInit {
   errorMessage = '';
   uploadedFiles: any = [];
   formData: FormData = new FormData();
+  userLocation = null;
 
   pondOptions = {
     class: 'my-filepond',
@@ -33,7 +34,16 @@ export class CreatePostComponent implements OnInit {
     this.titleService.setTitle('Create Post');
   }
 
+  onFilesAdded() {
+    this.uploadedFiles = [];
+    const images = this.myPond.getFiles();
+    for (const img of images) {
+      this.uploadedFiles.push(img.file);
+    }
+  }
+
   createPost() {
+    this.uploadedFiles = [];
     const images = this.myPond.getFiles();
     for (const img of images) {
       this.uploadedFiles.push(img.file);
@@ -47,6 +57,24 @@ export class CreatePostComponent implements OnInit {
     }, err => {
       console.log(err);
     });
+  }
+
+  getGeoLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.userLocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        console.log(this.userLocation);
+      }, (failure) => {
+        if (failure.message.indexOf('Only secure origins are allowed') === 0) {
+          alert('Only secure origins are allowed by your browser.');
+        }
+      });
+    } else {
+      console.log('geolocation not supported');
+    }
   }
 
   removeErrorMessage() {
