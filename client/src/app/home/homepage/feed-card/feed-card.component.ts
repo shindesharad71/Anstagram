@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { UserProfile, HeartIconStates } from '../../../app.constants';
 
 @Component({
   selector: 'ia-feed-card',
@@ -7,7 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FeedCardComponent implements OnInit {
   @Input() feed;
-  heartIcon = '/assets/icons/heart-icon.png';
+  heartIcon = HeartIconStates.DEFAULT;
+  defaultAvatar = UserProfile.USER_DEFAULT_PROFILE_URL;
 
   constructor() { }
 
@@ -15,8 +17,8 @@ export class FeedCardComponent implements OnInit {
   }
 
   like() {
-    this.heartIcon = this.heartIcon === '/assets/icons/heart-icon.png' ?
-      '/assets/icons/heart-red-icon.png' : '/assets/icons/heart-icon.png';
+    this.heartIcon = this.heartIcon === HeartIconStates.DEFAULT ?
+    HeartIconStates.LIKED : HeartIconStates.DEFAULT;
   }
 
 }

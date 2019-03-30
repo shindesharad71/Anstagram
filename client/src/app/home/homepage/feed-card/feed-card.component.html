@@ -5,7 +5,7 @@
         <div class="media">
           <div class="media-left">
             <figure class="image is-32x32">
-              <img class="is-rounded" src="http://www.radfaces.com/images/avatars/alex-mack.jpg" alt="Image">
+              <img class="is-rounded" [src]="feed?.userInfo?.avatar ? feed?.userInfo?.avatar : defaultAvatar" alt="Image">
             </figure>
           </div>
           <div class="media-content">
