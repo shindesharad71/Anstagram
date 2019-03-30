@@ -33,7 +33,7 @@ mongoose.connection.on("error", (err) => {
 app.use(cors());
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
-app.use('/public', express.static('uploads'));
+app.use('/uploads', express.static('uploads'));
 
 // Request, Response Entry Point
 app.use((req, res, next) => {
