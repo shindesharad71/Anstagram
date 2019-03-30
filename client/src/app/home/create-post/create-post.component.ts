@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { FeedService } from 'src/app/core/services/feed/feed.service';
 
 @Component({
   selector: 'ia-create-post',
@@ -10,6 +11,8 @@ export class CreatePostComponent implements OnInit {
   @ViewChild('myPond') myPond: any;
   isError = false;
   errorMessage = '';
+  uploadedFiles: any = [];
+  formData: FormData = new FormData();
 
   pondOptions = {
     class: 'my-filepond',
@@ -24,7 +27,7 @@ export class CreatePostComponent implements OnInit {
     imagePreviewMaxInstantPreviewFileSize: 1000000
   };
 
-  constructor(private titleService: Title) { }
+  constructor(private titleService: Title, private feedService: FeedService) { }
 
   ngOnInit() {
     this.titleService.setTitle('Create Post');
@@ -32,6 +35,16 @@ export class CreatePostComponent implements OnInit {
 
   pondHandleAddFile(event) {
     console.log(event.file);
+    this.uploadedFiles.push(event.file);
+  }
+
+  createPost() {
+    this.formData.set('images', this.uploadedFiles);
+    this.feedService.createUserFeed(this.formData).subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
   }
 
   removeErrorMessage() {
@@ -42,5 +55,4 @@ export class CreatePostComponent implements OnInit {
       });
     }
   }
-
 }
