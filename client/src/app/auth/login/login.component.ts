@@ -16,7 +16,11 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
 
   constructor(private authService: AuthService, private titleService: Title, private router: Router) {
-    this.titleService.setTitle('Login');
+    this.titleService.setTitle('Anstagram - Login');
+
+    if (this.authService.checkToken()) {
+      this.router.navigateByUrl('/home');
+    }
   }
 
   ngOnInit() {
