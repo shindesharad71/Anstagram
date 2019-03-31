@@ -8,24 +8,25 @@ import { FeedService } from 'src/app/core/services/feed/feed.service';
   styleUrls: ['./create-post.component.scss']
 })
 export class CreatePostComponent implements OnInit {
-  @ViewChild('myPond') myPond: any;
+  @ViewChild('imageUpload') imageUpload: any;
   isError = false;
   errorMessage = '';
   uploadedFiles: any = [];
   formData: FormData = new FormData();
   userLocation = null;
+  description: '';
 
   pondOptions = {
-    class: 'my-filepond',
-    multiple: true,
+    class: 'image-upload',
+    multiple: false,
+    maxFiles: 4,
     labelIdle: 'Drop files here or Browse',
     acceptedFileTypes: 'image/jpeg, image/png',
     allowImageExifOrientation: true,
     allowImagePreview: true,
     imagePreviewMinHeight: 44,
-    imagePreviewMaxHeight: 256,
-    imagePreviewMaxFileSize: 100,
-    imagePreviewMaxInstantPreviewFileSize: 1000000
+    imagePreviewMaxHeight: 100,
+    imagePreviewMaxFileSize: 20
   };
 
   constructor(private titleService: Title, private feedService: FeedService) { }
@@ -36,7 +37,7 @@ export class CreatePostComponent implements OnInit {
 
   onFilesAdded() {
     this.uploadedFiles = [];
-    const images = this.myPond.getFiles();
+    const images = this.imageUpload.getFiles();
     for (const img of images) {
       this.uploadedFiles.push(img.file);
     }
@@ -44,14 +45,12 @@ export class CreatePostComponent implements OnInit {
 
   createPost() {
     this.uploadedFiles = [];
-    const images = this.myPond.getFiles();
+    const images = this.imageUpload.getFiles();
+    console.log(images);
     for (const img of images) {
       this.uploadedFiles.push(img.file);
     }
-
-    console.log(this.uploadedFiles);
-
-    this.formData.set('images', this.uploadedFiles);
+    this.formData.set('images', this.uploadedFiles[0]);
     this.feedService.createUserFeed(this.formData).subscribe(res => {
       console.log(res);
     }, err => {

@@ -10,6 +10,7 @@ export class FeedCardComponent implements OnInit {
   @Input() feed;
   heartIcon = HeartIconStates.DEFAULT;
   defaultAvatar = UserProfile.USER_DEFAULT_PROFILE_URL;
+  isThisFeedLiked = false;
 
   constructor() { }
 
@@ -18,7 +19,12 @@ export class FeedCardComponent implements OnInit {
 
   like() {
     this.heartIcon = this.heartIcon === HeartIconStates.DEFAULT ?
-    HeartIconStates.LIKED : HeartIconStates.DEFAULT;
+      HeartIconStates.LIKED : HeartIconStates.DEFAULT;
+    if (this.heartIcon === HeartIconStates.LIKED) {
+      this.isThisFeedLiked = true;
+    } else {
+      this.isThisFeedLiked = false;
+    }
   }
 
 }

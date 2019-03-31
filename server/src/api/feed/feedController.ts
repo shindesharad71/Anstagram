@@ -1,3 +1,5 @@
+
+import { getSignedUrl, uploadFile } from '../../libs/gcpFileManageMent';
 import { User } from '../user/userModel';
 import { Feed, FeedType } from './feedModel';
 
@@ -15,7 +17,12 @@ const getUserFeed = async (req: any, res: any) => {
         if (feed && feed.length) {
             for (const item of feed) {
                 const userInfo = await User.findOne({ _id: item.userId }, 'firstName lastName -_id');
-                const newItem: any = { ...item._doc, userInfo };
+                const signedMedia = [];
+                for (const privateMedia of item.media) {
+                    const signedUrl = await getSignedUrl(privateMedia);
+                    signedMedia.push(signedUrl);
+                }
+                const newItem: any = { ...item._doc, media: signedMedia, userInfo };
                 userFeed.push(newItem);
             }
         }
@@ -28,16 +35,23 @@ const getUserFeed = async (req: any, res: any) => {
 
 const addUserFeed = async (req: any, res: any) => {
     try {
-
-        // const feed = new Feed({
-        //     userId: req.user,
-        //     media: req.body.media,
-        //     description: req.body.description
-        // });
-        // await feed.save();
-        // res.status(201).json({ message: `feed created successfully` });
-        console.log(req.files);
-        res.send({ files: req.files });
+        const uploadedFileNames: any = [];
+        if (req.files && req.files.length) {
+            for (const file of req.files) {
+                const fileName: string = await uploadFile(file.path);
+                uploadedFileNames.push(fileName);
+            }
+            const feed = new Feed({
+                userId: req.user,
+                media: uploadedFileNames,
+                description: req.body.description,
+                location: req.body.location
+            });
+            await feed.save();
+            res.status(201).json({ message: `feed created successfully` });
+        } else {
+            res.status(400).json({ error: `no media found in post` });
+        }
     } catch (error) {
         res.status(400).json({ error: error.name, message: error.message });
         throw error;
