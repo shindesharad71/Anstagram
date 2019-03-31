@@ -2,7 +2,14 @@ import express from 'express';
 import multer from 'multer';
 import { addUserFeed, getUserFeed } from './feedController';
 
-const upload = multer({ dest: 'uploads/' });
+const storage = multer.diskStorage({
+    destination: 'uploads/',
+    filename: (req, file, cb) => {
+        cb(null, `${Date.now()}-${file.originalname}`);
+    }
+});
+
+const upload = multer({ storage });
 
 const feedRouter = express.Router();
 

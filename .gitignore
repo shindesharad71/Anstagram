@@ -4,6 +4,8 @@
 
 ### Angular ###
 */node_modules/
+gcp-config.json
+*/gcp-config.json
 
 ### Node ###
 # Logs
