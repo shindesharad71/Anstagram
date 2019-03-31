@@ -28,16 +28,20 @@ const getUserFeed = async (req: any, res: any) => {
 
 const addUserFeed = async (req: any, res: any) => {
     try {
-
-        // const feed = new Feed({
-        //     userId: req.user,
-        //     media: req.body.media,
-        //     description: req.body.description
-        // });
-        // await feed.save();
-        // res.status(201).json({ message: `feed created successfully` });
-        console.log(req.files);
-        res.send({ files: req.files });
+        if (req.files && req.files.length) {
+            const feed = new Feed({
+                userId: req.user,
+                media: req.files,
+                description: req.body.description,
+                location: req.body.location
+            });
+            // await feed.save();
+            // res.status(201).json({ message: `feed created successfully` });
+            res.send({ files: req.files });
+        } else {
+            console.log(req.files);
+            res.send({ files: req.files });
+        }
     } catch (error) {
         res.status(400).json({ error: error.name, message: error.message });
         throw error;
