@@ -17,15 +17,15 @@ export class CreatePostComponent implements OnInit {
 
   pondOptions = {
     class: 'image-upload',
-    multiple: true,
+    multiple: false,
+    maxFiles: 4,
     labelIdle: 'Drop files here or Browse',
     acceptedFileTypes: 'image/jpeg, image/png',
     allowImageExifOrientation: true,
     allowImagePreview: true,
     imagePreviewMinHeight: 44,
-    imagePreviewMaxHeight: 256,
-    imagePreviewMaxFileSize: 100,
-    imagePreviewMaxInstantPreviewFileSize: 1000000
+    imagePreviewMaxHeight: 100,
+    imagePreviewMaxFileSize: 20
   };
 
   constructor(private titleService: Title, private feedService: FeedService) { }
@@ -45,10 +45,11 @@ export class CreatePostComponent implements OnInit {
   createPost() {
     this.uploadedFiles = [];
     const images = this.imageUpload.getFiles();
+    console.log(images);
     for (const img of images) {
       this.uploadedFiles.push(img.file);
     }
-    this.formData.set('images', this.uploadedFiles);
+    this.formData.set('images', this.uploadedFiles[0]);
     this.feedService.createUserFeed(this.formData).subscribe(res => {
       console.log(res);
     }, err => {
