@@ -1,18 +1,7 @@
 
-import { Storage } from '@google-cloud/storage';
-import dotenv from "dotenv";
+import { getSignedUrl, uploadFile } from '../../libs/gcpFileManageMent';
 import { User } from '../user/userModel';
 import { Feed, FeedType } from './feedModel';
-
-dotenv.config();
-
-// GCP Storage Config
-const storage = new Storage({
-    projectId: process.env.GCP_PROJECT_ID,
-    keyFilename: process.env.KEYFILE_PATH
-});
-const bucketName: string = process.env.BUCKET_NAME as string;
-const bucket = storage.bucket(bucketName);
 
 const getUserFeed = async (req: any, res: any) => {
     try {
@@ -28,7 +17,12 @@ const getUserFeed = async (req: any, res: any) => {
         if (feed && feed.length) {
             for (const item of feed) {
                 const userInfo = await User.findOne({ _id: item.userId }, 'firstName lastName -_id');
-                const newItem: any = { ...item._doc, userInfo };
+                const signedMedia = [];
+                for (const privateMedia of item.media) {
+                    const signedUrl = await getSignedUrl(privateMedia);
+                    signedMedia.push(signedUrl);
+                }
+                const newItem: any = { ...item._doc, media: signedMedia, userInfo };
                 userFeed.push(newItem);
             }
         }
@@ -41,40 +35,22 @@ const getUserFeed = async (req: any, res: any) => {
 
 const addUserFeed = async (req: any, res: any) => {
     try {
+        const uploadedFileNames: any = [];
         if (req.files && req.files.length) {
-
             for (const file of req.files) {
-                const uploadedFile = await bucket.upload(file.path, {
-                    gzip: true,
-                    metadata: {
-                        cacheControl: 'public, max-age=31536000'
-                    }
-                });
-                console.log(JSON.stringify(uploadedFile[0].metadata.name, undefined, 2));
-
-                const options: any = {
-                    action: 'read',
-                    expires: Date.now() + 1000 * 60 * 60, // one hour
-                };
-
-                // Get a signed URL for the file
-                const [url] = await bucket.file(uploadedFile[0].metadata.name)
-                    .getSignedUrl(options);
-
-                console.log(url);
+                const fileName: string = await uploadFile(file.path);
+                uploadedFileNames.push(fileName);
             }
             const feed = new Feed({
                 userId: req.user,
-                media: req.files,
+                media: uploadedFileNames,
                 description: req.body.description,
                 location: req.body.location
             });
-            // await feed.save();
-            // res.status(201).json({ message: `feed created successfully` });
-            res.send({ files: req.files });
+            await feed.save();
+            res.status(201).json({ message: `feed created successfully` });
         } else {
-            console.log(req.files);
-            res.send({ files: req.files });
+            res.status(400).json({ error: `no media found in post` });
         }
     } catch (error) {
         res.status(400).json({ error: error.name, message: error.message });

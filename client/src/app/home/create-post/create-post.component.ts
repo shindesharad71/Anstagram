@@ -14,6 +14,7 @@ export class CreatePostComponent implements OnInit {
   uploadedFiles: any = [];
   formData: FormData = new FormData();
   userLocation = null;
+  description: '';
 
   pondOptions = {
     class: 'image-upload',

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Icon Imports
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -26,6 +27,7 @@ import { CreatePostComponent } from './create-post/create-post.component';
   imports: [
     CommonModule,
     FontAwesomeModule,
+    FormsModule,
     HomeRoutingModule,
     FilePondModule
   ]

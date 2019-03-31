@@ -9,7 +9,8 @@
         </div>
         <form enctype="multipart/form-data">
           <div class="field">
-            <file-pond #imageUpload [options]="pondOptions" (onaddfile)="onFilesAdded()" (onremovefile)="onFilesAdded()">
+            <file-pond #imageUpload [options]="pondOptions" (onaddfile)="onFilesAdded()"
+              (onremovefile)="onFilesAdded()">
             </file-pond>
             <p class="help is-danger" *ngIf="isError">This email is invalid</p>
           </div>
@@ -17,8 +18,8 @@
           <div class="field" *ngIf="uploadedFiles?.length">
             <div class="control">
               <label for="description">Caption</label>
-              <textarea class="textarea" name="description" id="description"
-                placeholder="Write a caption..."></textarea>
+              <textarea class="textarea" name="description" id="description" placeholder="Write a caption..."
+                [(ngModel)]="description"></textarea>
             </div>
           </div>
 
@@ -31,7 +32,8 @@
 
           <div class="field is-grouped">
             <div class="control">
-              <button type="button" class="button is-link" (click)="createPost()">Post</button>
+              <button type="button" class="button is-link" (click)="createPost()"
+                [disabled]="uploadedFiles?.length === 0 || description === ''">Post</button>
             </div>
             <div class="control">
               <button type="button" class="button is-text" routerLink="/home">
