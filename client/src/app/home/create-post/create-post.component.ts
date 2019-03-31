@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FeedService } from 'src/app/core/services/feed/feed.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ia-create-post',
@@ -29,7 +30,7 @@ export class CreatePostComponent implements OnInit {
     imagePreviewMaxFileSize: 20
   };
 
-  constructor(private titleService: Title, private feedService: FeedService) { }
+  constructor(private titleService: Title, private feedService: FeedService, private router: Router) { }
 
   ngOnInit() {
     this.titleService.setTitle('Create Post');
@@ -53,6 +54,7 @@ export class CreatePostComponent implements OnInit {
     this.formData.set('images', this.uploadedFiles[0]);
     this.feedService.createUserFeed(this.formData).subscribe(res => {
       console.log(res);
+      this.router.navigateByUrl('/home');
     }, err => {
       console.log(err);
     });
