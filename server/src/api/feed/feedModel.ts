@@ -12,7 +12,8 @@ type FeedType = mongoose.Document & {
 
 const feedSchema = new Schema({
     id: { type: ObjectId, index: true },
-    userId: { type: String, trim: true, required: 'required userId' },
+    // userId: { type: String, trim: true, required: 'required userId' },
+    userId: {type: ObjectId, ref: 'User'},
     media: { type: Array, required: 'required media' },
     description: { type: String, default: null }
 }, {

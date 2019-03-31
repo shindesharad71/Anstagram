@@ -9,7 +9,7 @@
         </div>
         <form enctype="multipart/form-data">
           <div class="field">
-            <file-pond #myPond [options]="pondOptions" (onaddfile)="onFilesAdded()" (onremovefile)="onFilesAdded()">
+            <file-pond #imageUpload [options]="pondOptions" (onaddfile)="onFilesAdded()" (onremovefile)="onFilesAdded()">
             </file-pond>
             <p class="help is-danger" *ngIf="isError">This email is invalid</p>
           </div>

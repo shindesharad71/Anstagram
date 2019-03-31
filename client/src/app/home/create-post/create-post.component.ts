@@ -8,7 +8,7 @@ import { FeedService } from 'src/app/core/services/feed/feed.service';
   styleUrls: ['./create-post.component.scss']
 })
 export class CreatePostComponent implements OnInit {
-  @ViewChild('myPond') myPond: any;
+  @ViewChild('imageUpload') imageUpload: any;
   isError = false;
   errorMessage = '';
   uploadedFiles: any = [];
@@ -16,7 +16,7 @@ export class CreatePostComponent implements OnInit {
   userLocation = null;
 
   pondOptions = {
-    class: 'my-filepond',
+    class: 'image-upload',
     multiple: true,
     labelIdle: 'Drop files here or Browse',
     acceptedFileTypes: 'image/jpeg, image/png',
@@ -36,7 +36,7 @@ export class CreatePostComponent implements OnInit {
 
   onFilesAdded() {
     this.uploadedFiles = [];
-    const images = this.myPond.getFiles();
+    const images = this.imageUpload.getFiles();
     for (const img of images) {
       this.uploadedFiles.push(img.file);
     }
@@ -44,7 +44,7 @@ export class CreatePostComponent implements OnInit {
 
   createPost() {
     this.uploadedFiles = [];
-    const images = this.myPond.getFiles();
+    const images = this.imageUpload.getFiles();
     for (const img of images) {
       this.uploadedFiles.push(img.file);
     }
