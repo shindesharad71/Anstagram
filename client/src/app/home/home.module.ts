@@ -28,6 +28,7 @@ import { CreatePostComponent } from './create-post/create-post.component';
     CommonModule,
     FontAwesomeModule,
     FormsModule,
+    ReactiveFormsModule,
     HomeRoutingModule,
     FilePondModule
   ]

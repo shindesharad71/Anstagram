@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'ia-forgot-password',
@@ -28,7 +27,6 @@ export class ForgotPasswordComponent implements OnInit {
   forgotPassword() {
     this.authService.login(this.forgotPasswordForm.value).subscribe((res: any) => {
       console.log(res);
-      this.authService.setToken(res.token);
     }, err => {
       this.errorMessage = err.error.message;
       this.isError = true;
