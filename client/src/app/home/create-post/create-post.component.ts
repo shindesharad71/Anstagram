@@ -58,7 +58,8 @@ export class CreatePostComponent implements OnInit {
       this.uploadedFiles.push(img.file);
     }
     this.formData.set('images', this.uploadedFiles[0]);
-    this.formData.set('data', this.createPostForm.value);
+    this.formData.set('description', this.createPostForm.value.description);
+    this.formData.set('location', this.createPostForm.value.location);
     this.feedService.createUserFeed(this.formData).subscribe(res => {
       console.log(res);
       this.router.navigateByUrl('/home');
