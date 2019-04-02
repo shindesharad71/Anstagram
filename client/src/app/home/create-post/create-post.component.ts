@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FeedService } from 'src/app/core/services/feed/feed.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'ia-create-post',
@@ -10,12 +11,13 @@ import { Router } from '@angular/router';
 })
 export class CreatePostComponent implements OnInit {
   @ViewChild('imageUpload') imageUpload: any;
+
+  createPostForm: FormGroup;
   isError = false;
   errorMessage = '';
   uploadedFiles: any = [];
   formData: FormData = new FormData();
   userLocation = null;
-  description: '';
 
   pondOptions = {
     class: 'image-upload',
@@ -34,6 +36,10 @@ export class CreatePostComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle('Create Post');
+    this.createPostForm = new FormGroup({
+      description: new FormControl(null, [Validators.required]),
+      location: new FormControl(null)
+    });
   }
 
   onFilesAdded() {
@@ -52,6 +58,8 @@ export class CreatePostComponent implements OnInit {
       this.uploadedFiles.push(img.file);
     }
     this.formData.set('images', this.uploadedFiles[0]);
+    this.formData.set('description', this.createPostForm.value.description);
+    this.formData.set('location', this.createPostForm.value.location);
     this.feedService.createUserFeed(this.formData).subscribe(res => {
       console.log(res);
       this.router.navigateByUrl('/home');
