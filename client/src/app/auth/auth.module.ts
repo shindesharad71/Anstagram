@@ -9,10 +9,11 @@ import { RegisterComponent } from './register/register.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 library.add(fas);
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, ForgotPasswordComponent],
   imports: [
     CommonModule,
     FormsModule,
