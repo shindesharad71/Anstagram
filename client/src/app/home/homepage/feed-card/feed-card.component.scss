@@ -31,16 +31,21 @@ time {
 }
 
 .comment-box {
+  display: flex;
   margin-top: 4px;
   border-top: 1px solid #eee;
   input {
-    width: 100%;
+    padding-top: 4px;
+    width: 90%;
     border: none;
     &:focus,
     &:active {
       border: none;
       outline: none;
     }
+  }
+  button {
+    margin-top: 4px;
   }
 }
 

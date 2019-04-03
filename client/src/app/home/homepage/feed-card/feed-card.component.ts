@@ -11,6 +11,7 @@ export class FeedCardComponent implements OnInit {
   heartIcon = HeartIconStates.DEFAULT;
   defaultAvatar = UserProfile.USER_DEFAULT_PROFILE_URL;
   isThisFeedLiked = false;
+  comment = '';
 
   constructor() { }
 

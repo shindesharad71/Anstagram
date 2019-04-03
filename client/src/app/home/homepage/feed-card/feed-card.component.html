@@ -38,7 +38,8 @@
           <time datetime="2016-1-1">{{feed.createdAt | date: 'medium'}}</time>
           <br>
           <div class="comment-box">
-            <input type="text" placeholder="Add a comment...">
+            <input type="text" placeholder="Add a comment..." [(ngModel)]="comment">
+            <button type="button" class="button is-small" [disabled]="comment ===''">Post</button>
           </div>
         </div>
       </div>
