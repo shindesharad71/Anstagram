@@ -13,7 +13,7 @@ export class FeedCardComponent implements OnInit {
   defaultAvatar = UserProfile.USER_DEFAULT_PROFILE_URL;
   isThisFeedLiked = false;
   comment = '';
-  feedComments: any = [];
+  isCommentBoxOpen = false;
 
   constructor(private commentService: CommentService) { }
 
@@ -39,11 +39,14 @@ export class FeedCardComponent implements OnInit {
       comment: this.comment
     });
     this.commentService.postComment(commentPayload).subscribe(res => {
-      this.feedComments.push(this.comment);
       this.comment = '';
     }, err => {
       console.log(err);
     });
+  }
+
+  showCommentBox() {
+    this.isCommentBoxOpen = !this.isCommentBoxOpen;
   }
 
 }

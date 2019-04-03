@@ -1,5 +1,6 @@
 
 import { getSignedUrl, uploadFile } from '../../libs/gcpFileManageMent';
+import { Comment } from '../comment/commentModel';
 import { User } from '../user/userModel';
 import { Feed, FeedType } from './feedModel';
 
@@ -16,13 +17,18 @@ const getUserFeed = async (req: any, res: any) => {
 
         if (feed && feed.length) {
             for (const item of feed) {
+                // User Info
                 const userInfo = await User.findOne({ _id: item.userId }, 'firstName lastName -_id');
                 const signedMedia = [];
                 for (const privateMedia of item.media) {
                     const signedUrl = await getSignedUrl(privateMedia);
                     signedMedia.push(signedUrl);
                 }
-                const newItem: any = { ...item._doc, media: signedMedia, userInfo };
+
+                // Feed Comments
+                const feedComments = await Comment.find({ feedId: item._id }).sort({ createdAt: 'desc' }).limit(2);
+
+                const newItem: any = { ...item._doc, media: signedMedia, userInfo, feedComments };
                 userFeed.push(newItem);
             }
         }
