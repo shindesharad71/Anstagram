@@ -8,6 +8,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { LoaderService } from './components/loader/loader.service';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { FeedService } from './services/feed/feed.service';
+import { CommentService } from './services/comment/comment.service';
 
 @NgModule({
   declarations: [LoaderComponent],
@@ -24,7 +25,8 @@ import { FeedService } from './services/feed/feed.service';
     AuthService,
     LoaderService,
     AuthGuardService,
-    FeedService
+    FeedService,
+    CommentService
   ],
   entryComponents: [
     LoaderComponent

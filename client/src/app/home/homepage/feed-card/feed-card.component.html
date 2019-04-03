@@ -24,7 +24,7 @@
         <div class="left">
           <img [className]="isThisFeedLiked ? 'feed-icons liked': 'feed-icons'" [src]="heartIcon" (click)="like()"
             alt="like">
-          <img class="feed-icons" src="/assets/icons/comment-icon.png" alt="comment">
+          <img class="feed-icons" src="/assets/icons/comment-icon.png" alt="comment" (click)="showCommentBox()">
         </div>
 
         <div class="right">
@@ -37,8 +37,13 @@
           <br>
           <time datetime="2016-1-1">{{feed.createdAt | date: 'medium'}}</time>
           <br>
-          <div class="comment-box">
-            <input type="text" placeholder="Add a comment...">
+          <div class="feed-comments" *ngIf="feed?.feedComments?.length">
+            <p *ngFor="let comment of feed.feedComments">{{ comment.comment }}</p>
+          </div>
+          <div class="comment-box" *ngIf="isCommentBoxOpen">
+            <input type="text" placeholder="Add a comment..." [(ngModel)]="comment">
+            <button type="button" class="button is-small" [disabled]="comment ===''"
+              (click)="postComment()">Post</button>
           </div>
         </div>
       </div>
