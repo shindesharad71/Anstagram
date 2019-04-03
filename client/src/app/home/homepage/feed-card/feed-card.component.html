@@ -37,8 +37,8 @@
           <br>
           <time datetime="2016-1-1">{{feed.createdAt | date: 'medium'}}</time>
           <br>
-          <div class="feed-comments" *ngIf="clientSideComments?.length">
-            <p *ngFor="let comment of clientSideComments">{{ comment }}</p>
+          <div class="feed-comments" *ngIf="feedComments?.length">
+            <p *ngFor="let comment of feedComments">{{ comment }}</p>
           </div>
           <div class="comment-box">
             <input type="text" placeholder="Add a comment..." [(ngModel)]="comment">

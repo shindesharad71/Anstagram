@@ -1,3 +1,4 @@
+import commentRouter from './comment/commentRouter';
 import feedRouter from './feed/feedRouter';
 import userRouter from './user/userRouter';
 
@@ -9,6 +10,10 @@ const Routes = [
     {
         path: '/feed',
         router: feedRouter
+    },
+    {
+        path: '/comments',
+        router: commentRouter
     }
 ];
 
