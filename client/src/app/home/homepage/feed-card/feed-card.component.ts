@@ -12,6 +12,7 @@ export class FeedCardComponent implements OnInit {
   defaultAvatar = UserProfile.USER_DEFAULT_PROFILE_URL;
   isThisFeedLiked = false;
   comment = '';
+  clientSideComments: any = [];
 
   constructor() { }
 
@@ -26,6 +27,13 @@ export class FeedCardComponent implements OnInit {
     } else {
       this.isThisFeedLiked = false;
     }
+  }
+
+  postComment() {
+    console.log(this.comment);
+    console.log(this.feed._id);
+    this.clientSideComments.push(this.comment);
+    this.comment = '';
   }
 
 }
