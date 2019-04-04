@@ -1,7 +1,6 @@
 
-import { getSignedUrl, uploadFile } from '../../libs/gcpFileManageMent';
+import { getSignedUrl, uploadFile } from '../../libs/gcpFileManagement';
 import { Comment } from '../comment/commentModel';
-import { User } from '../user/userModel';
 import { Feed, FeedType } from './feedModel';
 
 const getUserFeed = async (req: any, res: any) => {
@@ -10,15 +9,14 @@ const getUserFeed = async (req: any, res: any) => {
         const userFeed: any[] = [];
         const feedItemsToSkip: number = Number(req.params.feedItemsToSkip);
         if (feedItemsToSkip > 0) {
-            feed = await Feed.find({}).sort({ createdAt: 'desc' }).skip(feedItemsToSkip).limit(10);
+            feed = await Feed.find({}).sort({ createdAt: 'desc' }).skip(feedItemsToSkip).limit(10).populate({ path: 'user', select: 'firstName lastName' });
         } else {
-            feed = await Feed.find({}).sort({ createdAt: 'desc' }).limit(10);
+            feed = await Feed.find({}).sort({ createdAt: 'desc' }).limit(10).populate({ path: 'user', select: 'firstName lastName' });
         }
 
         if (feed && feed.length) {
             for (const item of feed) {
-                // User Info
-                const userInfo = await User.findOne({ _id: item.userId }, 'firstName lastName -_id');
+                // Media
                 const signedMedia = [];
                 for (const privateMedia of item.media) {
                     const signedUrl = await getSignedUrl(privateMedia);
@@ -26,9 +24,9 @@ const getUserFeed = async (req: any, res: any) => {
                 }
 
                 // Feed Comments
-                const feedComments = await Comment.find({ feedId: item._id }).sort({ createdAt: 'desc' }).limit(2);
+                const feedComments = await Comment.find({ feed: item._id }).sort({ createdAt: 'desc' }).limit(2).populate({ path: 'user', select: 'firstName lastName' });
 
-                const newItem: any = { ...item._doc, media: signedMedia, userInfo, feedComments };
+                const newItem: any = { ...item._doc, media: signedMedia, feedComments };
                 userFeed.push(newItem);
             }
         }
