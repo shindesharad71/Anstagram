@@ -52,13 +52,4 @@ export class RegisterComponent implements OnInit {
     this.isPasswordsMatch = this.registerForm.controls.password.value === this.registerForm.controls.confirmPassword.value;
   }
 
-  removeErrorMessage() {
-    if (document.readyState === 'complete') {
-      const allNotifications = document.querySelectorAll('.notification');
-      allNotifications.forEach((notificationToDelete: any) => {
-        notificationToDelete.remove();
-      });
-    }
-  }
-
 }

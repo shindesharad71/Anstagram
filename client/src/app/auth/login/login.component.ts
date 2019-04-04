@@ -50,13 +50,4 @@ export class LoginComponent implements OnInit {
     this.isEmailInvalid = this.loginForm.controls.email.value && !this.loginForm.controls.email.valid;
   }
 
-  removeErrorMessage() {
-    if (document.readyState === 'complete') {
-      const allNotifications = document.querySelectorAll('.notification');
-      allNotifications.forEach((notificationToDelete: any) => {
-        notificationToDelete.remove();
-      });
-    }
-  }
-
 }

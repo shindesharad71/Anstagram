@@ -1,12 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 library.add(fas);
+
+import { FilePondModule, registerPlugin } from 'ngx-filepond';
+import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation';
+registerPlugin(FilePondPluginFileValidateType, FilePondPluginImagePreview, FilePondPluginImageExifOrientation);
+
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 import { AuthService } from './services/auth/auth.service';
 import { InterceptorService } from './services/interceptor.service';
@@ -22,7 +31,11 @@ import { NotificationComponent } from './components/notification/notification.co
   imports: [
     CommonModule,
     HttpClientModule,
-    FontAwesomeModule
+    FormsModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    FilePondModule,
+    LazyLoadImageModule
   ],
   providers: [
     {
@@ -39,6 +52,13 @@ import { NotificationComponent } from './components/notification/notification.co
   entryComponents: [
     LoaderComponent
   ],
-  exports: [NotificationComponent, FontAwesomeModule]
+  exports: [
+    NotificationComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    FilePondModule,
+    LazyLoadImageModule
+  ]
 })
 export class CoreModule { }
