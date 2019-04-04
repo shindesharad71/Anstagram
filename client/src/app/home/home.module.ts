@@ -17,6 +17,8 @@ import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation';
 registerPlugin(FilePondPluginFileValidateType, FilePondPluginImagePreview, FilePondPluginImageExifOrientation);
 
+import { LazyLoadImageModule } from 'ng-lazyload-image';
+
 import { HomeRoutingModule } from './home-routing.module';
 import { HomepageComponent } from './homepage/homepage.component';
 import { FeedCardComponent } from './homepage/feed-card/feed-card.component';
@@ -30,7 +32,8 @@ import { CreatePostComponent } from './create-post/create-post.component';
     FormsModule,
     ReactiveFormsModule,
     HomeRoutingModule,
-    FilePondModule
+    FilePondModule,
+    LazyLoadImageModule
   ]
 })
 export class HomeModule { }

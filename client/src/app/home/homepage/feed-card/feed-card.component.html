@@ -17,7 +17,7 @@
       </div>
       <div class="card-image">
         <figure class="image">
-          <img [src]="feed?.media[0]" alt="Image">
+          <img [defaultImage]="defaultImage" [lazyLoad]="feed?.media[0]" [offset]="'100'" alt="Image">
         </figure>
       </div>
       <div class="card-content space-between">
