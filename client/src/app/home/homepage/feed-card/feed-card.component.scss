@@ -1,5 +1,14 @@
 .feed-card {
   padding: 24px;
+  .header-info {
+    padding: 16px 24px;
+    .user-name {
+      margin-bottom: 0px;
+    }
+  }
+  .description-comments {
+    padding: 8px 24px;
+  }
 }
 
 .space-between {

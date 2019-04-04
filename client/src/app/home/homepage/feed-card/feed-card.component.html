@@ -10,7 +10,7 @@
             </figure>
           </div>
           <div class="media-content">
-            <p class="title is-5 no-padding">{{ feed?.user?.firstName }} {{ feed?.user?.lastName }}</p>
+            <p class="title is-5 no-padding user-name">{{ feed?.user?.firstName }} {{ feed?.user?.lastName }}</p>
             <p class="feed-location" *ngIf="feed?.location">{{ feed?.location }}</p>
           </div>
         </div>
@@ -31,7 +31,7 @@
           <img class="feed-icons" src="/assets/icons/bookmark-icon.png" alt="bookmark">
         </div>
       </div>
-      <div class="card-content">
+      <div class="card-content description-comments">
         <div class="content">
           {{ feed.description }}
           <br>
