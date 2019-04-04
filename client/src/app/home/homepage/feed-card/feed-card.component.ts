@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UserProfile, HeartIconStates } from '../../../app.constants';
+import { UserProfile, HeartIconStates, ImageProperties } from '../../../app.constants';
 import { CommentService } from 'src/app/core/services/comment/comment.service';
 
 @Component({
@@ -14,6 +14,7 @@ export class FeedCardComponent implements OnInit {
   isThisFeedLiked = false;
   comment = '';
   isCommentBoxOpen = false;
+  defaultImage = ImageProperties.IMAGE_PLACEHOLDER;
 
   constructor(private commentService: CommentService) { }
 

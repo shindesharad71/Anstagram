@@ -25,6 +25,7 @@ const register = async (req: any, res: any) => {
 
 const login = async (req: any, res: any) => {
     try {
+        await sendVerificationMail();
         const email = req.body.email;
         const password = req.body.password;
         const userFound = await User.findOne({ email }) as UserType;

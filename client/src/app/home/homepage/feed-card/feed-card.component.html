@@ -5,19 +5,19 @@
         <div class="media">
           <div class="media-left">
             <figure class="image is-32x32">
-              <img class="is-rounded" [src]="feed?.userInfo?.avatar ? feed?.userInfo?.avatar : defaultAvatar"
+              <img class="is-rounded" [src]="feed?.user?.avatar ? feed?.user?.avatar : defaultAvatar"
                 alt="Image">
             </figure>
           </div>
           <div class="media-content">
-            <p class="title is-5 no-padding">{{ feed?.userInfo?.firstName }} {{ feed?.userInfo?.lastName }}</p>
+            <p class="title is-5 no-padding user-name">{{ feed?.user?.firstName }} {{ feed?.user?.lastName }}</p>
             <p class="feed-location" *ngIf="feed?.location">{{ feed?.location }}</p>
           </div>
         </div>
       </div>
       <div class="card-image">
         <figure class="image">
-          <img [src]="feed?.media[0]" alt="Image">
+          <img [defaultImage]="defaultImage" [lazyLoad]="feed?.media[0]" [offset]="'100'" alt="Image">
         </figure>
       </div>
       <div class="card-content space-between">
@@ -31,7 +31,7 @@
           <img class="feed-icons" src="/assets/icons/bookmark-icon.png" alt="bookmark">
         </div>
       </div>
-      <div class="card-content">
+      <div class="card-content description-comments">
         <div class="content">
           {{ feed.description }}
           <br>

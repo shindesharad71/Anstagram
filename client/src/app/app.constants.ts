@@ -6,3 +6,7 @@ export class HeartIconStates {
   static LIKED = '/assets/icons/heart-red-icon.png';
   static DEFAULT = '/assets/icons/heart-icon.png';
 }
+
+export class ImageProperties {
+  static IMAGE_PLACEHOLDER = '/assets/icons/placeholder.jpg';
+}

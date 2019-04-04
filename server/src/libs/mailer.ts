@@ -1,10 +1,15 @@
 import dotenv from "dotenv";
+import fs from 'fs';
 import nodemailer from 'nodemailer';
+import path from 'path';
 
 dotenv.config();
 
+const emailConfirmationBodyPath = path.join(__dirname, '../../confirmEmail.html');
+
 const sendVerificationMail = async () => {
     try {
+        const emailBody = await prepareEmailBody();
         const account = await nodemailer.createTestAccount();
 
         const transporter = nodemailer.createTransport({
@@ -22,8 +27,8 @@ const sendVerificationMail = async () => {
             from: '"Fred Foo 👻" <foo@example.com>', // sender address
             to: 'shindesharad71@gmail.com', // list of receivers
             subject: "Hello ✔", // Subject line
-            text: "Hello world?", // plain text body
-            html: "<b>Hello world?</b>" // html body
+            text: emailBody, // plain text body
+            html: emailBody // html body
         };
 
         // send mail with defined transport object
@@ -32,6 +37,16 @@ const sendVerificationMail = async () => {
         console.log("Message sent: %s", info.messageId);
         // Preview only available when sending through an Ethereal account
         console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+    } catch (error) {
+        throw error;
+    }
+};
+
+const prepareEmailBody = async () => {
+    try {
+        let emailBody = await fs.readFileSync(emailConfirmationBodyPath, 'utf8');
+        emailBody = emailBody.replace(/{{ firstName }}/g, 'Sharad');
+        return emailBody;
     } catch (error) {
         throw error;
     }

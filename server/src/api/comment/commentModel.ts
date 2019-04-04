@@ -11,8 +11,8 @@ type CommentType = mongoose.Document & {
 
 const commentSchema = new Schema({
     id: { type: ObjectId, index: true },
-    userId: {type: ObjectId, ref: 'User', required: 'userId required'},
-    feedId: {type: ObjectId, ref: 'Feed', required: 'feedId required'},
+    user: {type: ObjectId, ref: 'User', required: 'userId required'},
+    feed: {type: ObjectId, ref: 'Feed', required: 'feedId required'},
     comment: { type: String, required: 'comment required' }
 }, {
         timestamps: true
