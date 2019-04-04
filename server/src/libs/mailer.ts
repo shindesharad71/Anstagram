@@ -9,7 +9,6 @@ const emailConfirmationBodyPath = path.join(__dirname, '../../confirmEmail.html'
 
 const sendVerificationMail = async () => {
     try {
-
         const emailBody = await prepareEmailBody();
         const account = await nodemailer.createTestAccount();
 
