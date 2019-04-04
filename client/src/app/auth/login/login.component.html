@@ -3,10 +3,7 @@
     <div class="columns is-centered">
       <div class="column is-half">
         <h3 class="title is-3">Login</h3>
-        <div class="notification is-danger" *ngIf="isError">
-          <button class="delete" (click)="removeErrorMessage($event)"></button>
-          {{ errorMessage || 'Something went wrong, please try again' }}
-        </div>
+        <ia-notification [className]="notificationType" [message]="errorMessage"></ia-notification>
         <form [formGroup]="loginForm" (ngSubmit)="login()">
           <div class="field">
             <label class="label">Email</label>

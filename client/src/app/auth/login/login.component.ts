@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isEmailInvalid = false;
-  isError = false;
-  errorMessage = '';
+  errorMessage: string;
+  notificationType = 'is-danger';
 
   constructor(private authService: AuthService, private titleService: Title, private router: Router) {
     this.titleService.setTitle('Anstagram - Login');
@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.errorMessage = null;
     this.authService.login(this.loginForm.value).subscribe((res: any) => {
       console.log(res);
       this.authService.setToken(res.token);
@@ -41,7 +42,6 @@ export class LoginComponent implements OnInit {
       }
     }, err => {
       this.errorMessage = err.error.message;
-      this.isError = true;
       console.log(err);
     });
   }

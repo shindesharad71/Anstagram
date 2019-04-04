@@ -14,8 +14,8 @@ export class RegisterComponent implements OnInit {
   isEmailInvalid = false;
   isPasswordsMatch = true;
   isRegistrationComplete = false;
-  isError = false;
-  errorMessage = '';
+  errorMessage: string;
+  notificationType = 'is-danger';
 
   constructor(private authService: AuthService, private titleService: Title) {
     this.titleService.setTitle('Register');
@@ -35,11 +35,11 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
+    this.errorMessage = null;
     this.authService.register(this.registerForm.value).subscribe(res => {
       this.isRegistrationComplete = true;
     }, err => {
       this.errorMessage = err.error.message;
-      this.isError = true;
       console.log(err);
     });
   }
