@@ -7,9 +7,9 @@ dotenv.config();
 
 const emailConfirmationBodyPath = path.join(__dirname, '../../confirmEmail.html');
 
-const sendVerificationMail = async () => {
+const sendVerificationMail = async (firstName, email, verificationLink) => {
     try {
-        const emailBody = await prepareEmailBody();
+        const emailBody = await prepareEmailBody(firstName, verificationLink);
         const account = await nodemailer.createTestAccount();
 
         const transporter = nodemailer.createTransport({
@@ -25,7 +25,7 @@ const sendVerificationMail = async () => {
         // setup email data with unicode symbols
         const mailOptions = {
             from: '"Fred Foo 👻" <foo@example.com>', // sender address
-            to: 'shindesharad71@gmail.com', // list of receivers
+            to: email, // list of receivers
             subject: "Hello ✔", // Subject line
             text: emailBody, // plain text body
             html: emailBody // html body
@@ -42,10 +42,11 @@ const sendVerificationMail = async () => {
     }
 };
 
-const prepareEmailBody = async () => {
+const prepareEmailBody = async (firstName: string, verificationLink: string) => {
     try {
         let emailBody = await fs.readFileSync(emailConfirmationBodyPath, 'utf8');
-        emailBody = emailBody.replace(/{{ firstName }}/g, 'Sharad');
+        emailBody = emailBody.replace(/{{ firstName }}/g, firstName);
+        emailBody = emailBody.replace(/{{ confirmationLink }}/g, verificationLink);
         return emailBody;
     } catch (error) {
         throw error;

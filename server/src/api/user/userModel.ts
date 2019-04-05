@@ -24,6 +24,8 @@ const userSchema = new Schema({
     gender: { type: String, required: 'required gender' },
     password: { type: String, required: 'required password' },
     resetOtp: { type: Number },
+    verifyOtp: { type: Number },
+    isVerified: { type: Boolean, default: false }
 }, {
         timestamps: true
     });

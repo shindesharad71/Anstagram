@@ -1,12 +1,19 @@
 import bcrypt from 'bcrypt-nodejs';
+import dotenv from "dotenv";
 import jwt from 'jsonwebtoken';
 import { JWT_CONFIG } from '../../configs/jwt';
 import { sendVerificationMail } from '../../libs/mailer';
 import { User, UserType } from './userModel';
 
+dotenv.config();
+
+const clientUrl = process.env.CLIENT_URL;
+
 const register = async (req: any, res: any) => {
     try {
+        const { verifyOtp, verificationLink } = await createVerificationLink(req.body.email);
         const hashedPassword = bcrypt.hashSync(req.body.password);
+
         const user = new User({
             firstName: req.body.firstName,
             lastName: req.body.lastName,
@@ -14,8 +21,10 @@ const register = async (req: any, res: any) => {
             password: hashedPassword,
             dateOfBirth: req.body.dateOfBirth,
             gender: req.body.gender,
+            verifyOtp
         });
-        await user.save();
+        // await user.save();
+        await sendVerificationMail(firstName, req.body.email, verificationLink);
         res.status(201).json({ message: `registered successfully` });
     } catch (error) {
         res.status(400).json({ error: error.name, message: error.message });
@@ -48,6 +57,21 @@ const login = async (req: any, res: any) => {
 const logout = async (req: any, res: any) => {
     try {
         res.json({ message: 'logout test' });
+    } catch (error) {
+        throw error;
+    }
+};
+
+const createVerificationLink = async (email: string) => {
+    try {
+        const verifyOtp = Math.floor(100000 + Math.random() * 900000);
+        let verificationQuery = Object.assign({
+            verifyOtp,
+            email
+        });
+        verificationQuery = Buffer.from(verificationQuery).toString('base64');
+        const verificationLink = `${clientUrl}users/verify?query=${verificationQuery}`;
+        return { verifyOtp, verificationLink };
     } catch (error) {
         throw error;
     }
