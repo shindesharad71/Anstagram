@@ -10,7 +10,8 @@ type UserType = mongoose.Document & {
     gender: string,
     email: string,
     password: string,
-    dateOfBirth: string
+    dateOfBirth: string,
+    isVerified: boolean
 };
 
 const userSchema = new Schema({

@@ -36,14 +36,18 @@ const login = async (req: any, res: any) => {
     try {
         const email = req.body.email;
         const password = req.body.password;
-        const userFound = await User.findOne({ email, isVerified: true }) as UserType;
+        const userFound = await User.findOne({ email }) as UserType;
 
         if (userFound && Object.keys(userFound).length > 1) {
-            if (bcrypt.compareSync(password, userFound.password)) {
-                const token = jwt.sign({ user: userFound._id }, JWT_CONFIG.JWT_SECRET, { expiresIn: '24h' });
-                res.json({ token, message: `login successfully` });
+            if (userFound.isVerified) {
+                if (bcrypt.compareSync(password, userFound.password)) {
+                    const token = jwt.sign({ user: userFound._id }, JWT_CONFIG.JWT_SECRET, { expiresIn: '24h' });
+                    res.json({ token, message: `login successfully` });
+                } else {
+                    res.status(403).json({ message: `wrong username and password, try again` });
+                }
             } else {
-                res.status(403).json({ message: `wrong username and password, try again` });
+                res.status(403).json({ message: `please verify your email to login` });
             }
         } else {
             res.status(404).json({ message: `no user found with email ${email}` });
