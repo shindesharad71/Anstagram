@@ -23,8 +23,8 @@ const register = async (req: any, res: any) => {
             gender: req.body.gender,
             verifyOtp
         });
-        // await user.save();
-        await sendVerificationMail(firstName, req.body.email, verificationLink);
+        await user.save();
+        await sendVerificationMail(req.body.firstName, req.body.email, verificationLink);
         res.status(201).json({ message: `registered successfully` });
     } catch (error) {
         res.status(400).json({ error: error.name, message: error.message });
@@ -65,10 +65,10 @@ const logout = async (req: any, res: any) => {
 const createVerificationLink = async (email: string) => {
     try {
         const verifyOtp = Math.floor(100000 + Math.random() * 900000);
-        let verificationQuery = Object.assign({
+        let verificationQuery = JSON.stringify(Object.assign({
             verifyOtp,
             email
-        });
+        }));
         verificationQuery = Buffer.from(verificationQuery).toString('base64');
         const verificationLink = `${clientUrl}users/verify?query=${verificationQuery}`;
         return { verifyOtp, verificationLink };

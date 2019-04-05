@@ -7,7 +7,7 @@ dotenv.config();
 
 const emailConfirmationBodyPath = path.join(__dirname, '../../confirmEmail.html');
 
-const sendVerificationMail = async (firstName, email, verificationLink) => {
+const sendVerificationMail = async (firstName: string, email: string, verificationLink: string) => {
     try {
         const emailBody = await prepareEmailBody(firstName, verificationLink);
         const account = await nodemailer.createTestAccount();
