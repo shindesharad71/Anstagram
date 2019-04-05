@@ -36,7 +36,7 @@ const login = async (req: any, res: any) => {
     try {
         const email = req.body.email;
         const password = req.body.password;
-        const userFound = await User.findOne({ email }) as UserType;
+        const userFound = await User.findOne({ email, isVerified: true }) as UserType;
 
         if (userFound && Object.keys(userFound).length > 1) {
             if (bcrypt.compareSync(password, userFound.password)) {
@@ -70,11 +70,26 @@ const createVerificationLink = async (email: string) => {
             email
         }));
         verificationQuery = Buffer.from(verificationQuery).toString('base64');
-        const verificationLink = `${clientUrl}users/verify?query=${verificationQuery}`;
+        const verificationLink = `${clientUrl}#/login?query=${verificationQuery}`;
         return { verifyOtp, verificationLink };
     } catch (error) {
         throw error;
     }
 };
 
-export { register, login, logout };
+const verify = async (req: any, res: any) => {
+    try {
+        const query = req.body.query;
+        let params: any = Buffer.from(query, 'base64').toString('ascii');
+        params = JSON.parse(params);
+        const email = params.email;
+        const verifyOtp = params.verifyOtp;
+        await User.updateOne({ email, verifyOtp }, { $set: { isVerified: true } }, { upsert: true });
+        res.json({ message: 'Success! Email verified successfully!' });
+    } catch (error) {
+        res.status(400).json(error);
+        throw error;
+    }
+};
+
+export { register, login, logout, verify };

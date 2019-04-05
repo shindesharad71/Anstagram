@@ -4,6 +4,9 @@ import nodemailer from 'nodemailer';
 import path from 'path';
 
 dotenv.config();
+const emailUser = process.env.EMAIL_USERNAME;
+const emailPassword = process.env.EMAIL_PASSWORD;
+const emailSenderName = process.env.EMAIL_SENDER_NAME;
 
 const emailConfirmationBodyPath = path.join(__dirname, '../../confirmEmail.html');
 
@@ -13,30 +16,23 @@ const sendVerificationMail = async (firstName: string, email: string, verificati
         const account = await nodemailer.createTestAccount();
 
         const transporter = nodemailer.createTransport({
-            host: 'smtp.ethereal.email',
-            port: 587,
-            secure: false, // true for 465, false for other ports
+            service: 'gmail',
             auth: {
-                user: account.user, // generated ethereal user
-                pass: account.pass // generated ethereal password
+                user: emailUser,
+                pass: emailPassword
             }
         });
 
-        // setup email data with unicode symbols
         const mailOptions = {
-            from: '"Fred Foo 👻" <foo@example.com>', // sender address
-            to: email, // list of receivers
-            subject: "Hello ✔", // Subject line
-            text: emailBody, // plain text body
-            html: emailBody // html body
+            from: `"${emailSenderName}" <${emailUser}>`,
+            to: email,
+            subject: "Please Verify Your Email",
+            text: emailBody,
+            html: emailBody
         };
-
-        // send mail with defined transport object
         const info = await transporter.sendMail(mailOptions);
-
         console.log("Message sent: %s", info.messageId);
-        // Preview only available when sending through an Ethereal account
-        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+        return true;
     } catch (error) {
         throw error;
     }

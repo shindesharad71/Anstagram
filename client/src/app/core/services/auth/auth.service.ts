@@ -43,4 +43,8 @@ export class AuthService {
     }
     return false;
   }
+
+  verifyUser(query: any) {
+    return this.http.post(`${environment.BASE_URL}users/verify`, query);
+  }
 }
