@@ -1,6 +1,7 @@
 import { Component, ViewContainerRef, OnInit } from '@angular/core';
 import { LoaderService } from './core/components/loader/loader.service';
 import { AuthService } from './core/services/auth/auth.service';
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'ia-root',
@@ -10,7 +11,8 @@ import { AuthService } from './core/services/auth/auth.service';
 
 export class AppComponent implements OnInit {
   isUserLoggedIn = false;
-  constructor(private loaderService: LoaderService, private vcr: ViewContainerRef, private authService: AuthService) {
+  // tslint:disable-next-line: max-line-length
+  constructor(private loaderService: LoaderService, private vcr: ViewContainerRef, private authService: AuthService, private swUpdate: SwUpdate) {
     this.loaderService.setViewContainer(vcr);
   }
 
@@ -18,5 +20,13 @@ export class AppComponent implements OnInit {
     this.authService.isLoggedIn.subscribe((loginStatus: any) => {
       this.isUserLoggedIn = loginStatus;
     });
+
+    if (this.swUpdate.isEnabled) {
+      this.swUpdate.available.subscribe(() => {
+        if (confirm('New version available. Load New Version?')) {
+          window.location.reload();
+        }
+      });
+    }
   }
 }
