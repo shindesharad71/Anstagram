@@ -1,4 +1,5 @@
 
+import fs from 'fs';
 import { getSignedUrl, uploadFile } from '../../libs/gcpFileManagement';
 import { Comment } from '../comment/commentModel';
 import { Feed, FeedType } from './feedModel';
@@ -44,6 +45,10 @@ const addUserFeed = async (req: any, res: any) => {
             for (const file of req.files) {
                 const fileName: string = await uploadFile(file.path);
                 uploadedFileNames.push(fileName);
+                fs.unlink(file.path, (err) => {
+                    if (err) { throw err; }
+                    console.log('file removed from uploads');
+                });
             }
             const feed = new Feed({
                 user: req.user,

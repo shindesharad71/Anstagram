@@ -38,7 +38,7 @@ export class CreatePostComponent implements OnInit {
     this.titleService.setTitle('Create Post');
     this.createPostForm = new FormGroup({
       description: new FormControl(null, [Validators.required]),
-      location: new FormControl(null)
+      location: new FormControl('')
     });
   }
 
