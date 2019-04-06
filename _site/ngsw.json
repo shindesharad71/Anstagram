@@ -1,0 +1,120 @@
+{
+  "configVersion": 1,
+  "timestamp": 1554538322557,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/es2015-polyfills.c5dd28b362270c767b34.js",
+        "/favicon.ico",
+        "/index.html",
+        "/main.cc0d9cf61bc808215a25.js",
+        "/polyfills.8bbb231b43165d65d357.js",
+        "/runtime.26209474bfa8dc87a77c.js",
+        "/styles.a4d7b59a14fd72385c12.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/icons/add-icon.png",
+        "/assets/icons/android-chrome-192x192.png",
+        "/assets/icons/android-chrome-512x512.png",
+        "/assets/icons/apple-touch-icon.png",
+        "/assets/icons/bookmark-active-icon.png",
+        "/assets/icons/bookmark-icon.png",
+        "/assets/icons/browserconfig.xml",
+        "/assets/icons/comment-icon.png",
+        "/assets/icons/email-confirmation.png",
+        "/assets/icons/explore-icon.png",
+        "/assets/icons/favicon-16x16.png",
+        "/assets/icons/favicon-32x32.png",
+        "/assets/icons/favicon.ico",
+        "/assets/icons/heart-icon.png",
+        "/assets/icons/heart-red-icon.png",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/icons/icons-sprite.png",
+        "/assets/icons/logout-icon.png",
+        "/assets/icons/mstile-150x150.png",
+        "/assets/icons/placeholder.jpg",
+        "/assets/icons/profile-icon.png",
+        "/assets/icons/safari-pinned-tab.svg",
+        "/assets/icons/user-default.jpeg",
+        "/assets/logo/anstagram-transperent-logo.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/icons/add-icon.png": "1edcb6644c0043335956489127788821668c57a5",
+    "/assets/icons/android-chrome-192x192.png": "28e98393c175a220498904b3383f6e7cabdccdd3",
+    "/assets/icons/android-chrome-512x512.png": "4357d70a0bc4206cbe735fca3041810eb72af2cf",
+    "/assets/icons/apple-touch-icon.png": "47de592502961abc1ba87ceebe1ec4b11a773efe",
+    "/assets/icons/bookmark-active-icon.png": "2ed504a96afa2222a7475706f0dc6a98bcb5e5c5",
+    "/assets/icons/bookmark-icon.png": "5ec4b3334d5259039856e506c9b72e5b4b572015",
+    "/assets/icons/browserconfig.xml": "974aea18bda5a95802c06b80126ab1d96d91d708",
+    "/assets/icons/comment-icon.png": "f33fbe5796d7b3cbab175e2a3b0d3073469c51ca",
+    "/assets/icons/email-confirmation.png": "933e132250a4f1eb0b91323f1d31595eab54535a",
+    "/assets/icons/explore-icon.png": "68fcb6874878793341396167977f8c7b91af52e5",
+    "/assets/icons/favicon-16x16.png": "6223cd4f832fce72003ab6c5240daffeb84e566a",
+    "/assets/icons/favicon-32x32.png": "f99e48ec54a057cda9b3874bb16ddd9c3b64313b",
+    "/assets/icons/favicon.ico": "486beeb3dfa18bd65a1a0b5a34b67459f0c7766a",
+    "/assets/icons/heart-icon.png": "acc3c94e0e80f15e50460ee3cecb9c6bfcbb47e4",
+    "/assets/icons/heart-red-icon.png": "98143d5d4d4b766eb9bdecbbe6bf38af06e2ab76",
+    "/assets/icons/icon-128x128.png": "c1278416534964ef694d4cba5d664af38c762f4f",
+    "/assets/icons/icon-144x144.png": "d09721e5de8d9eb3dbd677ba8d0b56c56509a2e5",
+    "/assets/icons/icon-152x152.png": "7bb0e6a846e01c55f12607cadd5f80cd45e8618b",
+    "/assets/icons/icon-192x192.png": "bbcde3283033ecb6cb4a775608ce1609b6dccd0a",
+    "/assets/icons/icon-384x384.png": "a51582c81fe5c9889dc79eadb7fe6708e637317f",
+    "/assets/icons/icon-512x512.png": "45cddcbfacbec3409b870a48c40796449470bb00",
+    "/assets/icons/icon-72x72.png": "3a4bb3761f9a45f84161cb1fc6a5093e5501cf5e",
+    "/assets/icons/icon-96x96.png": "2796141d96c6d64f1fc76d3f56211b391435a19d",
+    "/assets/icons/icons-sprite.png": "ec2e2a9deedd866410ea9dbaf171d1cf9fe8a0b1",
+    "/assets/icons/logout-icon.png": "bb4353c090269afa25f88dd0781a86b8316d6e46",
+    "/assets/icons/mstile-150x150.png": "d0ffbde8405651a367d95c31f3ffbcfac724f55a",
+    "/assets/icons/placeholder.jpg": "2dcaf44ce13a9fdd770b784bce5f83f1a5496d3b",
+    "/assets/icons/profile-icon.png": "83f225d81c978f658d1318c1311ea72bfc540912",
+    "/assets/icons/safari-pinned-tab.svg": "606b2adc509d93c03baa07f9ac30260ef9ab2021",
+    "/assets/icons/user-default.jpeg": "96d82f96303bbccbf12eea888e89b44500346615",
+    "/assets/logo/anstagram-transperent-logo.png": "64d4c23184464e370533507f22b1b748c6dfe2da",
+    "/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
+    "/favicon.ico": "a0b0804826249c4c46ca07cf601855993f0e7a9b",
+    "/index.html": "2d62d517a8a93792533b57fc20830aa37dbfb968",
+    "/main.cc0d9cf61bc808215a25.js": "6854fd4cf528345ef2c553722850fd8a48d37ecf",
+    "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
+    "/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
+    "/styles.a4d7b59a14fd72385c12.css": "bb15e3c7858458c5ca1682798395f884c9c98e43"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

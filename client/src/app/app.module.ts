@@ -9,6 +9,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     CoreModule,
     AppRoutingModule,
     AuthModule,
-    HomeModule
+    HomeModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [ CookieService ],
   bootstrap: [AppComponent]
