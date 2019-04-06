@@ -39,6 +39,7 @@
               </span>
             </div>
             <p class="help is-danger" *ngIf="isEmailInvalid">This email is invalid</p>
+            <p class="help is-success" *ngIf="!isEmailInvalid && registerForm?.controls?.email?.value !== ''">Cool! you will receive verification link on this email</p>
           </div>
 
           <div class="field">
