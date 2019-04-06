@@ -97,3 +97,17 @@ time {
     transform: scale(1);
   }
 }
+
+@media (max-width: 481px) {
+  .section {
+    padding: 3rem 1rem;
+  }
+
+  .column {
+    padding: 8px;
+  }
+
+  .feed-card {
+    padding: 24px 0px;
+  }
+}
