@@ -57,8 +57,8 @@ export class LoginComponent implements OnInit {
       urlParams = params;
     });
 
-    if (urlParams && urlParams.length) {
-      const query = { query:  urlParams['query']};
+    if (urlParams && urlParams['query']) {
+      const query = { query: urlParams['query'] };
       this.authService.verifyUser(query).subscribe((res: any) => {
         this.notificationType = 'is-success';
         this.errorMessage = res.message;
