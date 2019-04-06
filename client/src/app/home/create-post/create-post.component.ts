@@ -31,7 +31,8 @@ export class CreatePostComponent implements OnInit {
     imagePreviewMaxHeight: 100,
     imagePreviewMaxFileSize: 20,
     allowImageCrop: true,
-    imageCropAspectRatio: '1:1'
+    imageCropAspectRatio: '1:1',
+    allowImageTransform: true
   };
 
   constructor(private titleService: Title, private feedService: FeedService, private router: Router) { }

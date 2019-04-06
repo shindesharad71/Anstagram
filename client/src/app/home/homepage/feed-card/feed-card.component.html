@@ -5,8 +5,7 @@
         <div class="media">
           <div class="media-left">
             <figure class="image is-32x32">
-              <img class="is-rounded" [src]="feed?.user?.avatar ? feed?.user?.avatar : defaultAvatar"
-                alt="Image">
+              <img class="is-rounded" [src]="feed?.user?.avatar ? feed?.user?.avatar : defaultAvatar" alt="Image">
             </figure>
           </div>
           <div class="media-content">
@@ -38,7 +37,12 @@
           <time datetime="2016-1-1">{{feed.createdAt | date: 'medium'}}</time>
           <br>
           <div class="feed-comments" *ngIf="feed?.feedComments?.length">
-            <p *ngFor="let comment of feed.feedComments">{{ comment.comment }}</p>
+            <div class="comment-item">
+              <p *ngFor="let comment of feed.feedComments"><span>{{ comment?.user?.firstName }}
+                  {{ comment?.user?.lastName }}</span> {{ comment.comment }}</p>
+              <img [className]="isThisCommentLiked ? 'feed-icons liked': 'feed-icons'" [src]="heartIcon" (click)="commentLiked()"
+                alt="like">
+            </div>
           </div>
           <div class="comment-box" *ngIf="isCommentBoxOpen">
             <input type="text" placeholder="Add a comment..." [(ngModel)]="comment">

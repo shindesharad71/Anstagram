@@ -64,6 +64,18 @@ time {
   font-size: 13px;
   p {
     margin-bottom: 0.1em;
+    span {
+      font-weight: bold;
+    }
+  }
+  .comment-item {
+    display: flex;
+    justify-content: space-between;
+    img {
+      height: 12px;
+      width: 12px;
+      cursor: pointer;
+    }
   }
 }
 

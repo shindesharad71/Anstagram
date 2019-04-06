@@ -12,6 +12,7 @@ export class FeedCardComponent implements OnInit {
   heartIcon = HeartIconStates.DEFAULT;
   defaultAvatar = UserProfile.USER_DEFAULT_PROFILE_URL;
   isThisFeedLiked = false;
+  isThisCommentLiked = false;
   comment = '';
   isCommentBoxOpen = false;
   defaultImage = ImageProperties.IMAGE_PLACEHOLDER;
@@ -31,9 +32,17 @@ export class FeedCardComponent implements OnInit {
     }
   }
 
+  commentLiked() {
+    this.heartIcon = this.heartIcon === HeartIconStates.DEFAULT ?
+      HeartIconStates.LIKED : HeartIconStates.DEFAULT;
+    if (this.heartIcon === HeartIconStates.LIKED) {
+      this.isThisCommentLiked = true;
+    } else {
+      this.isThisCommentLiked = false;
+    }
+  }
+
   postComment() {
-    console.log(this.comment);
-    console.log(this.feed._id);
     const commentPayload = Object.assign({
       type: 'create',
       feedId: this.feed._id,
