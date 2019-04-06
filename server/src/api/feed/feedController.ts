@@ -46,7 +46,7 @@ const addUserFeed = async (req: any, res: any) => {
                 uploadedFileNames.push(fileName);
             }
             const feed = new Feed({
-                userId: req.user,
+                user: req.user,
                 media: uploadedFileNames,
                 description: req.body.description,
                 location: req.body.location
