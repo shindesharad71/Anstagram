@@ -12,8 +12,8 @@ import {
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements OnInit {
-  loading;
+export class AppComponent implements OnInit, AfterViewInit {
+  loading = true;
   isUserLoggedIn = false;
   // tslint:disable-next-line: max-line-length
   constructor(private loaderService: LoaderService, private vcr: ViewContainerRef, private authService: AuthService, private swUpdate: SwUpdate, private router: Router) {
@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loading = true;
     this.authService.isLoggedIn.subscribe((loginStatus: any) => {
       this.isUserLoggedIn = loginStatus;
     });
@@ -41,7 +40,8 @@ export class AppComponent implements OnInit {
         if (event instanceof NavigationStart) {
           this.loading = true;
         }
-        else if (
+
+        if (
           event instanceof NavigationEnd ||
           event instanceof NavigationCancel
         ) {
