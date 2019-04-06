@@ -1,4 +1,17 @@
 <ia-navbar *ngIf="isUserLoggedIn"></ia-navbar>
 <div class="top-space">
-  <router-outlet></router-outlet>
+  <router-outlet [hidden]="loading"></router-outlet>
+  <section class="section" [hidden]="!loading">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <div class="wrapper">
+            <div class="animate input-placeholder"></div>
+            <div class="animate input-placeholder"></div>
+            <div class="animate input-placeholder"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>

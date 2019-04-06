@@ -1,7 +1,10 @@
-import { Component, ViewContainerRef, OnInit } from '@angular/core';
+import { Component, ViewContainerRef, OnInit, AfterViewInit } from '@angular/core';
 import { LoaderService } from './core/components/loader/loader.service';
 import { AuthService } from './core/services/auth/auth.service';
 import { SwUpdate } from '@angular/service-worker';
+import {
+  Router, NavigationStart, NavigationCancel, NavigationEnd
+} from '@angular/router';
 
 @Component({
   selector: 'ia-root',
@@ -10,13 +13,15 @@ import { SwUpdate } from '@angular/service-worker';
 })
 
 export class AppComponent implements OnInit {
+  loading;
   isUserLoggedIn = false;
   // tslint:disable-next-line: max-line-length
-  constructor(private loaderService: LoaderService, private vcr: ViewContainerRef, private authService: AuthService, private swUpdate: SwUpdate) {
+  constructor(private loaderService: LoaderService, private vcr: ViewContainerRef, private authService: AuthService, private swUpdate: SwUpdate, private router: Router) {
     this.loaderService.setViewContainer(vcr);
   }
 
   ngOnInit() {
+    this.loading = true;
     this.authService.isLoggedIn.subscribe((loginStatus: any) => {
       this.isUserLoggedIn = loginStatus;
     });
@@ -28,5 +33,20 @@ export class AppComponent implements OnInit {
         }
       });
     }
+  }
+
+  ngAfterViewInit() {
+    this.router.events
+      .subscribe((event) => {
+        if (event instanceof NavigationStart) {
+          this.loading = true;
+        }
+        else if (
+          event instanceof NavigationEnd ||
+          event instanceof NavigationCancel
+        ) {
+          this.loading = false;
+        }
+      });
   }
 }
