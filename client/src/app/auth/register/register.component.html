@@ -30,7 +30,7 @@
             <label class="label">Email</label>
             <div class="control has-icons-left has-icons-right">
               <input class="input" type="email" placeholder="Email" [ngClass]="{'is-danger': isEmailInvalid}"
-                formControlName="email" (blur)="onInputBlur()" name="email">
+                formControlName="email" (input)="checkEmail()" name="email">
               <span class="icon is-small is-left">
                 <fa-icon icon="envelope"></fa-icon>
               </span>
@@ -39,7 +39,30 @@
               </span>
             </div>
             <p class="help is-danger" *ngIf="isEmailInvalid">This email is invalid</p>
-            <p class="help is-success" *ngIf="!isEmailInvalid && registerForm?.controls?.email?.value !== ''">Cool! you will receive verification link on this email</p>
+            <p class="help is-success" *ngIf="!isEmailInvalid && registerForm?.controls?.email?.value !== ''">Cool! you
+              will receive verification link on this email</p>
+          </div>
+
+          <div class="field">
+            <label class="label">Username</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" type="text" placeholder="Username" [ngClass]="{'is-danger': isUsernameInvalid}"
+                formControlName="username" name="username" (input)="checkUsername()" minlength="4">
+              <span class="icon is-small is-left">
+                <fa-icon icon="id-card"></fa-icon>
+              </span>
+              <span class="icon is-small is-right" *ngIf="isUsernameInvalid">
+                <fa-icon icon="exclamation-triangle"></fa-icon>
+              </span>
+            </div>
+            <p class="help is-danger" *ngIf="isUsernameInvalid">sorry, this username already taken or in wrong format
+            </p>
+            <p class="help is-danger" *ngIf="!!registerForm?.controls?.username?.errors?.minlength">username must be at
+              least 4 characters long.</p>
+            <p class="help is-success"
+              *ngIf="!registerForm?.controls?.username?.errors && !isUsernameInvalid && !!registerForm?.controls?.username?.dirty && registerForm?.controls?.username?.value !== ''">
+              Yes! this
+              username is available</p>
           </div>
 
           <div class="field">
@@ -75,7 +98,8 @@
           <div class="field">
             <label class="label">Date of Birth</label>
             <div class="control has-icons-left">
-              <input class="input" type="date" placeholder="Date of Birth" formControlName="dateOfBirth" name="dateOfBirth">
+              <input class="input" type="date" placeholder="Date of Birth" formControlName="dateOfBirth"
+                name="dateOfBirth">
               <span class="icon is-small is-left">
                 <fa-icon icon="calendar"></fa-icon>
               </span>
