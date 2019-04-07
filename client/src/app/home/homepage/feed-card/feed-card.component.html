@@ -9,7 +9,7 @@
             </figure>
           </div>
           <div class="media-content">
-            <p class="title is-5 no-padding user-name">{{ feed?.user?.firstName }} {{ feed?.user?.lastName }}</p>
+            <p class="title is-5 no-padding user-name">{{ feed?.user?.username }}</p>
             <p class="feed-location" *ngIf="feed?.location">{{ feed?.location }}</p>
           </div>
         </div>
@@ -38,8 +38,7 @@
           <br>
           <div class="feed-comments" *ngIf="feed?.feedComments?.length">
             <div class="comment-item">
-              <p *ngFor="let comment of feed.feedComments"><span>{{ comment?.user?.firstName }}
-                  {{ comment?.user?.lastName }}</span> {{ comment.comment }}</p>
+              <p *ngFor="let comment of feed.feedComments"><span>{{ comment?.user?.username }}</span> {{ comment.comment }}</p>
               <img [className]="isThisCommentLiked ? 'feed-icons liked': 'feed-icons'" [src]="heartIcon" (click)="commentLiked()"
                 alt="like">
             </div>
