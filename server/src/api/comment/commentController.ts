@@ -15,7 +15,7 @@ const addFeedComments = async (req: any, res: any) => {
     try {
         if (req.body.type === 'create') {
             const comment = new Comment({
-                user: req.user,
+                user: req.user.user,
                 feed: req.body.feedId,
                 comment: req.body.comment
             });
