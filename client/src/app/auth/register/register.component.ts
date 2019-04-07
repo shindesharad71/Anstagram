@@ -56,12 +56,16 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   register() {
     this.errorMessage = null;
-    this.authService.register(this.registerForm.value).subscribe(res => {
-      this.isRegistrationComplete = true;
-    }, err => {
-      this.errorMessage = err.error.message;
-      console.log(err);
-    });
+    if (this.isUsernameAvailable) {
+      this.authService.register(this.registerForm.value).subscribe(res => {
+        this.isRegistrationComplete = true;
+      }, err => {
+        this.errorMessage = err.error.message;
+        console.log(err);
+      });
+    } else {
+      this.errorMessage = 'Please check your username and try again';
+    }
   }
 
   checkEmail() {
@@ -73,6 +77,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   checkUsername(usernameInput) {
+    this.isUsernameAvailable = false;
     // tslint:disable-next-line: max-line-length
     this.isUsernameInvalid = this.registerForm.controls.username.touched && this.registerForm.controls.username.dirty && !this.registerForm.controls.username.valid;
 
@@ -84,7 +89,13 @@ export class RegisterComponent implements OnInit, OnDestroy {
   checkAvailabilityOfUsername(usernameInput) {
     this.authService.checkUsername(usernameInput).subscribe(res => {
       console.log(res);
+      if (!res) {
+        this.isUsernameAvailable = true;
+      } else {
+        this.isUsernameAvailable = false;
+      }
     }, err => {
+      this.isUsernameAvailable = false;
       console.log(err);
     });
   }

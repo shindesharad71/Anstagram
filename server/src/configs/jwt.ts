@@ -1,34 +1,28 @@
+import { Request } from 'express';
 import jwt from 'jsonwebtoken';
 
 const JWT_CONFIG = {
     JWT_SECRET: 'F&6j5WgTx"&mfn@',
     noAuthUrls: [
-        '/users/register',
-        '/users/login',
-        '/users/verify'
+        /\/users*/
     ]
 };
 
-const requestValidator = (req: any): boolean => {
+const requestValidator = (req: Request): boolean => {
     let token = null;
+    if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
+        token = req.headers.authorization.split(' ')[1];
+    }
 
-    if (!JWT_CONFIG.noAuthUrls.includes(req.url)) {
-        if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
-            token = req.headers.authorization.split(' ')[1];
-        }
-
-        if (token) {
-            jwt.verify(token, JWT_CONFIG.JWT_SECRET, (err: Error, decoded: any) => {
-                if (err) {
-                    return false;
-                } else {
-                    req.user = decoded.user;
-                    return true;
-                }
-            });
-        } else {
-            return false;
-        }
+    if (token) {
+        jwt.verify(token, JWT_CONFIG.JWT_SECRET, (err: Error, decoded: any) => {
+            if (err) {
+                return false;
+            } else {
+                req.user = decoded.user;
+                return true;
+            }
+        });
     }
     return true;
 };

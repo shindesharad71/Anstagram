@@ -49,6 +49,6 @@ export class AuthService {
   }
 
   checkUsername(username: string) {
-    return this.http.get(`${environment.BASE_URL}users/check?username=${username}`);
+    return this.http.get(`${environment.BASE_URL}users/check/${username}`);
   }
 }

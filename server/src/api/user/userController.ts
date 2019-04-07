@@ -18,6 +18,7 @@ const register = async (req: any, res: any) => {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
+            username: req.body.username,
             password: hashedPassword,
             dateOfBirth: req.body.dateOfBirth,
             gender: req.body.gender,
@@ -96,4 +97,14 @@ const verify = async (req: any, res: any) => {
     }
 };
 
-export { register, login, logout, verify };
+const checkUsername = async (req: any, res: any) => {
+    try {
+        const username = req.params.username;
+        const isUsernameExists = await User.findOne({ username });
+        res.json(isUsernameExists);
+    } catch (error) {
+        throw error;
+    }
+};
+
+export { register, login, logout, verify, checkUsername };
