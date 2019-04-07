@@ -16,7 +16,8 @@
       </div>
       <div class="card-image">
         <figure class="image is-1by1">
-          <img [defaultImage]="defaultImage" [lazyLoad]="feed?.media[0]" [offset]="'100'" alt="Image">
+          <img [defaultImage]="defaultImage" [lazyLoad]="feed?.media[0]" [offset]="'100'" alt="Image"
+            (dblclick)="like()">
         </figure>
       </div>
       <div class="card-content space-between">
@@ -38,9 +39,10 @@
           <br>
           <div class="feed-comments" *ngIf="feed?.feedComments?.length">
             <div class="comment-item">
-              <p *ngFor="let comment of feed.feedComments"><span>{{ comment?.user?.username }}</span> {{ comment.comment }}</p>
-              <img [className]="isThisCommentLiked ? 'feed-icons liked': 'feed-icons'" [src]="heartIcon" (click)="commentLiked()"
-                alt="like">
+              <p *ngFor="let comment of feed.feedComments"><span>{{ comment?.user?.username }}</span>
+                {{ comment.comment }}</p>
+              <img [className]="isThisCommentLiked ? 'feed-icons liked': 'feed-icons'" [src]="heartIcon"
+                (click)="commentLiked()" alt="like">
             </div>
           </div>
           <div class="comment-box" *ngIf="isCommentBoxOpen">

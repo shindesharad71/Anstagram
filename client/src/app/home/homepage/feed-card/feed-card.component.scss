@@ -84,6 +84,11 @@ time {
   font-size: 14px;
 }
 
+.img-animation {
+  background: url('/assets/icons/heart-red-icon.png');
+  background-size: cover;
+}
+
 /* Animation */
 .liked {
   animation: popup 0.7s;
