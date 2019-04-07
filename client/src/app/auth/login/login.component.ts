@@ -11,7 +11,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  isEmailInvalid = false;
   errorMessage: string;
   notificationType = 'is-danger';
 
@@ -25,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
+      loginInput: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     });
   }
@@ -45,10 +44,6 @@ export class LoginComponent implements OnInit {
         console.log(err);
       });
     }
-  }
-
-  onInputBlur() {
-    this.isEmailInvalid = this.loginForm.controls.email.value && !this.loginForm.controls.email.valid;
   }
 
   checkForEmailVerification() {
