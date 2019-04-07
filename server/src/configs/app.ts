@@ -51,6 +51,11 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 
     if (requestValidator(req)) {
         next();
+    } else {
+        return res.status(403).json({
+            error: 'InvalidToken',
+            message: 'token invalid.'
+        });
     }
 });
 

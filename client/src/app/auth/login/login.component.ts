@@ -32,18 +32,19 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.errorMessage = null;
-    this.authService.login(this.loginForm.value).subscribe((res: any) => {
-      console.log(res);
-      this.authService.setToken(res.token);
-      if (this.authService.checkToken()) {
-        this.router.navigateByUrl('/home');
-      } else {
-        this.router.navigateByUrl('/login');
-      }
-    }, err => {
-      this.errorMessage = err.error.message;
-      console.log(err);
-    });
+    if (this.loginForm.valid) {
+      this.authService.login(this.loginForm.value).subscribe((res: any) => {
+        this.authService.setToken(res.token);
+        if (this.authService.checkToken()) {
+          this.router.navigateByUrl('/home');
+        } else {
+          this.router.navigateByUrl('/login');
+        }
+      }, err => {
+        this.errorMessage = err.error.message;
+        console.log(err);
+      });
+    }
   }
 
   onInputBlur() {
