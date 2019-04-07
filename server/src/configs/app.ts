@@ -6,6 +6,7 @@ import express from "express";
 import jwt from 'express-jwt';
 import mongoose from "mongoose";
 
+import { NextFunction, Request, Response } from 'express';
 import { Routes } from '../api';
 import { JWT_CONFIG, requestValidator } from './jwt';
 
@@ -40,14 +41,16 @@ app.use('/uploads', express.static('uploads'));
 app.use(jwt({ secret: JWT_CONFIG.JWT_SECRET }).unless({ path: JWT_CONFIG.noAuthUrls }));
 
 // Request, Response Entry Point
-app.use((req, res, next) => {
-    console.log(chalk.yellow(`${req.method} - ${req.url}`));
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+    if (err.name === 'UnauthorizedError') {
+        return res.status(403).json({
+            error: 'UnauthorizedError',
+            message: 'No token provided.'
+        });
+    }
+
     if (requestValidator(req)) {
         next();
-    } else {
-        res.status(400).json({
-            message: 'invalid auth token, or token is not supplied'
-        });
     }
 });
 
