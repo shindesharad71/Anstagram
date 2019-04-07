@@ -54,8 +54,11 @@
               <span class="icon is-small is-right" *ngIf="isUsernameInvalid">
                 <fa-icon icon="exclamation-triangle"></fa-icon>
               </span>
+              <span class="icon is-small is-right" *ngIf="!isUsernameInvalid && isUsernameAvailable">
+                <fa-icon icon="check"></fa-icon>
+              </span>
             </div>
-            <p class="help is-danger" *ngIf="isUsernameInvalid">sorry, this username already taken or in wrong format
+            <p class="help is-danger" *ngIf="!isUsernameAvailable && registerForm?.controls?.username?.value !== ''">sorry, this username already taken
             </p>
             <p class="help is-danger" *ngIf="!!registerForm?.controls?.username?.errors?.minlength">username must be at
               least 4 characters long.</p>

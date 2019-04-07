@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   notificationType = 'is-danger';
   usernameSubscription: Subscription;
   usernameSubject = new Subject<string>();
+  isUsernameAvailable = false;
 
   constructor(private authService: AuthService, private titleService: Title) {
     this.titleService.setTitle('Register');
@@ -42,7 +43,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
     this.usernameSubscription = this.usernameSubject.pipe(debounceTime(1000), distinctUntilChanged()).subscribe(usernameInput => {
       if (usernameInput && usernameInput.length > 3) {
-        this.checkAvaibilityOfUsername(usernameInput);
+        this.checkAvailabilityOfUsername(usernameInput);
       }
     });
   }
@@ -80,8 +81,12 @@ export class RegisterComponent implements OnInit, OnDestroy {
     }
   }
 
-  checkAvaibilityOfUsername(usernameInput) {
-    console.log(usernameInput);
+  checkAvailabilityOfUsername(usernameInput) {
+    this.authService.checkUsername(usernameInput).subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
   }
 
 }
