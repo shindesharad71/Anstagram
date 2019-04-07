@@ -84,9 +84,18 @@ time {
   font-size: 14px;
 }
 
-.img-animation {
-  background: url('/assets/icons/heart-red-icon.png');
-  background-size: cover;
+.img-double-tap-animation {
+  background: url("/assets/icons/heart-red-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  max-height: 250px;
+  display: block;
+  position: absolute;
+  content: "";
+  left: 33%;
+  top: 33%;
 }
 
 /* Animation */
