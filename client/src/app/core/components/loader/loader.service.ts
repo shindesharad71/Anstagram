@@ -14,12 +14,12 @@ export class LoaderService {
   }
 
   show() {
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(LoaderComponent);
-    this.rootViewContainer.clear();
-    const componentRef = this.rootViewContainer.createComponent(componentFactory);
+    // const componentFactory = this.componentFactoryResolver.resolveComponentFactory(LoaderComponent);
+    // this.rootViewContainer.clear();
+    // const componentRef = this.rootViewContainer.createComponent(componentFactory);
   }
 
   dismiss() {
-    this.rootViewContainer.clear();
+    // this.rootViewContainer.clear();
   }
 }
