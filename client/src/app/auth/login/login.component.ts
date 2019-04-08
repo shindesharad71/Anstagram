@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     this.checkForEmailVerification();
     this.titleService.setTitle('Anstagram - Login');
     if (this.authService.checkToken()) {
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/');
     }
   }
 
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.loginForm.value).subscribe((res: any) => {
         this.authService.setToken(res.token);
         if (this.authService.checkToken()) {
-          this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/');
         } else {
           this.router.navigateByUrl('/login');
         }

@@ -65,7 +65,7 @@ export class CreatePostComponent implements OnInit {
     this.formData.set('location', this.createPostForm.value.location);
     this.feedService.createUserFeed(this.formData).subscribe(res => {
       console.log(res);
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/');
     }, err => {
       console.log(err);
     });
