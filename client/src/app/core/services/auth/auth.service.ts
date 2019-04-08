@@ -47,4 +47,8 @@ export class AuthService {
   verifyUser(query: any) {
     return this.http.post(`${environment.BASE_URL}users/verify`, query);
   }
+
+  checkUsername(username: string) {
+    return this.http.get(`${environment.BASE_URL}users/check/${username}`);
+  }
 }

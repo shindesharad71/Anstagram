@@ -18,6 +18,7 @@ const register = async (req: any, res: any) => {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
+            username: req.body.username,
             password: hashedPassword,
             dateOfBirth: req.body.dateOfBirth,
             gender: req.body.gender,
@@ -34,9 +35,10 @@ const register = async (req: any, res: any) => {
 
 const login = async (req: any, res: any) => {
     try {
-        const email = req.body.email;
+        const loginInput = req.body.loginInput.toLowerCase();
         const password = req.body.password;
-        const userFound = await User.findOne({ email }) as UserType;
+        const fieldName = loginInput.includes('@') ? 'email' : 'username';
+        const userFound = await User.findOne({ [fieldName]: loginInput }) as UserType;
 
         if (userFound && Object.keys(userFound).length > 1) {
             if (userFound.isVerified) {
@@ -50,7 +52,7 @@ const login = async (req: any, res: any) => {
                 res.status(403).json({ message: `please verify your email to login` });
             }
         } else {
-            res.status(404).json({ message: `no user found with email ${email}` });
+            res.status(404).json({ message: `no user found with ${loginInput}` });
         }
     } catch (error) {
         res.status(400).json(error);
@@ -96,4 +98,14 @@ const verify = async (req: any, res: any) => {
     }
 };
 
-export { register, login, logout, verify };
+const checkUsername = async (req: any, res: any) => {
+    try {
+        const username = req.params.username;
+        const isUsernameExists = await User.findOne({ username });
+        res.json(isUsernameExists);
+    } catch (error) {
+        throw error;
+    }
+};
+
+export { register, login, logout, verify, checkUsername };

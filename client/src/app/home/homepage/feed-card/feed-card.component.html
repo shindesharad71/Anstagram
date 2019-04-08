@@ -5,19 +5,19 @@
         <div class="media">
           <div class="media-left">
             <figure class="image is-32x32">
-              <img class="is-rounded" [src]="feed?.user?.avatar ? feed?.user?.avatar : defaultAvatar"
-                alt="Image">
+              <img class="is-rounded" [src]="feed?.user?.avatar ? feed?.user?.avatar : defaultAvatar" alt="Image">
             </figure>
           </div>
           <div class="media-content">
-            <p class="title is-5 no-padding user-name">{{ feed?.user?.firstName }} {{ feed?.user?.lastName }}</p>
+            <p class="title is-5 no-padding user-name">{{ feed?.user?.username }}</p>
             <p class="feed-location" *ngIf="feed?.location">{{ feed?.location }}</p>
           </div>
         </div>
       </div>
       <div class="card-image">
-        <figure class="image">
-          <img [defaultImage]="defaultImage" [lazyLoad]="feed?.media[0]" [offset]="'100'" alt="Image">
+        <figure class="image is-1by1">
+          <img [defaultImage]="defaultImage" [lazyLoad]="feed?.media[0]" [offset]="'100'" alt="Image"
+            (dblclick)="like()">
         </figure>
       </div>
       <div class="card-content space-between">
@@ -38,7 +38,12 @@
           <time datetime="2016-1-1">{{feed.createdAt | date: 'medium'}}</time>
           <br>
           <div class="feed-comments" *ngIf="feed?.feedComments?.length">
-            <p *ngFor="let comment of feed.feedComments">{{ comment.comment }}</p>
+            <div class="comment-item">
+              <p *ngFor="let comment of feed.feedComments"><span>{{ comment?.user?.username }}</span>
+                {{ comment.comment }}</p>
+              <img [className]="isThisCommentLiked ? 'feed-icons liked': 'feed-icons'" [src]="heartIcon"
+                (click)="commentLiked()" alt="like">
+            </div>
           </div>
           <div class="comment-box" *ngIf="isCommentBoxOpen">
             <input type="text" placeholder="Add a comment..." [(ngModel)]="comment">

@@ -10,9 +10,9 @@ const getUserFeed = async (req: any, res: any) => {
         const userFeed: any[] = [];
         const feedItemsToSkip: number = Number(req.params.feedItemsToSkip);
         if (feedItemsToSkip > 0) {
-            feed = await Feed.find({}).sort({ createdAt: 'desc' }).skip(feedItemsToSkip).limit(10).populate({ path: 'user', select: 'firstName lastName' });
+            feed = await Feed.find({}).sort({ createdAt: 'desc' }).skip(feedItemsToSkip).limit(10).populate({ path: 'user', select: 'firstName lastName username' });
         } else {
-            feed = await Feed.find({}).sort({ createdAt: 'desc' }).limit(10).populate({ path: 'user', select: 'firstName lastName' });
+            feed = await Feed.find({}).sort({ createdAt: 'desc' }).limit(10).populate({ path: 'user', select: 'firstName lastName username' });
         }
 
         if (feed && feed.length) {
@@ -25,7 +25,7 @@ const getUserFeed = async (req: any, res: any) => {
                 }
 
                 // Feed Comments
-                const feedComments = await Comment.find({ feed: item._id }).sort({ createdAt: 'desc' }).limit(2).populate({ path: 'user', select: 'firstName lastName' });
+                const feedComments = await Comment.find({ feed: item._id }).sort({ createdAt: 'desc' }).limit(2).populate({ path: 'user', select: 'firstName lastName username' });
 
                 const newItem: any = { ...item._doc, media: signedMedia, feedComments };
                 userFeed.push(newItem);
@@ -51,7 +51,7 @@ const addUserFeed = async (req: any, res: any) => {
                 });
             }
             const feed = new Feed({
-                user: req.user,
+                user: req.user.user,
                 media: uploadedFileNames,
                 description: req.body.description,
                 location: req.body.location

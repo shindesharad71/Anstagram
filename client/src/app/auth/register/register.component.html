@@ -30,7 +30,7 @@
             <label class="label">Email</label>
             <div class="control has-icons-left has-icons-right">
               <input class="input" type="email" placeholder="Email" [ngClass]="{'is-danger': isEmailInvalid}"
-                formControlName="email" (blur)="onInputBlur()" name="email">
+                formControlName="email" (input)="checkEmail()" name="email">
               <span class="icon is-small is-left">
                 <fa-icon icon="envelope"></fa-icon>
               </span>
@@ -39,7 +39,33 @@
               </span>
             </div>
             <p class="help is-danger" *ngIf="isEmailInvalid">This email is invalid</p>
-            <p class="help is-success" *ngIf="!isEmailInvalid && registerForm?.controls?.email?.value !== ''">Cool! you will receive verification link on this email</p>
+            <p class="help is-success" *ngIf="!isEmailInvalid && registerForm?.controls?.email?.value !== ''">Cool! you
+              will receive verification link on this email</p>
+          </div>
+
+          <div class="field">
+            <label class="label">Username</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" type="text" placeholder="Username" [ngClass]="{'is-danger': isUsernameInvalid}"
+                formControlName="username" name="username" (input)="checkUsername()" minlength="4">
+              <span class="icon is-small is-left">
+                <fa-icon icon="id-card"></fa-icon>
+              </span>
+              <span class="icon is-small is-right" *ngIf="isUsernameInvalid">
+                <fa-icon icon="exclamation-triangle"></fa-icon>
+              </span>
+              <span class="icon is-small is-right" *ngIf="!isUsernameInvalid && isUsernameAvailable">
+                <fa-icon icon="check"></fa-icon>
+              </span>
+            </div>
+            <p class="help is-danger" *ngIf="!isUsernameAvailable && registerForm?.controls?.username?.value !== ''">sorry, this username already taken
+            </p>
+            <p class="help is-danger" *ngIf="!!registerForm?.controls?.username?.errors?.minlength">username must be at
+              least 4 characters long.</p>
+            <p class="help is-success"
+              *ngIf="!registerForm?.controls?.username?.errors && !isUsernameInvalid && !!registerForm?.controls?.username?.dirty && registerForm?.controls?.username?.value !== ''">
+              Yes! this
+              username is available</p>
           </div>
 
           <div class="field">
@@ -75,7 +101,8 @@
           <div class="field">
             <label class="label">Date of Birth</label>
             <div class="control has-icons-left">
-              <input class="input" type="date" placeholder="Date of Birth" formControlName="dateOfBirth" name="dateOfBirth">
+              <input class="input" type="date" placeholder="Date of Birth" formControlName="dateOfBirth"
+                name="dateOfBirth">
               <span class="icon is-small is-left">
                 <fa-icon icon="calendar"></fa-icon>
               </span>
@@ -126,6 +153,7 @@
         <h3 class="title is-3">Registered Successfully</h3>
         <div class="field is-grouped">
           <div class="control">
+            <p>Please confirm your email to login</p>
             <button type="button" class="button is-text" routerLink="/login">Let's Login!</button>
           </div>
         </div>

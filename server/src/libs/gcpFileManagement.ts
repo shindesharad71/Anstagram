@@ -19,7 +19,6 @@ const uploadFile = async (filePath: string) => {
                 cacheControl: 'public, max-age=31536000'
             }
         });
-        console.log(JSON.stringify(uploadedFile[0].metadata.name, undefined, 2));
         return uploadedFile[0].metadata.name;
     } catch (error) {
         throw error;

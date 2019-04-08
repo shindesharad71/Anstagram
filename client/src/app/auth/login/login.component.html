@@ -4,20 +4,16 @@
       <div class="column is-half">
         <h3 class="title is-3">Login</h3>
         <ia-notification [className]="notificationType" [message]="errorMessage"></ia-notification>
-        <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <form [formGroup]="loginForm" (ngSubmit)="login()" (keydown.enter)="login()">
           <div class="field">
-            <label class="label">Email</label>
+            <label class="label">Email or Username</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input is-medium" type="email" placeholder="Email" [ngClass]="{'is-danger': isEmailInvalid}"
-                formControlName="email" (blur)="onInputBlur()" name="email">
+              <input class="input is-medium" type="text" placeholder="Email or Username"
+                formControlName="loginInput" name="loginInput">
               <span class="icon is-small is-left">
                 <fa-icon icon="envelope"></fa-icon>
               </span>
-              <span class="icon is-small is-right" *ngIf="isEmailInvalid">
-                <fa-icon icon="exclamation-triangle"></fa-icon>
-              </span>
             </div>
-            <p class="help is-danger" *ngIf="isEmailInvalid">This email is invalid</p>
           </div>
 
           <div class="field">

@@ -9,6 +9,7 @@
         </div>
         <form enctype="multipart/form-data" [formGroup]="createPostForm" (ngSubmit)="createPost()">
           <div class="field">
+              <label for="description">Image <small>(please make sure image have 1x1 aspect ratio for better display)</small></label>
             <file-pond #imageUpload [options]="pondOptions" (onaddfile)="onFilesAdded()"
               (onremovefile)="onFilesAdded()">
             </file-pond>
@@ -22,7 +23,7 @@
             </div>
           </div>
 
-          <div class="field">
+          <div class="field"z>
             <div class="control">
               <label for="location">Add Location (Optional)</label>
               <input class="input" type="text" placeholder="Add Location" name="location" (focus)="getGeoLocation()" formControlName="location">

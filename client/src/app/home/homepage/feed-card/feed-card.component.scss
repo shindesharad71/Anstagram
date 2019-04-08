@@ -6,6 +6,9 @@
       margin-bottom: 0px;
     }
   }
+  figure {
+    max-height: 500px;
+  }
   .space-between {
     display: flex;
     justify-content: space-between;
@@ -61,12 +64,38 @@ time {
   font-size: 13px;
   p {
     margin-bottom: 0.1em;
+    span {
+      font-weight: bold;
+    }
+  }
+  .comment-item {
+    display: flex;
+    justify-content: space-between;
+    img {
+      height: 12px;
+      width: 12px;
+      cursor: pointer;
+    }
   }
 }
 
 .feed-location {
   padding: 0px;
   font-size: 14px;
+}
+
+.img-double-tap-animation {
+  background: url("/assets/icons/heart-red-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  max-height: 250px;
+  display: block;
+  position: absolute;
+  content: "";
+  left: 33%;
+  top: 33%;
 }
 
 /* Animation */
@@ -95,5 +124,19 @@ time {
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@media (max-width: 481px) {
+  .section {
+    padding: 3rem 1rem;
+  }
+
+  .column {
+    padding: 8px;
+  }
+
+  .feed-card {
+    padding: 24px 0px;
   }
 }
