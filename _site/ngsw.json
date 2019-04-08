@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1554542531903,
+  "timestamp": 1554733629973,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -8,12 +8,13 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
+        "/5.cdce06529f3b442ab270.js",
         "/es2015-polyfills.c5dd28b362270c767b34.js",
         "/favicon.ico",
         "/index.html",
-        "/main.dc2152dd96d935428452.js",
+        "/main.faa479013e18052846ee.js",
         "/polyfills.8bbb231b43165d65d357.js",
-        "/runtime.26209474bfa8dc87a77c.js",
+        "/runtime.cb7204d5219b2e9152df.js",
         "/styles.a4d7b59a14fd72385c12.css"
       ],
       "patterns": []
@@ -60,6 +61,7 @@
   ],
   "dataGroups": [],
   "hashTable": {
+    "/5.cdce06529f3b442ab270.js": "20f632945a68472bb05624486e7d63b67628e695",
     "/assets/icons/add-icon.png": "1edcb6644c0043335956489127788821668c57a5",
     "/assets/icons/android-chrome-192x192.png": "28e98393c175a220498904b3383f6e7cabdccdd3",
     "/assets/icons/android-chrome-512x512.png": "4357d70a0bc4206cbe735fca3041810eb72af2cf",
@@ -93,10 +95,10 @@
     "/assets/logo/anstagram-transperent-logo.png": "64d4c23184464e370533507f22b1b748c6dfe2da",
     "/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
     "/favicon.ico": "a0b0804826249c4c46ca07cf601855993f0e7a9b",
-    "/index.html": "09d6d8b01671d736250cb9ace4bc4e9d53b9d5b5",
-    "/main.dc2152dd96d935428452.js": "a69eb1a7e4a7ef11e857bde8eb333ffe0f33f3b3",
+    "/index.html": "79455ca197fc03bf4fb22d27609784049e2be972",
+    "/main.faa479013e18052846ee.js": "27d1660a9a926807f4260333c2647ecad3b97f57",
     "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
-    "/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
+    "/runtime.cb7204d5219b2e9152df.js": "8234e446ea37696a8a3892eeb84744f321e29613",
     "/styles.a4d7b59a14fd72385c12.css": "bb15e3c7858458c5ca1682798395f884c9c98e43"
   },
   "navigationUrls": [
