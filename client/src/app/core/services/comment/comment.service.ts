@@ -8,12 +8,4 @@ import { environment } from '../../../../environments/environment';
 export class CommentService {
 
   constructor(private http: HttpClient) { }
-
-  getComment(feedItemsToSkip: number) {
-    return this.http.get(`${environment.BASE_URL}comments`);
-  }
-
-  postComment(commentPayload) {
-    return this.http.post(`${environment.BASE_URL}comments`, commentPayload);
-  }
 }

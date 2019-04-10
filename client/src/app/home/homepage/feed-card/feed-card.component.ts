@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserProfile, HeartIconStates, ImageProperties } from '../../../app.constants';
 import { CommentService } from 'src/app/core/services/comment/comment.service';
+import { HttpService } from 'src/app/core/services/http/http.service';
 
 @Component({
   selector: 'ia-feed-card',
@@ -17,7 +18,7 @@ export class FeedCardComponent implements OnInit {
   isCommentBoxOpen = false;
   defaultImage = ImageProperties.IMAGE_PLACEHOLDER;
 
-  constructor(private commentService: CommentService) { }
+  constructor(private commentService: CommentService, private httpService: HttpService) { }
 
   ngOnInit() {
   }
@@ -48,7 +49,7 @@ export class FeedCardComponent implements OnInit {
       feedId: this.feed._id,
       comment: this.comment
     });
-    this.commentService.postComment(commentPayload).subscribe(res => {
+    this.httpService.post('comments', commentPayload).subscribe(res => {
       this.comment = '';
     }, err => {
       console.log(err);
