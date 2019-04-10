@@ -41,7 +41,6 @@ export class CreatePostComponent implements OnInit {
   constructor(private titleService: Title, private feedService: FeedService, private router: Router, private loaderService: LoaderService) { }
 
   ngOnInit() {
-    this.loaderService.show();
     this.titleService.setTitle('Create Post');
     this.createPostForm = new FormGroup({
       description: new FormControl(''),
@@ -58,7 +57,6 @@ export class CreatePostComponent implements OnInit {
   }
 
   createPost() {
-    this.loaderService.show();
     this.uploadedFiles = [];
     const images = this.imageUpload.getFiles();
     for (const img of images) {
