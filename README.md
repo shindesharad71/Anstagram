@@ -2,9 +2,9 @@
 
 [logo]: https://github.com/shindesharad71/Anstagram/blob/master/client/src/assets/logo/anstagram-transperent-logo.png?raw=true "Anstragram"
 
-# Anstagram [Side Project] [Work In Progress]
+# Anstagram [Work In Progress]
 
-Instagram Clone with Angular, Node and Typescript.
+Instagram Clone with Angular, Node and Typescript started on 9 March 2019.
 
 #### [Project Progress](https://github.com/users/shindesharad71/projects/1)
 
