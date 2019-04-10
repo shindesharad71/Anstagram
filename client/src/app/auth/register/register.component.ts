@@ -76,7 +76,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.isPasswordsMatch = this.registerForm.controls.password.value === this.registerForm.controls.confirmPassword.value;
   }
 
-  checkUsername(usernameInput) {
+  checkUsername() {
     this.isUsernameAvailable = false;
     // tslint:disable-next-line: max-line-length
     this.isUsernameInvalid = this.registerForm.controls.username.touched && this.registerForm.controls.username.dirty && !this.registerForm.controls.username.valid;
@@ -88,7 +88,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   checkAvailabilityOfUsername(usernameInput) {
     this.authService.checkUsername(usernameInput).subscribe(res => {
-      console.log(res);
       if (!res) {
         this.isUsernameAvailable = true;
       } else {
