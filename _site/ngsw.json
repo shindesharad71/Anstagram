@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1554733629973,
+  "timestamp": 1554915026580,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -8,14 +8,14 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "/5.cdce06529f3b442ab270.js",
+        "/5.f109910f2359f0865420.js",
         "/es2015-polyfills.c5dd28b362270c767b34.js",
         "/favicon.ico",
         "/index.html",
-        "/main.faa479013e18052846ee.js",
+        "/main.8b11a741cf19be82f46b.js",
         "/polyfills.8bbb231b43165d65d357.js",
-        "/runtime.cb7204d5219b2e9152df.js",
-        "/styles.a4d7b59a14fd72385c12.css"
+        "/runtime.9c4b9e7b43c3f40a9694.js",
+        "/styles.b97ed51f6571fe82ae2e.css"
       ],
       "patterns": []
     },
@@ -61,7 +61,7 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/5.cdce06529f3b442ab270.js": "20f632945a68472bb05624486e7d63b67628e695",
+    "/5.f109910f2359f0865420.js": "92562d78c5a84d75bec91303fabfb92f735827a1",
     "/assets/icons/add-icon.png": "1edcb6644c0043335956489127788821668c57a5",
     "/assets/icons/android-chrome-192x192.png": "28e98393c175a220498904b3383f6e7cabdccdd3",
     "/assets/icons/android-chrome-512x512.png": "4357d70a0bc4206cbe735fca3041810eb72af2cf",
@@ -95,11 +95,11 @@
     "/assets/logo/anstagram-transperent-logo.png": "64d4c23184464e370533507f22b1b748c6dfe2da",
     "/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
     "/favicon.ico": "a0b0804826249c4c46ca07cf601855993f0e7a9b",
-    "/index.html": "79455ca197fc03bf4fb22d27609784049e2be972",
-    "/main.faa479013e18052846ee.js": "27d1660a9a926807f4260333c2647ecad3b97f57",
+    "/index.html": "b6933b338f29e01cf25513d68df47732e5bb12bc",
+    "/main.8b11a741cf19be82f46b.js": "89d023e2af119ec6929a736dd0f27e7dcc5677cb",
     "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
-    "/runtime.cb7204d5219b2e9152df.js": "8234e446ea37696a8a3892eeb84744f321e29613",
-    "/styles.a4d7b59a14fd72385c12.css": "bb15e3c7858458c5ca1682798395f884c9c98e43"
+    "/runtime.9c4b9e7b43c3f40a9694.js": "d04d52cf033feba4a6889d30b8d999f1c43c5919",
+    "/styles.b97ed51f6571fe82ae2e.css": "bb15e3c7858458c5ca1682798395f884c9c98e43"
   },
   "navigationUrls": [
     {
