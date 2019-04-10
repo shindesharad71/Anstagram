@@ -12,8 +12,8 @@
   background: #27c4f5 -webkit-gradient(linear, left top, right top, from(#27c4f5), color-stop(#a307ba), color-stop(#fd8d32), color-stop(#70c050), to(#27c4f5));
   background: #27c4f5 linear-gradient(to right, #27c4f5, #a307ba, #fd8d32, #70c050, #27c4f5);
   background-size: 500%;
-  -webkit-animation: 2s linear infinite progress, 0.3s fade-in !important;
-  animation: 2s linear infinite progress, 0.3s fade-in !important;
+  -webkit-animation: 2s linear infinite progress, 0.3s fade-in;
+  animation: 2s linear infinite progress, 0.3s fade-in;
   width: 100%;
 }
 @-webkit-keyframes progress {
