@@ -35,8 +35,6 @@ const getSignedUrl = async (fileName: string) => {
         // Get a signed URL for the file
         const [url] = await bucket.file(fileName)
             .getSignedUrl(options);
-
-        console.log(url);
         return url;
     } catch (error) {
         throw error;
