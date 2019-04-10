@@ -28,6 +28,7 @@ import { AuthGuardService } from './guards/auth-guard.service';
 import { FeedService } from './services/feed/feed.service';
 import { CommentService } from './services/comment/comment.service';
 import { NotificationComponent } from './components/notification/notification.component';
+import { HttpService } from './services/http/http.service';
 
 @NgModule({
   declarations: [LoaderComponent, NotificationComponent],
@@ -50,7 +51,8 @@ import { NotificationComponent } from './components/notification/notification.co
     LoaderService,
     AuthGuardService,
     FeedService,
-    CommentService
+    CommentService,
+    HttpService
   ],
   entryComponents: [
     LoaderComponent
