@@ -1,7 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { FeedService } from 'src/app/core/services/feed/feed.service';
 import { HttpService } from 'src/app/core/services/http/http.service';
 
 @Component({
@@ -12,7 +11,7 @@ import { HttpService } from 'src/app/core/services/http/http.service';
 
 export class HomepageComponent implements OnInit {
   feedItems = [];
-  constructor(private router: Router, private titleService: Title, private feedService: FeedService, private httpService: HttpService) {
+  constructor(private router: Router, private titleService: Title, private httpService: HttpService) {
     this.titleService.setTitle('Home');
   }
 
