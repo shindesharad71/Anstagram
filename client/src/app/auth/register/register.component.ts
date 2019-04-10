@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Subscription, Subject } from 'rxjs';
+import { HttpService } from 'src/app/core/services/http/http.service';
 
 @Component({
   selector: 'ia-register',
@@ -23,7 +24,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   usernameSubject = new Subject<string>();
   isUsernameAvailable = false;
 
-  constructor(private authService: AuthService, private titleService: Title) {
+  constructor(private authService: AuthService, private titleService: Title, private httpService: HttpService) {
     this.titleService.setTitle('Register');
   }
 
@@ -57,7 +58,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   register() {
     this.errorMessage = null;
     if (this.isUsernameAvailable) {
-      this.authService.register(this.registerForm.value).subscribe(res => {
+      this.httpService.post('users/register', this.registerForm.value).subscribe(res => {
         this.isRegistrationComplete = true;
       }, err => {
         this.errorMessage = err.error.message;
@@ -76,7 +77,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.isPasswordsMatch = this.registerForm.controls.password.value === this.registerForm.controls.confirmPassword.value;
   }
 
-  checkUsername(usernameInput) {
+  checkUsername() {
     this.isUsernameAvailable = false;
     // tslint:disable-next-line: max-line-length
     this.isUsernameInvalid = this.registerForm.controls.username.touched && this.registerForm.controls.username.dirty && !this.registerForm.controls.username.valid;
@@ -87,8 +88,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   checkAvailabilityOfUsername(usernameInput) {
-    this.authService.checkUsername(usernameInput).subscribe(res => {
-      console.log(res);
+    this.httpService.get(`users/check/${usernameInput}`).subscribe(res => {
       if (!res) {
         this.isUsernameAvailable = true;
       } else {

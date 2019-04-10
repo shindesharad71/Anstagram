@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
   selector: 'ia-forgot-password',
@@ -14,7 +13,7 @@ export class ForgotPasswordComponent implements OnInit {
   isError = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService, private titleService: Title) {
+  constructor(private titleService: Title) {
     this.titleService.setTitle('Anstagram - Forgot Password');
   }
 
@@ -25,13 +24,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   forgotPassword() {
-    this.authService.login(this.forgotPasswordForm.value).subscribe((res: any) => {
-      console.log(res);
-    }, err => {
-      this.errorMessage = err.error.message;
-      this.isError = true;
-      console.log(err);
-    });
+    console.log('forgot password');
   }
 
   onInputBlur() {

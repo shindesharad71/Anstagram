@@ -101,7 +101,7 @@ const verify = async (req: any, res: any) => {
 const checkUsername = async (req: any, res: any) => {
     try {
         const username = req.params.username;
-        const isUsernameExists = await User.findOne({ username });
+        const isUsernameExists = await User.findOne({ username }, 'username');
         res.json(isUsernameExists);
     } catch (error) {
         throw error;

@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { FeedService } from 'src/app/core/services/feed/feed.service';
+import { HttpService } from 'src/app/core/services/http/http.service';
 
 @Component({
   selector: 'ia-homepage',
@@ -11,7 +11,7 @@ import { FeedService } from 'src/app/core/services/feed/feed.service';
 
 export class HomepageComponent implements OnInit {
   feedItems = [];
-  constructor(private router: Router, private titleService: Title, private feedService: FeedService) {
+  constructor(private router: Router, private titleService: Title, private httpService: HttpService) {
     this.titleService.setTitle('Home');
   }
 
@@ -28,7 +28,7 @@ export class HomepageComponent implements OnInit {
   }
 
   getFeed() {
-    this.feedService.getUserFeed(this.feedItems.length).subscribe((res: any) => {
+    this.httpService.get(`feed/${this.feedItems.length}`).subscribe((res: any) => {
       console.log(res);
       this.feedItems.push(...res);
     }, err => {

@@ -58,12 +58,14 @@
                 <fa-icon icon="check"></fa-icon>
               </span>
             </div>
-            <p class="help is-danger" *ngIf="!isUsernameAvailable && registerForm?.controls?.username?.value !== ''">sorry, this username already taken
+            <p class="help is-danger"
+              *ngIf="!isUsernameAvailable && registerForm?.controls?.username?.value?.length > 3">sorry, this username
+              already taken
             </p>
             <p class="help is-danger" *ngIf="!!registerForm?.controls?.username?.errors?.minlength">username must be at
               least 4 characters long.</p>
             <p class="help is-success"
-              *ngIf="!registerForm?.controls?.username?.errors && !isUsernameInvalid && !!registerForm?.controls?.username?.dirty && registerForm?.controls?.username?.value !== ''">
+              *ngIf="!registerForm?.controls?.username?.errors && !isUsernameInvalid && isUsernameAvailable && !!registerForm?.controls?.username?.dirty && registerForm?.controls?.username?.value?.length > 0">
               Yes! this
               username is available</p>
           </div>

@@ -1,4 +1,4 @@
-<div class="columns is-centered feed-card">
+<article class="columns is-centered feed-card">
   <div class="column is-half">
     <div class="card large">
       <div class="card-content header-info">
@@ -38,8 +38,8 @@
           <time datetime="2016-1-1">{{feed.createdAt | date: 'medium'}}</time>
           <br>
           <div class="feed-comments" *ngIf="feed?.feedComments?.length">
-            <div class="comment-item">
-              <p *ngFor="let comment of feed.feedComments"><span>{{ comment?.user?.username }}</span>
+            <div class="comment-item" *ngFor="let comment of feed.feedComments">
+              <p><span>{{ comment?.user?.username }}</span>
                 {{ comment.comment }}</p>
               <img [className]="isThisCommentLiked ? 'feed-icons liked': 'feed-icons'" [src]="heartIcon"
                 (click)="commentLiked()" alt="like">
@@ -54,4 +54,4 @@
       </div>
     </div>
   </div>
-</div>
+</article>

@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { FeedService } from 'src/app/core/services/feed/feed.service';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
+import { HttpService } from 'src/app/core/services/http/http.service';
 
 @Component({
   selector: 'ia-create-post',
@@ -14,10 +14,11 @@ export class CreatePostComponent implements OnInit {
 
   createPostForm: FormGroup;
   isError = false;
-  errorMessage = '';
   uploadedFiles: any = [];
   formData: FormData = new FormData();
   userLocation = null;
+  errorMessage: string;
+  notificationType = 'is-danger';
 
   pondOptions = {
     class: 'image-upload',
@@ -35,12 +36,13 @@ export class CreatePostComponent implements OnInit {
     allowImageTransform: true
   };
 
-  constructor(private titleService: Title, private feedService: FeedService, private router: Router) { }
+  // tslint:disable-next-line: max-line-length
+  constructor(private titleService: Title, private router: Router, private httpService: HttpService) { }
 
   ngOnInit() {
     this.titleService.setTitle('Create Post');
     this.createPostForm = new FormGroup({
-      description: new FormControl(null, [Validators.required]),
+      description: new FormControl(''),
       location: new FormControl('')
     });
   }
@@ -56,15 +58,13 @@ export class CreatePostComponent implements OnInit {
   createPost() {
     this.uploadedFiles = [];
     const images = this.imageUpload.getFiles();
-    console.log(images);
     for (const img of images) {
       this.uploadedFiles.push(img.file);
     }
     this.formData.set('images', this.uploadedFiles[0]);
     this.formData.set('description', this.createPostForm.value.description);
     this.formData.set('location', this.createPostForm.value.location);
-    this.feedService.createUserFeed(this.formData).subscribe(res => {
-      console.log(res);
+    this.httpService.post('feed', this.formData).subscribe(res => {
       this.router.navigateByUrl('/');
     }, err => {
       console.log(err);
@@ -86,15 +86,6 @@ export class CreatePostComponent implements OnInit {
       });
     } else {
       console.log('geolocation not supported');
-    }
-  }
-
-  removeErrorMessage() {
-    if (document.readyState === 'complete') {
-      const allNotifications = document.querySelectorAll('.notification');
-      allNotifications.forEach((notificationToDelete: any) => {
-        notificationToDelete.remove();
-      });
     }
   }
 }

@@ -25,9 +25,8 @@ import { InterceptorService } from './services/interceptor.service';
 import { LoaderComponent } from './components/loader/loader.component';
 import { LoaderService } from './components/loader/loader.service';
 import { AuthGuardService } from './guards/auth-guard.service';
-import { FeedService } from './services/feed/feed.service';
-import { CommentService } from './services/comment/comment.service';
 import { NotificationComponent } from './components/notification/notification.component';
+import { HttpService } from './services/http/http.service';
 
 @NgModule({
   declarations: [LoaderComponent, NotificationComponent],
@@ -49,8 +48,7 @@ import { NotificationComponent } from './components/notification/notification.co
     AuthService,
     LoaderService,
     AuthGuardService,
-    FeedService,
-    CommentService
+    HttpService
   ],
   entryComponents: [
     LoaderComponent
