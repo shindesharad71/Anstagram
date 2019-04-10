@@ -16,7 +16,7 @@ export class LoaderService {
   show() {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(LoaderComponent);
     this.rootViewContainer.clear();
-    this.rootViewContainer.createComponent(componentFactory);
+    const container = this.rootViewContainer.createComponent(componentFactory);
   }
 
   dismiss() {

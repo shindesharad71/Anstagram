@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { LoaderService } from 'src/app/core/components/loader/loader.service';
 
 @Component({
   selector: 'ia-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   errorMessage: string;
   notificationType = 'is-danger';
 
-  constructor(private authService: AuthService, private titleService: Title, private router: Router, private route: ActivatedRoute) {
+  // tslint:disable-next-line: max-line-length
+  constructor(private authService: AuthService, private titleService: Title, private router: Router, private route: ActivatedRoute, loaderService: LoaderService) {
     this.checkForEmailVerification();
     this.titleService.setTitle('Anstagram - Login');
     if (this.authService.checkToken()) {

@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { FeedService } from 'src/app/core/services/feed/feed.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { LoaderService } from 'src/app/core/components/loader/loader.service';
 
 @Component({
   selector: 'ia-create-post',
@@ -14,10 +15,11 @@ export class CreatePostComponent implements OnInit {
 
   createPostForm: FormGroup;
   isError = false;
-  errorMessage = '';
   uploadedFiles: any = [];
   formData: FormData = new FormData();
   userLocation = null;
+  errorMessage: string;
+  notificationType = 'is-danger';
 
   pondOptions = {
     class: 'image-upload',
@@ -35,12 +37,13 @@ export class CreatePostComponent implements OnInit {
     allowImageTransform: true
   };
 
-  constructor(private titleService: Title, private feedService: FeedService, private router: Router) { }
+  // tslint:disable-next-line: max-line-length
+  constructor(private titleService: Title, private feedService: FeedService, private router: Router, private loaderService: LoaderService) { }
 
   ngOnInit() {
     this.titleService.setTitle('Create Post');
     this.createPostForm = new FormGroup({
-      description: new FormControl(null, [Validators.required]),
+      description: new FormControl(''),
       location: new FormControl('')
     });
   }
@@ -54,9 +57,9 @@ export class CreatePostComponent implements OnInit {
   }
 
   createPost() {
+    this.loaderService.show();
     this.uploadedFiles = [];
     const images = this.imageUpload.getFiles();
-    console.log(images);
     for (const img of images) {
       this.uploadedFiles.push(img.file);
     }
@@ -64,7 +67,6 @@ export class CreatePostComponent implements OnInit {
     this.formData.set('description', this.createPostForm.value.description);
     this.formData.set('location', this.createPostForm.value.location);
     this.feedService.createUserFeed(this.formData).subscribe(res => {
-      console.log(res);
       this.router.navigateByUrl('/');
     }, err => {
       console.log(err);
@@ -86,15 +88,6 @@ export class CreatePostComponent implements OnInit {
       });
     } else {
       console.log('geolocation not supported');
-    }
-  }
-
-  removeErrorMessage() {
-    if (document.readyState === 'complete') {
-      const allNotifications = document.querySelectorAll('.notification');
-      allNotifications.forEach((notificationToDelete: any) => {
-        notificationToDelete.remove();
-      });
     }
   }
 }

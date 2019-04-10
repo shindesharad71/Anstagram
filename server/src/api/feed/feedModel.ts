@@ -14,7 +14,7 @@ const feedSchema = new Schema({
     id: { type: ObjectId, index: true },
     user: {type: ObjectId, ref: 'User'},
     media: { type: Array, required: 'required media' },
-    description: { type: String, required: 'required description' },
+    description: { type: String, default: '' },
     location: { type: String, default: '' }
 }, {
         timestamps: true
