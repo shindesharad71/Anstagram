@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { FeedService } from 'src/app/core/services/feed/feed.service';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { LoaderService } from 'src/app/core/components/loader/loader.service';
+import { FormGroup, FormControl } from '@angular/forms';
+import { HttpService } from 'src/app/core/services/http/http.service';
 
 @Component({
   selector: 'ia-create-post',
@@ -38,7 +37,7 @@ export class CreatePostComponent implements OnInit {
   };
 
   // tslint:disable-next-line: max-line-length
-  constructor(private titleService: Title, private feedService: FeedService, private router: Router, private loaderService: LoaderService) { }
+  constructor(private titleService: Title, private router: Router, private httpService: HttpService) { }
 
   ngOnInit() {
     this.titleService.setTitle('Create Post');
@@ -65,7 +64,7 @@ export class CreatePostComponent implements OnInit {
     this.formData.set('images', this.uploadedFiles[0]);
     this.formData.set('description', this.createPostForm.value.description);
     this.formData.set('location', this.createPostForm.value.location);
-    this.feedService.createUserFeed(this.formData).subscribe(res => {
+    this.httpService.post('feed', this.formData).subscribe(res => {
       this.router.navigateByUrl('/');
     }, err => {
       console.log(err);
