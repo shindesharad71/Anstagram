@@ -14,12 +14,7 @@
           </div>
         </div>
       </div>
-      <div class="card-image">
-        <figure class="image is-1by1">
-          <img [defaultImage]="defaultImage" [lazyLoad]="feed?.media[0]" [offset]="'100'" alt="Image"
-            (dblclick)="like()">
-        </figure>
-      </div>
+      <ia-feed-images></ia-feed-images>
       <div class="card-content space-between">
         <div class="left">
           <img [className]="isThisFeedLiked ? 'feed-icons liked': 'feed-icons'" [src]="heartIcon" (click)="like()"
@@ -38,12 +33,9 @@
           <time datetime="2016-1-1">{{feed.createdAt | date: 'medium'}}</time>
           <br>
           <div class="feed-comments" *ngIf="feed?.feedComments?.length">
-            <div class="comment-item" *ngFor="let comment of feed.feedComments">
-              <p><span>{{ comment?.user?.username }}</span>
-                {{ comment.comment }}</p>
-              <img [className]="isThisCommentLiked ? 'feed-icons liked': 'feed-icons'" [src]="heartIcon"
-                (click)="commentLiked()" alt="like">
-            </div>
+            <ng-container *ngFor="let comment of feed.feedComments">
+              <ia-feed-comments [comment]="comment"></ia-feed-comments>
+            </ng-container>
           </div>
           <div class="comment-box" *ngIf="isCommentBoxOpen">
             <input type="text" placeholder="Add a comment..." [(ngModel)]="comment">

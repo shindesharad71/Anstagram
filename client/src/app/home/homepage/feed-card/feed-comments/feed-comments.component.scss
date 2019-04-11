@@ -1,0 +1,38 @@
+.comment-item {
+  display: flex;
+  justify-content: space-between;
+  img {
+    height: 12px;
+    width: 12px;
+    cursor: pointer;
+  }
+}
+
+/* Animation */
+.liked {
+  animation: popup 0.7s;
+}
+
+@keyframes popup {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  80% {
+    transform: scale(1);
+  }
+  90% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
