@@ -20,7 +20,9 @@ export class FeedCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  like() {
+  like(feedId?) {
+    const feedIdToLike = feedId ? feedId : this.feed._id;
+    console.log('feedIdToLike', feedIdToLike);
     this.heartIcon = this.heartIcon === HeartIconStates.DEFAULT ?
       HeartIconStates.LIKED : HeartIconStates.DEFAULT;
     if (this.heartIcon === HeartIconStates.LIKED) {
@@ -28,6 +30,11 @@ export class FeedCardComponent implements OnInit {
     } else {
       this.isThisFeedLiked = false;
     }
+  }
+
+  // ! This is for double click like
+  imageLiked(feedId) {
+    this.like(feedId);
   }
 
   postComment() {

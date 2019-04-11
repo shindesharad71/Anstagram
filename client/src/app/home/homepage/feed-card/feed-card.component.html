@@ -14,7 +14,7 @@
           </div>
         </div>
       </div>
-      <ia-feed-images [media]="feed?.media"></ia-feed-images>
+      <ia-feed-images [media]="feed?.media" [feedId]="feed?._id" (imageLiked)="imageLiked($event)"></ia-feed-images>
       <div class="card-content space-between">
         <div class="left">
           <img [className]="isThisFeedLiked ? 'feed-icons liked': 'feed-icons'" [src]="heartIcon" (click)="like()"

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ImageProperties } from '../../../../app.constants';
 
 @Component({
@@ -8,10 +8,16 @@ import { ImageProperties } from '../../../../app.constants';
 })
 export class FeedImagesComponent implements OnInit {
   @Input() media: any;
+  @Input() feedId: string;
+  @Output() imageLiked = new EventEmitter();
   defaultImage = ImageProperties.IMAGE_PLACEHOLDER;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onDoubleClick() {
+    this.imageLiked.emit(this.feedId);
   }
 
 }
