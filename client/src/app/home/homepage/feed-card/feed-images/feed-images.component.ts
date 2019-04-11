@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ImageProperties } from '../../../../app.constants';
 
 @Component({
   selector: 'ia-feed-images',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feed-images.component.scss']
 })
 export class FeedImagesComponent implements OnInit {
-
+  @Input() media: any;
+  defaultImage = ImageProperties.IMAGE_PLACEHOLDER;
   constructor() { }
 
   ngOnInit() {

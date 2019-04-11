@@ -14,7 +14,6 @@ export class FeedCardComponent implements OnInit {
   isThisFeedLiked = false;
   comment = '';
   isCommentBoxOpen = false;
-  defaultImage = ImageProperties.IMAGE_PLACEHOLDER;
 
   constructor(private httpService: HttpService) { }
 

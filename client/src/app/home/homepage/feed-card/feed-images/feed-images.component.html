@@ -1,6 +1,7 @@
-<div class="card-image">
-  <figure class="image is-1by1">
-    <img [defaultImage]="defaultImage" [lazyLoad]="feed?.media[0]" [offset]="'100'" alt="Image"
-      (dblclick)="like()">
-  </figure>
+<div class="card-image" *ngIf="media?.length">
+  <ng-container *ngFor="let item of media">
+    <figure class="image is-1by1">
+      <img [defaultImage]="defaultImage" [lazyLoad]="item" [offset]="'100'" alt="Image" (dblclick)="like()">
+    </figure>
+  </ng-container>
 </div>

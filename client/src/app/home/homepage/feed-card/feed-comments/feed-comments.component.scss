@@ -6,6 +6,12 @@
     width: 12px;
     cursor: pointer;
   }
+  p {
+    margin-bottom: 0.1em;
+    span {
+      font-weight: bold;
+    }
+  }
 }
 
 /* Animation */
