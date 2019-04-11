@@ -12,17 +12,17 @@ export class FeedCardComponent implements OnInit {
   heartIcon = HeartIconStates.DEFAULT;
   defaultAvatar = UserProfile.USER_DEFAULT_PROFILE_URL;
   isThisFeedLiked = false;
-  isThisCommentLiked = false;
   comment = '';
   isCommentBoxOpen = false;
-  defaultImage = ImageProperties.IMAGE_PLACEHOLDER;
 
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
   }
 
-  like() {
+  like(feedId?) {
+    const feedIdToLike = feedId ? feedId : this.feed._id;
+    console.log('feedIdToLike', feedIdToLike);
     this.heartIcon = this.heartIcon === HeartIconStates.DEFAULT ?
       HeartIconStates.LIKED : HeartIconStates.DEFAULT;
     if (this.heartIcon === HeartIconStates.LIKED) {
@@ -32,14 +32,9 @@ export class FeedCardComponent implements OnInit {
     }
   }
 
-  commentLiked() {
-    this.heartIcon = this.heartIcon === HeartIconStates.DEFAULT ?
-      HeartIconStates.LIKED : HeartIconStates.DEFAULT;
-    if (this.heartIcon === HeartIconStates.LIKED) {
-      this.isThisCommentLiked = true;
-    } else {
-      this.isThisCommentLiked = false;
-    }
+  // ! This is for double click like
+  imageLiked(feedId) {
+    this.like(feedId);
   }
 
   postComment() {

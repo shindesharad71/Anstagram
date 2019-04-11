@@ -13,9 +13,10 @@
     display: flex;
     justify-content: space-between;
     padding-bottom: 0px;
+    padding-top: 8px;
   }
   .description-comments {
-    padding: 8px 24px;
+    padding: 4px 24px;
   }
 }
 
@@ -62,21 +63,6 @@ time {
 
 .feed-comments {
   font-size: 13px;
-  p {
-    margin-bottom: 0.1em;
-    span {
-      font-weight: bold;
-    }
-  }
-  .comment-item {
-    display: flex;
-    justify-content: space-between;
-    img {
-      height: 12px;
-      width: 12px;
-      cursor: pointer;
-    }
-  }
 }
 
 .feed-location {
