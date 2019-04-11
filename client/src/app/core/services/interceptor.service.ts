@@ -24,7 +24,9 @@ export class InterceptorService implements HttpInterceptor {
 
     return next.handle(req).pipe(
       map((res: any) => {
-        this.loaderService.dismiss();
+        if (res.status === 200 || res.status === 201) {
+          this.loaderService.dismiss();
+        }
         return res;
       }, (err: any) => {
         this.loaderService.dismiss();
