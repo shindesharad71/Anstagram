@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { AuthService } from './auth/auth.service';
 import { LoaderService } from '../components/loader/loader.service';
 @Injectable({
   providedIn: 'root'
 })
 export class InterceptorService implements HttpInterceptor {
-  constructor(public authService: AuthService, private loaderService: LoaderService) {
+  constructor(private authService: AuthService, private loaderService: LoaderService) {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
