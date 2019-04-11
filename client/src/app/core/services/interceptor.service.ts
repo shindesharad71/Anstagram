@@ -12,8 +12,8 @@ export class InterceptorService implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token: string = this.authService.getToken();
     this.loaderService.show();
+    const token: string = this.authService.getToken();
     if (token) {
       req = req.clone({
         setHeaders: {
@@ -21,6 +21,7 @@ export class InterceptorService implements HttpInterceptor {
         }
       });
     }
+
     return next.handle(req).pipe(
       map((res: any) => {
         this.loaderService.dismiss();
