@@ -18,8 +18,6 @@ import FilePondPluginImageTransform from 'filepond-plugin-image-transform';
 // tslint:disable-next-line: max-line-length
 registerPlugin(FilePondPluginFileValidateType, FilePondPluginImagePreview, FilePondPluginImageExifOrientation, FilePondPluginImageCrop, FilePondPluginImageTransform);
 
-import { LazyLoadImageModule } from 'ng-lazyload-image';
-
 import { AuthService } from './services/auth/auth.service';
 import { InterceptorService } from './services/interceptor.service';
 import { LoaderComponent } from './components/loader/loader.component';
@@ -36,8 +34,7 @@ import { HttpService } from './services/http/http.service';
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    FilePondModule,
-    LazyLoadImageModule
+    FilePondModule
   ],
   providers: [
     {
@@ -58,8 +55,7 @@ import { HttpService } from './services/http/http.service';
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    FilePondModule,
-    LazyLoadImageModule
+    FilePondModule
   ]
 })
 export class CoreModule { }
