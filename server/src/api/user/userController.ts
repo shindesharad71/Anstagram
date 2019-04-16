@@ -1,7 +1,9 @@
 import bcrypt from 'bcrypt-nodejs';
 import dotenv from "dotenv";
+import fs from 'fs';
 import jwt from 'jsonwebtoken';
 import { JWT_CONFIG } from '../../configs/jwt';
+import { getSignedUrl, uploadFile } from '../../libs/gcpFileManagement';
 import { sendVerificationMail } from '../../libs/mailer';
 import { User, UserType } from './userModel';
 
@@ -108,4 +110,25 @@ const checkUsername = async (req: any, res: any) => {
     }
 };
 
-export { register, login, logout, verify, checkUsername };
+const addFile = async (req: any, res: any) => {
+    try {
+        const fileName: string = await uploadFile(req.file.path);
+        fs.unlink(req.file.path, (err) => {
+            if (err) { throw err; }
+            console.log('file removed from uploads');
+        });
+        res.send(fileName);
+    } catch (error) {
+        throw error;
+    }
+};
+
+const deleteFile = async (req: any, res: any) => {
+    try {
+        res.send(req.body);
+    } catch (error) {
+        throw error;
+    }
+};
+
+export { register, login, logout, verify, checkUsername, addFile, deleteFile };
