@@ -36,11 +36,13 @@ export class CreatePostComponent implements OnInit {
     imageCropAspectRatio: '1:1',
     allowImageTransform: true,
     server: {
-      url: environment.BASE_URL,
+      url: `${environment.BASE_URL}users/upload`,
       process: {
-        url: 'users/upload',
         onload: (response) => this.uploadedFiles.push(response),
         onerror: (response) => console.log('onerror', response)
+      },
+      revert: (uniqueFileId, load) => {
+        load();
       }
     }
   };
