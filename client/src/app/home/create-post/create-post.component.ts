@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HttpService } from 'src/app/core/services/http/http.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'ia-create-post',
@@ -22,7 +23,7 @@ export class CreatePostComponent implements OnInit {
 
   pondOptions = {
     class: 'image-upload',
-    multiple: false,
+    multiple: true,
     maxFiles: 4,
     labelIdle: 'Drop files here or Browse',
     acceptedFileTypes: 'image/jpeg, image/png',
@@ -33,7 +34,17 @@ export class CreatePostComponent implements OnInit {
     imagePreviewMaxFileSize: 20,
     allowImageCrop: true,
     imageCropAspectRatio: '1:1',
-    allowImageTransform: true
+    allowImageTransform: true,
+    server: {
+      url: `${environment.BASE_URL}users/upload`,
+      process: {
+        onload: (response) => this.uploadedFiles.push(response),
+        onerror: (response) => console.log('onerror', response)
+      },
+      revert: (uniqueFileId, load) => {
+        load();
+      }
+    }
   };
 
   // tslint:disable-next-line: max-line-length
@@ -47,24 +58,9 @@ export class CreatePostComponent implements OnInit {
     });
   }
 
-  onFilesAdded() {
-    this.uploadedFiles = [];
-    const images = this.imageUpload.getFiles();
-    for (const img of images) {
-      this.uploadedFiles.push(img.file);
-    }
-  }
-
   createPost() {
-    this.uploadedFiles = [];
-    const images = this.imageUpload.getFiles();
-    for (const img of images) {
-      this.uploadedFiles.push(img.file);
-    }
-    this.formData.set('images', this.uploadedFiles[0]);
-    this.formData.set('description', this.createPostForm.value.description);
-    this.formData.set('location', this.createPostForm.value.location);
-    this.httpService.post('feed', this.formData).subscribe(res => {
+    this.createPostForm.value.media = this.uploadedFiles;
+    this.httpService.post('feed', this.createPostForm.value).subscribe(res => {
       this.router.navigateByUrl('/');
     }, err => {
       console.log(err);

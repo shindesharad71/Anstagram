@@ -1,7 +1,10 @@
-<div class="card-image" *ngIf="media?.length">
+<!-- <div class="card-image" *ngIf="media?.length">
   <ng-container *ngFor="let item of media">
     <figure class="image is-1by1">
       <img [defaultImage]="defaultImage" [lazyLoad]="item" [offset]="'100'" alt="Image" (dblclick)="onDoubleClick()">
     </figure>
   </ng-container>
-</div>
+</div> -->
+
+<slideshow (dblclick)="onDoubleClick()" [minHeight]="'450px'" [arrowSize]="'15px'" [showArrows]="media?.length > 1"
+  [imageUrls]="media" [lazyLoad]="media?.length > 1" [showDots]="media?.length > 1"></slideshow>
