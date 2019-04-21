@@ -6,7 +6,7 @@
         <ia-notification [className]="notificationType" [message]="errorMessage"></ia-notification>
         <form enctype="multipart/form-data" [formGroup]="createPostForm" (ngSubmit)="createPost()">
           <div class="field">
-            <label for="description">Image <small>(please make sure image have 1x1 aspect ratio for better
+            <label for="description">Images <i>(max 4) </i> - <small>(please make sure image have 1x1 aspect ratio for better
                 display)</small></label>
             <file-pond #imageUpload [options]="pondOptions">
             </file-pond>
