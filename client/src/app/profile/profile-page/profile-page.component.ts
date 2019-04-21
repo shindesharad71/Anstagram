@@ -8,7 +8,7 @@ import { HttpService } from 'src/app/core/services/http/http.service';
   styleUrls: ['./profile-page.component.scss']
 })
 export class ProfilePageComponent implements OnInit {
-
+  userInfo: any;
   constructor(private router: Router, private httpService: HttpService) { }
 
   ngOnInit() {
@@ -18,10 +18,11 @@ export class ProfilePageComponent implements OnInit {
   getUserProfile() {
     const url: string = this.router.url;
     const username: string = url.split('/')[1];
-    if (username.length > 1) {
-      this.httpService.get(`profile/${username}`).subscribe(res => {
-        if (res) {
 
+    if (username.length > 1) {
+      this.httpService.get(`profile/${username}`).subscribe((res: any) => {
+        if (res) {
+          this.userInfo = res;
         } else {
           this.router.navigateByUrl('404');
         }
