@@ -2,15 +2,16 @@
   <div class="section profile-section" *ngIf="userInfo">
     <div class="columns is-8">
       <div class="column is-3">
-        <figure class="image is-1by1">
+        <figure class="image is-1by1" title="Change Profile Picture">
           <img class="is-rounded profile-pic" [src]="userInfo?.avatar ? userInfo?.avatar : defaultAvatar" alt="Image"
             alt="Image">
         </figure>
       </div>
       <div class="column is-5">
-        <p>
-          {{ userInfo?.firstName }} {{ userInfo?.lastName }}
-        </p>
+        <p class="is-size-4">
+          {{ userInfo?.username }} <span><button type="button" class="button">Edit Profile</button></span> <span class="settings-icon">
+            <fa-icon icon="cog"></fa-icon>
+          </span></p>
       </div>
     </div>
   </div>
