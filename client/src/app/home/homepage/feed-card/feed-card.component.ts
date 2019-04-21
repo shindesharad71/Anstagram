@@ -27,6 +27,7 @@ export class FeedCardComponent implements OnInit {
       HeartIconStates.LIKED : HeartIconStates.DEFAULT;
     if (this.heartIcon === HeartIconStates.LIKED) {
       this.isThisFeedLiked = true;
+      window.navigator.vibrate(200);
     } else {
       this.isThisFeedLiked = false;
     }
