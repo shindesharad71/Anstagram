@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from 'src/app/core/services/http/http.service';
+import { UserProfile } from '../../app.constants';
 
 @Component({
   selector: 'ia-profile-page',
@@ -9,6 +10,7 @@ import { HttpService } from 'src/app/core/services/http/http.service';
 })
 export class ProfilePageComponent implements OnInit {
   userInfo: any;
+  defaultAvatar = UserProfile.USER_DEFAULT_PROFILE_URL;
   constructor(private router: Router, private httpService: HttpService) { }
 
   ngOnInit() {

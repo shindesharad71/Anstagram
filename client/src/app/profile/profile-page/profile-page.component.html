@@ -1,3 +1,17 @@
-<p>
-  {{ userInfo?.firstName }} {{ userInfo?.lastName }}
-</p>
+<div class="container">
+  <div class="section profile-section" *ngIf="userInfo">
+    <div class="columns is-three-quarters">
+      <div class="column">
+        <figure class="image is-1by1">
+          <img class="is-rounded profile-pic" [src]="userInfo?.avatar ? userInfo?.avatar : defaultAvatar" alt="Image"
+            alt="Image">
+        </figure>
+      </div>
+      <div class="column">
+        <p>
+          {{ userInfo?.firstName }} {{ userInfo?.lastName }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
