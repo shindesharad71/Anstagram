@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-gallery.component.scss']
 })
 export class ProfileGalleryComponent implements OnInit {
-
+  isSelectedTab = 'Posts';
   constructor() { }
 
   ngOnInit() {
+  }
+
+  tabToggle(tabItem) {
+    this.isSelectedTab = tabItem ? tabItem : 'Posts';
   }
 
 }
