@@ -1,5 +1,11 @@
 .profile-section {
- padding-top: 64px;
+  padding-top: 64px;
+}
+
+.profile-section-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px;
 }
 
 .profile-pic {
