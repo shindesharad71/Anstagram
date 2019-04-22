@@ -1,22 +1,2 @@
-<div class="container">
-  <div class="section profile-section" *ngIf="userInfo">
-    <div class="profile-section-wrapper">
-      <div class="profile-pic">
-        <figure class="image is-1by1" title="Change Profile Picture">
-          <img class="is-rounded profile-pic" [src]="userInfo?.avatar ? userInfo?.avatar : defaultAvatar" alt="Image"
-            alt="Image">
-        </figure>
-      </div>
-      <div class="profile-info">
-        <p class="is-size-4">
-          {{ userInfo?.username }} <span><button type="button" class="button">Edit Profile</button></span> <span
-            class="settings-icon">
-            <fa-icon icon="cog"></fa-icon>
-          </span></p>
-          <p class="is-size-6"><span>0 Posts</span><span>0 Followers</span><span>0 Following</span></p>
-          <p class="is-size-5">{{ userInfo?.firstName }} {{ userInfo?.lastName }}</p>
-          <p class="is-size-6">{{ userInfo?.bio }}</p>
-      </div>
-    </div>
-  </div>
-</div>
+<ia-profile-info [userInfo]="userInfo"></ia-profile-info>
+<ia-profile-gallery></ia-profile-gallery>

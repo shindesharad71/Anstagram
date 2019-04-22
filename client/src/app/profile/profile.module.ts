@@ -9,9 +9,11 @@ library.add(fas);
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { ProfileInfoComponent } from './profile-page/profile-info/profile-info.component';
+import { ProfileGalleryComponent } from './profile-page/profile-gallery/profile-gallery.component';
 
 @NgModule({
-  declarations: [ProfileComponent, ProfilePageComponent],
+  declarations: [ProfileComponent, ProfilePageComponent, ProfileInfoComponent, ProfileGalleryComponent],
   imports: [
     CommonModule,
     ProfileRoutingModule,
