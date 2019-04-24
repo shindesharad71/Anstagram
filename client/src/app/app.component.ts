@@ -5,6 +5,7 @@ import { SwUpdate } from '@angular/service-worker';
 import {
   Router, NavigationStart, NavigationCancel, NavigationEnd
 } from '@angular/router';
+import { NgxHotjarService } from 'ngx-hotjar';
 
 @Component({
   selector: 'ia-root',
@@ -16,11 +17,13 @@ export class AppComponent implements OnInit, AfterViewInit {
   loading = true;
   isUserLoggedIn = false;
   // tslint:disable-next-line: max-line-length
-  constructor(private loaderService: LoaderService, private vcr: ViewContainerRef, private authService: AuthService, private swUpdate: SwUpdate, private router: Router) {
+  constructor(private loaderService: LoaderService, private vcr: ViewContainerRef, private authService: AuthService, private swUpdate: SwUpdate, private router: Router, protected $hotjar: NgxHotjarService) {
     this.loaderService.setViewContainer(vcr);
   }
 
   ngOnInit() {
+    this.$hotjar.stateChange(`${this.router.url}`);
+
     this.authService.isLoggedIn.subscribe((loginStatus: any) => {
       this.isUserLoggedIn = loginStatus;
     });
