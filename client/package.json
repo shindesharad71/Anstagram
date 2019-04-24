@@ -37,6 +37,7 @@
     "ng-simple-slideshow": "^1.2.9",
     "ngx-cookie-service": "^2.1.0",
     "ngx-filepond": "^5.0.0",
+    "ngx-hotjar": "0.0.4",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
