@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'create', component: CreatePostComponent, canActivate: [AuthGuardService] },
   { path: '404', component: PageNotFoundComponent },
-  { path: 'notifications', loadChildren: '../app/notifications/notifications.module#NotificationsModule', canActivate: [AuthGuardService]},
+  { path: 'notifications', loadChildren: '../app/notification/notification.module#NotificationModule', canActivate: [AuthGuardService]},
   { path: 'explore', loadChildren: '../app/explore/explore.module#ExploreModule', canActivate: [AuthGuardService]},
   { path: '**', loadChildren: '../app/profile/profile.module#ProfileModule', canActivate: [AuthGuardService]}
 ];
