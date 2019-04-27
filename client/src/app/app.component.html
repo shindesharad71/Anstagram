@@ -2,6 +2,7 @@
 <div class="top-space" *ngIf="!loading">
   <router-outlet></router-outlet>
 </div>
+<ia-bottom-navbar *ngIf="isUserLoggedIn"></ia-bottom-navbar>
 
 <section class="section top-space" *ngIf="loading">
   <div class="container">

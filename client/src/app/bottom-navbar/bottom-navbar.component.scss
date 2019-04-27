@@ -1,0 +1,27 @@
+.profile-icon {
+  background-position: 0 -158px;
+}
+
+.heart-icon {
+  background-position: -130px -158px;
+}
+
+.explore-icon {
+  background-position: -241px -52px;
+}
+
+.mobile-nav {
+  display: flex;
+  justify-content: space-around;
+  bottom: 0;
+  position: fixed;
+  background: #f5f5f5;
+  width: 100%;
+}
+
+/* Media Queries */
+@media screen and (min-width: 1089px) {
+  .mobile-nav {
+    display: none;
+  }
+}
