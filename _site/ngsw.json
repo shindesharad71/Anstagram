@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1556124941852,
+  "timestamp": 1556388144087,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -8,13 +8,15 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "/5.1d654dd46c0036c96d3c.js",
+        "/5.46f56eb9da3147809860.js",
+        "/6.31f5812adf0c90346467.js",
+        "/7.7d3e2c3f28381df88813.js",
         "/es2015-polyfills.c5dd28b362270c767b34.js",
         "/favicon.ico",
         "/index.html",
-        "/main.9e974b6cfc825088b797.js",
+        "/main.2b0158dd48a3d17faa40.js",
         "/polyfills.8bbb231b43165d65d357.js",
-        "/runtime.4d79101bc97cc2916d60.js",
+        "/runtime.091ce3f10f991451e194.js",
         "/styles.b97ed51f6571fe82ae2e.css"
       ],
       "patterns": []
@@ -39,6 +41,7 @@
         "/assets/icons/favicon.ico",
         "/assets/icons/heart-icon.png",
         "/assets/icons/heart-red-icon.png",
+        "/assets/icons/home-icon.png",
         "/assets/icons/icon-128x128.png",
         "/assets/icons/icon-144x144.png",
         "/assets/icons/icon-152x152.png",
@@ -61,7 +64,9 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/5.1d654dd46c0036c96d3c.js": "ab7dd358b2cde464d04cbfe7787e88a5ef4fb587",
+    "/5.46f56eb9da3147809860.js": "dff5f565edc44bc78b1fe491854c9dc3f7356fd7",
+    "/6.31f5812adf0c90346467.js": "7744e84f7598725e30b9de0ade1f5faa9a3ba792",
+    "/7.7d3e2c3f28381df88813.js": "94241ccc9f8b1b32b0ef999aa37cc4edc0d4f540",
     "/assets/icons/add-icon.png": "1edcb6644c0043335956489127788821668c57a5",
     "/assets/icons/android-chrome-192x192.png": "28e98393c175a220498904b3383f6e7cabdccdd3",
     "/assets/icons/android-chrome-512x512.png": "4357d70a0bc4206cbe735fca3041810eb72af2cf",
@@ -77,6 +82,7 @@
     "/assets/icons/favicon.ico": "486beeb3dfa18bd65a1a0b5a34b67459f0c7766a",
     "/assets/icons/heart-icon.png": "acc3c94e0e80f15e50460ee3cecb9c6bfcbb47e4",
     "/assets/icons/heart-red-icon.png": "98143d5d4d4b766eb9bdecbbe6bf38af06e2ab76",
+    "/assets/icons/home-icon.png": "d82234316483d234ed4dd5e5c3da497d50e9d819",
     "/assets/icons/icon-128x128.png": "c1278416534964ef694d4cba5d664af38c762f4f",
     "/assets/icons/icon-144x144.png": "d09721e5de8d9eb3dbd677ba8d0b56c56509a2e5",
     "/assets/icons/icon-152x152.png": "7bb0e6a846e01c55f12607cadd5f80cd45e8618b",
@@ -95,10 +101,10 @@
     "/assets/logo/anstagram-transperent-logo.png": "64d4c23184464e370533507f22b1b748c6dfe2da",
     "/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
     "/favicon.ico": "a0b0804826249c4c46ca07cf601855993f0e7a9b",
-    "/index.html": "7325ebf85e92a2b8834cf527674c215485b34fbf",
-    "/main.9e974b6cfc825088b797.js": "679823a1ec2f6a1181b4d1be3d06711fefba33f5",
+    "/index.html": "c4089fc24ccc7b0d279028e94f2ef22428d1daf7",
+    "/main.2b0158dd48a3d17faa40.js": "c3986cc66269c6c8f6d789649b098850c3f45098",
     "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
-    "/runtime.4d79101bc97cc2916d60.js": "ad1e069e01994cfa52222ba1a5f0565470874652",
+    "/runtime.091ce3f10f991451e194.js": "0b92f97ec91f0c2f3dd56ae1fd358d95943447c9",
     "/styles.b97ed51f6571fe82ae2e.css": "bb15e3c7858458c5ca1682798395f884c9c98e43"
   },
   "navigationUrls": [

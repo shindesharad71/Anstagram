@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="tabs is-centered">
+    <ul>
+      <li [ngClass]="{'is-active': isSelectedTab === 'Posts'}">
+        <a (click)="tabToggle('Posts')">
+          <span class="icon is-small">
+            <fa-icon icon="camera"></fa-icon>
+          </span>
+          <span>Posts</span>
+        </a>
+      </li>
+      <li [ngClass]="{'is-active': isSelectedTab === 'Saved'}">
+        <a (click)="tabToggle('Saved')">
+          <span class="icon is-small">
+            <fa-icon icon="bookmark"></fa-icon>
+          </span>
+          <span>Saved</span>
+        </a>
+      </li>
+      <li [ngClass]="{'is-active': isSelectedTab === 'Tagged'}">
+        <a (click)="tabToggle('Tagged')">
+          <span class="icon is-small">
+            <fa-icon icon="users"></fa-icon>
+          </span>
+          <span>Tagged</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import commentRouter from './comment/commentRouter';
 import feedRouter from './feed/feedRouter';
+import profileRouter from './profile/profileRouter';
 import userRouter from './user/userRouter';
 
 const Routes = [
@@ -14,6 +15,10 @@ const Routes = [
     {
         path: '/comments',
         router: commentRouter
+    },
+    {
+        path: '/profile',
+        router: profileRouter
     }
 ];
 

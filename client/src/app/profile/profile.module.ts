@@ -1,17 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+library.add(fas);
+
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
-import { CoreModule } from '../core/core.module';
+import { ProfileInfoComponent } from './profile-page/profile-info/profile-info.component';
+import { ProfileGalleryComponent } from './profile-page/profile-gallery/profile-gallery.component';
 
 @NgModule({
-  declarations: [ProfileComponent, ProfilePageComponent],
+  declarations: [ProfileComponent, ProfilePageComponent, ProfileInfoComponent, ProfileGalleryComponent],
   imports: [
     CommonModule,
     ProfileRoutingModule,
-    CoreModule
+    FontAwesomeModule
   ]
 })
 export class ProfileModule { }
