@@ -4,7 +4,6 @@ import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { HomeModule } from './home/home.module';
-import { NgxHotjarModule } from 'ngx-hotjar';
 
 import { CookieService } from 'ngx-cookie-service';
 import { AppComponent } from './app.component';
@@ -27,8 +26,7 @@ import { BottomNavbarComponent } from './bottom-navbar/bottom-navbar.component';
     AppRoutingModule,
     AuthModule,
     HomeModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    NgxHotjarModule.forRoot('1293837')
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
