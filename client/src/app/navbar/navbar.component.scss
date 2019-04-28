@@ -26,6 +26,7 @@
   z-index: 9;
   overflow: hidden;
   background: #f5f5f5;
+  box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
   .items {
     display: flex;
     justify-content: space-evenly;
