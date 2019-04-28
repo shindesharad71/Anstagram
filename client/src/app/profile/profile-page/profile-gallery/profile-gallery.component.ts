@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from 'src/app/core/services/http/http.service';
 
 @Component({
   selector: 'ia-profile-gallery',
@@ -7,13 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileGalleryComponent implements OnInit {
   isSelectedTab = 'Posts';
-  constructor() { }
+  posts: any[] = [];
+  constructor(private httpService: HttpService) { }
 
   ngOnInit() {
+    this.tabToggle(this.isSelectedTab);
   }
 
   tabToggle(tabItem) {
     this.isSelectedTab = tabItem ? tabItem : 'Posts';
+    this.httpService.get(`profile/${this.isSelectedTab}`).subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
   }
 
 }
