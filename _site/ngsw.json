@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1556447931404,
+  "timestamp": 1556448246433,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -14,7 +14,7 @@
         "/es2015-polyfills.c5dd28b362270c767b34.js",
         "/favicon.ico",
         "/index.html",
-        "/main.5ae8bfe7e48cf62c9822.js",
+        "/main.3be7df449a3780f2276a.js",
         "/polyfills.8bbb231b43165d65d357.js",
         "/runtime.13b41847f57e8c763848.js",
         "/styles.b97ed51f6571fe82ae2e.css"
@@ -101,8 +101,8 @@
     "/assets/logo/anstagram-transperent-logo.png": "64d4c23184464e370533507f22b1b748c6dfe2da",
     "/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
     "/favicon.ico": "a0b0804826249c4c46ca07cf601855993f0e7a9b",
-    "/index.html": "d06f62be341519eb2ef44af4f701e3e4f2eebe0d",
-    "/main.5ae8bfe7e48cf62c9822.js": "6d00f85c1d0cc010b136c23aff8fc4283ead50b0",
+    "/index.html": "f56f2c86868547c06bc2251b3fa9176d15bd058e",
+    "/main.3be7df449a3780f2276a.js": "ea3df23ca0c028a032424ecb47ca69caa0acd445",
     "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
     "/runtime.13b41847f57e8c763848.js": "2033a2a7aa759d18df5ace80868a282890b9c5c7",
     "/styles.b97ed51f6571fe82ae2e.css": "bb15e3c7858458c5ca1682798395f884c9c98e43"
