@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1556432246759,
+  "timestamp": 1556444240409,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -10,13 +10,13 @@
       "urls": [
         "/5.8292efbebc9ba2735278.js",
         "/6.33d4776c6da561dc949b.js",
-        "/7.7d3e2c3f28381df88813.js",
+        "/7.4b1d2b1101838070e6f3.js",
         "/es2015-polyfills.c5dd28b362270c767b34.js",
         "/favicon.ico",
         "/index.html",
-        "/main.27cbf7d0b1c210e3f54f.js",
+        "/main.1bfde91cd4e961ba90a3.js",
         "/polyfills.8bbb231b43165d65d357.js",
-        "/runtime.e4a325867a330b0595c0.js",
+        "/runtime.13b41847f57e8c763848.js",
         "/styles.b97ed51f6571fe82ae2e.css"
       ],
       "patterns": []
@@ -66,7 +66,7 @@
   "hashTable": {
     "/5.8292efbebc9ba2735278.js": "7f36beb6188b3e12362048ccad8d95a0d72f986f",
     "/6.33d4776c6da561dc949b.js": "0215dda7e5796279df23b3283c8e9ffb0fb137d8",
-    "/7.7d3e2c3f28381df88813.js": "94241ccc9f8b1b32b0ef999aa37cc4edc0d4f540",
+    "/7.4b1d2b1101838070e6f3.js": "c9a9c8ca631c84e1187a205fbce246a94db4f0f2",
     "/assets/icons/add-icon.png": "1edcb6644c0043335956489127788821668c57a5",
     "/assets/icons/android-chrome-192x192.png": "28e98393c175a220498904b3383f6e7cabdccdd3",
     "/assets/icons/android-chrome-512x512.png": "4357d70a0bc4206cbe735fca3041810eb72af2cf",
@@ -101,10 +101,10 @@
     "/assets/logo/anstagram-transperent-logo.png": "64d4c23184464e370533507f22b1b748c6dfe2da",
     "/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
     "/favicon.ico": "a0b0804826249c4c46ca07cf601855993f0e7a9b",
-    "/index.html": "559597098104e2d73d9025c9266a66faf93cec66",
-    "/main.27cbf7d0b1c210e3f54f.js": "a2dc3beec5559a80f58637c4115217a9fe5576cb",
+    "/index.html": "99342f737d79660ccb3e151f05b2aa782ca8826d",
+    "/main.1bfde91cd4e961ba90a3.js": "86a2384b9af980f781036cb13a64c72c4047ca3e",
     "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
-    "/runtime.e4a325867a330b0595c0.js": "592b9ba4fe390aff76d8893d56b601621f0a88bd",
+    "/runtime.13b41847f57e8c763848.js": "2033a2a7aa759d18df5ace80868a282890b9c5c7",
     "/styles.b97ed51f6571fe82ae2e.css": "bb15e3c7858458c5ca1682798395f884c9c98e43"
   },
   "navigationUrls": [
