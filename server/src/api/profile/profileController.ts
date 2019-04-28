@@ -21,7 +21,7 @@ const getProfileTabInfo = async (req: any, res: any) => {
         const tabType = req.params.tabType;
         const feedItemsToSkip = 0;
         if (tabType === 'Posts') {
-            feed = await Feed.find({ user }).sort({ createdAt: 'desc' }).skip(feedItemsToSkip).limit(16);
+            feed = await Feed.find({ user }).sort({ createdAt: 'desc' }).skip(feedItemsToSkip).limit(15);
         }
 
         if (feed && feed.length) {
