@@ -3,3 +3,7 @@
     <img [src]="item?.media[0]">
   </div>
 </div>
+
+<div class="columns" *ngIf="!posts?.length">
+  <p class="has-text-centered">sorry, no data available</p>
+</div>
