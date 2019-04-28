@@ -17,6 +17,8 @@
   position: fixed;
   background: #f5f5f5;
   width: 100%;
+  z-index: 9;
+  overflow: hidden;
 }
 
 /* Media Queries */
