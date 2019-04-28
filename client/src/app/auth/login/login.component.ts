@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.httpService.post('users/login', this.loginForm.value).subscribe((res: any) => {
         this.authService.setToken(res.token);
+        this.authService.setUsername(res.username);
         if (this.authService.checkToken()) {
           this.router.navigateByUrl('/');
         } else {

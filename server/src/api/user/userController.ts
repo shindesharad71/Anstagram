@@ -46,7 +46,7 @@ const login = async (req: any, res: any) => {
             if (userFound.isVerified) {
                 if (bcrypt.compareSync(password, userFound.password)) {
                     const token = jwt.sign({ user: userFound._id }, JWT_CONFIG.JWT_SECRET, { expiresIn: '24h' });
-                    res.json({ token, message: `login successfully` });
+                    res.json({ token, message: `login successfully`, username: userFound.username });
                 } else {
                     res.status(403).json({ message: `wrong username and password, try again` });
                 }

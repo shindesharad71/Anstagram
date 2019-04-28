@@ -34,4 +34,13 @@ export class AuthService {
     }
     return false;
   }
+
+  setUsername(username) {
+    this.cookieService.set('username', username);
+    return true;
+  }
+
+  getUsername() {
+    return this.cookieService.get('username');
+  }
 }
