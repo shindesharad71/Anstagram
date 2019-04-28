@@ -344,9 +344,6 @@ MIT
 ngx-filepond
 MIT
 
-ngx-hotjar
-MIT
-
 rxjs
 Apache-2.0
                                Apache License

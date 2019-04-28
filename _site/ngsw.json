@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1556388502520,
+  "timestamp": 1556432246759,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -8,15 +8,15 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "/5.46f56eb9da3147809860.js",
-        "/6.31f5812adf0c90346467.js",
+        "/5.8292efbebc9ba2735278.js",
+        "/6.33d4776c6da561dc949b.js",
         "/7.7d3e2c3f28381df88813.js",
         "/es2015-polyfills.c5dd28b362270c767b34.js",
         "/favicon.ico",
         "/index.html",
-        "/main.2b0158dd48a3d17faa40.js",
+        "/main.27cbf7d0b1c210e3f54f.js",
         "/polyfills.8bbb231b43165d65d357.js",
-        "/runtime.091ce3f10f991451e194.js",
+        "/runtime.e4a325867a330b0595c0.js",
         "/styles.b97ed51f6571fe82ae2e.css"
       ],
       "patterns": []
@@ -64,8 +64,8 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/5.46f56eb9da3147809860.js": "dff5f565edc44bc78b1fe491854c9dc3f7356fd7",
-    "/6.31f5812adf0c90346467.js": "7744e84f7598725e30b9de0ade1f5faa9a3ba792",
+    "/5.8292efbebc9ba2735278.js": "7f36beb6188b3e12362048ccad8d95a0d72f986f",
+    "/6.33d4776c6da561dc949b.js": "0215dda7e5796279df23b3283c8e9ffb0fb137d8",
     "/7.7d3e2c3f28381df88813.js": "94241ccc9f8b1b32b0ef999aa37cc4edc0d4f540",
     "/assets/icons/add-icon.png": "1edcb6644c0043335956489127788821668c57a5",
     "/assets/icons/android-chrome-192x192.png": "28e98393c175a220498904b3383f6e7cabdccdd3",
@@ -101,10 +101,10 @@
     "/assets/logo/anstagram-transperent-logo.png": "64d4c23184464e370533507f22b1b748c6dfe2da",
     "/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
     "/favicon.ico": "a0b0804826249c4c46ca07cf601855993f0e7a9b",
-    "/index.html": "c4089fc24ccc7b0d279028e94f2ef22428d1daf7",
-    "/main.2b0158dd48a3d17faa40.js": "c3986cc66269c6c8f6d789649b098850c3f45098",
+    "/index.html": "559597098104e2d73d9025c9266a66faf93cec66",
+    "/main.27cbf7d0b1c210e3f54f.js": "a2dc3beec5559a80f58637c4115217a9fe5576cb",
     "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
-    "/runtime.091ce3f10f991451e194.js": "0b92f97ec91f0c2f3dd56ae1fd358d95943447c9",
+    "/runtime.e4a325867a330b0595c0.js": "592b9ba4fe390aff76d8893d56b601621f0a88bd",
     "/styles.b97ed51f6571fe82ae2e.css": "bb15e3c7858458c5ca1682798395f884c9c98e43"
   },
   "navigationUrls": [
