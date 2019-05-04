@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1556946858678,
+  "timestamp": 1556956517711,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -8,15 +8,16 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "/5.8292efbebc9ba2735278.js",
-        "/6.33d4776c6da561dc949b.js",
-        "/7.d4566d521d77c07481a6.js",
+        "/5.98f11037ba51a24d4f08.js",
+        "/6.e3beb08ebf366b1b63f3.js",
+        "/7.f9e22a2733431b4d3dca.js",
+        "/8.eeb55c5bb80d18b969e2.js",
         "/es2015-polyfills.c5dd28b362270c767b34.js",
         "/favicon.ico",
         "/index.html",
-        "/main.30298bb7027f6f85a234.js",
+        "/main.244f0b033663332d6831.js",
         "/polyfills.8bbb231b43165d65d357.js",
-        "/runtime.611c833fa1f8580e7a71.js",
+        "/runtime.3841e176148baebc0431.js",
         "/styles.b97ed51f6571fe82ae2e.css"
       ],
       "patterns": []
@@ -64,9 +65,10 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/5.8292efbebc9ba2735278.js": "7f36beb6188b3e12362048ccad8d95a0d72f986f",
-    "/6.33d4776c6da561dc949b.js": "0215dda7e5796279df23b3283c8e9ffb0fb137d8",
-    "/7.d4566d521d77c07481a6.js": "4c73dd0c23db9cb6570501e8cce3b096486985a7",
+    "/5.98f11037ba51a24d4f08.js": "53a50a78578258014a55416c8c679932fbb34442",
+    "/6.e3beb08ebf366b1b63f3.js": "40f769f97d7c97cb6e61383473b0aee5eb19c436",
+    "/7.f9e22a2733431b4d3dca.js": "7d368162373b73df77e81cfc11b20fc9f4090c66",
+    "/8.eeb55c5bb80d18b969e2.js": "0c8d9a51ba09147e544f68e889d61e468ac9ed7b",
     "/assets/icons/add-icon.png": "1edcb6644c0043335956489127788821668c57a5",
     "/assets/icons/android-chrome-192x192.png": "28e98393c175a220498904b3383f6e7cabdccdd3",
     "/assets/icons/android-chrome-512x512.png": "4357d70a0bc4206cbe735fca3041810eb72af2cf",
@@ -101,10 +103,10 @@
     "/assets/logo/anstagram-transperent-logo.png": "64d4c23184464e370533507f22b1b748c6dfe2da",
     "/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
     "/favicon.ico": "a0b0804826249c4c46ca07cf601855993f0e7a9b",
-    "/index.html": "864b4196f79a9e6cd7979c79c5a7c727470e5b7b",
-    "/main.30298bb7027f6f85a234.js": "834514b3c0b1e7ace1d7b04da6fb6cee60816b96",
+    "/index.html": "0493c9a2587f11e3abe391647b32a46e247fa1d0",
+    "/main.244f0b033663332d6831.js": "9cb1fd752022eaba70c6c201841633a64c8939be",
     "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
-    "/runtime.611c833fa1f8580e7a71.js": "93d38d91970460ad2769d81cfabc3a608092f283",
+    "/runtime.3841e176148baebc0431.js": "f9b7772b1697c605ea99f9713afedfaf11c8addf",
     "/styles.b97ed51f6571fe82ae2e.css": "bb15e3c7858458c5ca1682798395f884c9c98e43"
   },
   "navigationUrls": [

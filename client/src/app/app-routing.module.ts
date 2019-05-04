@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: '404', component: PageNotFoundComponent },
   { path: 'notifications', loadChildren: '../app/notification/notification.module#NotificationModule', canActivate: [AuthGuardService]},
   { path: 'explore', loadChildren: '../app/explore/explore.module#ExploreModule', canActivate: [AuthGuardService]},
+  { path: 'settings', loadChildren: '../app/settings/settings.module#SettingsModule', canActivate: [AuthGuardService]},
   { path: '**', loadChildren: '../app/profile/profile.module#ProfileModule', canActivate: [AuthGuardService]}
 ];
 
