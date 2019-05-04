@@ -11,6 +11,7 @@ type UserType = mongoose.Document & {
     email: string,
     username: string,
     password: string,
+    avatar: string,
     dateOfBirth: string,
     isVerified: boolean
 };
@@ -28,6 +29,7 @@ const userSchema = new Schema({
     dateOfBirth: { type: Date, required: 'required dateOfBirth' },
     gender: { type: String, required: 'required gender' },
     password: { type: String, required: 'required password' },
+    avatar: { type: String },
     resetOtp: { type: Number },
     verifyOtp: { type: Number },
     isVerified: { type: Boolean, default: false }
