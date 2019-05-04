@@ -1,9 +1,9 @@
 .section {
-  padding: 1.2rem 1.5rem;
+  padding: 1.2rem 0.5rem;
 }
 
 .profile-section {
-  padding-top: 64px;
+  padding-top: 48px;
 }
 
 .profile-section-wrapper {
@@ -13,15 +13,17 @@
 }
 
 .profile-info {
+  margin-left: 8px;
   p {
     margin-top: 8px;
   }
 }
 
 .profile-pic {
-  height: 150px !important;
-  width: 150px !important;
+  width: 150px;
+  margin-top: 16px;
   border: 1px solid #eee;
+  border-radius: 50%;
   cursor: pointer;
 }
 
@@ -31,4 +33,11 @@ span {
 
 .settings-icon {
   cursor: pointer;
+}
+
+/* Media Queries */
+@media screen and (min-width: 1089px) {
+  .profile-section {
+    padding-top: 64px;
+  }
 }

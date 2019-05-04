@@ -1,11 +1,8 @@
 <section class="section profile-section" *ngIf="userInfo">
   <div class="container">
     <div class="profile-section-wrapper">
-      <div class="profile-pic">
-        <figure class="image is-1by1" title="Change Profile Picture">
-          <img class="is-rounded profile-pic" [src]="userInfo?.avatar ? userInfo?.avatar : defaultAvatar" alt="Image"
-            alt="Image">
-        </figure>
+      <div class="profile-pic-wrapper">
+        <img class="profile-pic" [src]="userInfo?.avatar ? userInfo?.avatar : defaultAvatar" alt="Image" alt="Image">
       </div>
       <div class="profile-info">
         <p class="is-size-4">
