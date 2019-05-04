@@ -2,7 +2,7 @@
   <div class="container">
     <div class="profile-section-wrapper">
       <div class="profile-pic-wrapper">
-        <img class="profile-pic" [src]="userInfo?.avatar ? userInfo?.avatar : defaultAvatar" alt="Image" alt="Image">
+        <img class="profile-pic" (click)="navigateToChangeProfile()" routerLinkActive="router-link-active"  [src]="userInfo?.avatar ? userInfo?.avatar : defaultAvatar" alt="Image" alt="Image">
       </div>
       <div class="profile-info">
         <p class="is-size-4">
