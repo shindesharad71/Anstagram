@@ -16,10 +16,10 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'create', component: CreatePostComponent, canActivate: [AuthGuardService] },
   { path: '404', component: PageNotFoundComponent },
-  { path: 'notifications', loadChildren: '../app/notification/notification.module#NotificationModule', canActivate: [AuthGuardService]},
-  { path: 'explore', loadChildren: '../app/explore/explore.module#ExploreModule', canActivate: [AuthGuardService]},
-  { path: 'settings', loadChildren: '../app/settings/settings.module#SettingsModule', canActivate: [AuthGuardService]},
-  { path: '**', loadChildren: '../app/profile/profile.module#ProfileModule', canActivate: [AuthGuardService]}
+  { path: 'notifications', loadChildren: () => import('../app/notification/notification.module').then(m => m.NotificationModule), canActivate: [AuthGuardService]},
+  { path: 'explore', loadChildren: () => import('../app/explore/explore.module').then(m => m.ExploreModule), canActivate: [AuthGuardService]},
+  { path: 'settings', loadChildren: () => import('../app/settings/settings.module').then(m => m.SettingsModule), canActivate: [AuthGuardService]},
+  { path: '**', loadChildren: () => import('../app/profile/profile.module').then(m => m.ProfileModule), canActivate: [AuthGuardService]}
 ];
 
 @NgModule({
