@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./create-post.component.scss']
 })
 export class CreatePostComponent implements OnInit {
-  @ViewChild('imageUpload') imageUpload: any;
+  @ViewChild('imageUpload', { static: true }) imageUpload: any;
 
   createPostForm: FormGroup;
   isError = false;

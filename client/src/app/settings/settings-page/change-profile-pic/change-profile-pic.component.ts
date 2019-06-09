@@ -11,7 +11,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./change-profile-pic.component.scss']
 })
 export class ChangeProfilePicComponent implements OnInit {
-  @ViewChild('imageUpload') imageUpload: any;
+  @ViewChild('imageUpload', { static: true }) imageUpload: any;
 
   isError = false;
   uploadedFiles: any = [];
