@@ -13,7 +13,7 @@ Instagram Clone with Angular, Node and Typescript started on 9 March 2019.
 - [Node Backend](https://github.com/shindesharad71/Node-Typescript-Restful-APIs/tree/master/server)
 - [Angular App](https://github.com/shindesharad71/Node-Typescript-Restful-APIs/tree/master/client)
 
-##### Demo
+#### Demo
 
 <p align="left">
   <img src="https://github.com/shindesharad71/Anstagram/blob/master/screenshots/register-anstagram.png?raw=true" width="31%" style="margin: 4px;" />
