@@ -10,15 +10,23 @@ Instagram Clone with Angular, Node and Typescript started on 9 March 2019.
 
 #### Code
 
-* [Node Backend](https://github.com/shindesharad71/Node-Typescript-Restful-APIs/tree/master/server)
-* [Angular App](https://github.com/shindesharad71/Node-Typescript-Restful-APIs/tree/master/client)
+- [Node Backend](https://github.com/shindesharad71/Node-Typescript-Restful-APIs/tree/master/server)
+- [Angular App](https://github.com/shindesharad71/Node-Typescript-Restful-APIs/tree/master/client)
+
+##### Demo
+
+<p float="middle">
+  <img src="https://github.com/shindesharad71/Anstagram/blob/master/screenshots/register-anstagram.png?raw=true" width="100" />
+  <img src="https://github.com/shindesharad71/Anstagram/blob/master/screenshots/register-success-anstagram.png?raw=true" width="100" /> 
+  <img src="https://github.com/shindesharad71/Anstagram/blob/master/screenshots/verify-email-anstagram.png?raw=true" width="100" />
+</p>
 
 #### Things Learned While Building Anstagram
 
-* Angular App Architecture
-* Setup Node App with TypeScript
-* Angular App Route Protection
-* JWT Token Management
-* Google Cloud Instance Firewall and Domain Mappings
-* Ngnix Server and Reverse Proxy
-* Google Cloud Storage File Upload and Retrieve
+- Angular App Architecture
+- Setup Node App with TypeScript
+- Angular App Route Protection
+- JWT Token Management
+- Google Cloud Instance Firewall and Domain Mappings
+- Ngnix Server and Reverse Proxy
+- Google Cloud Storage File Upload and Retrieve
