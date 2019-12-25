@@ -15,10 +15,10 @@ Instagram Clone with Angular, Node and Typescript started on 9 March 2019.
 
 ##### Demo
 
-<p align="middle">
-  <img src="https://github.com/shindesharad71/Anstagram/blob/master/screenshots/register-anstagram.png?raw=true" width="100" />
-  <img src="https://github.com/shindesharad71/Anstagram/blob/master/screenshots/register-success-anstagram.png?raw=true" width="100" /> 
-  <img src="https://github.com/shindesharad71/Anstagram/blob/master/screenshots/verify-email-anstagram.png?raw=true" width="100" />
+<p align="left">
+  <img src="https://github.com/shindesharad71/Anstagram/blob/master/screenshots/register-anstagram.png?raw=true" width="31%" />
+  <img src="https://github.com/shindesharad71/Anstagram/blob/master/screenshots/register-success-anstagram.png?raw=true" width="31%" /> 
+  <img src="https://github.com/shindesharad71/Anstagram/blob/master/screenshots/verify-email-anstagram.png?raw=true" width="31%" />
 </p>
 
 #### Things Learned While Building Anstagram
