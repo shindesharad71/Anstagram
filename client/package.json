@@ -7,8 +7,25 @@
     "build": "ng build",
     "build:prod": "ng build --prod",
     "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "lint": "nx workspace-lint && ng lint",
+    "e2e": "ng e2e",
+    "nx": "nx",
+    "affected:apps": "nx affected:apps",
+    "affected:libs": "nx affected:libs",
+    "affected:build": "nx affected:build",
+    "affected:e2e": "nx affected:e2e",
+    "affected:test": "nx affected:test",
+    "affected:lint": "nx affected:lint",
+    "affected:dep-graph": "nx affected:dep-graph",
+    "affected": "nx affected",
+    "format": "nx format:write",
+    "format:write": "nx format:write",
+    "format:check": "nx format:check",
+    "update": "ng update @nrwl/workspace",
+    "update:check": "ng update",
+    "dep-graph": "nx dep-graph",
+    "workspace-schematic": "nx workspace-schematic",
+    "help": "nx help"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +42,7 @@
     "@fortawesome/angular-fontawesome": "^0.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.15",
     "@fortawesome/free-solid-svg-icons": "^5.7.2",
+    "@nrwl/schematics": "^8.11.2",
     "bulma": "^0.7.4",
     "core-js": "^2.5.4",
     "filepond": "^4.3.5",
@@ -39,7 +57,8 @@
     "ngx-filepond": "^5.0.0",
     "rxjs": "~6.5.2",
     "tslib": "^1.9.0",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.9.1",
+    "@nrwl/angular": "8.11.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.21",
@@ -60,6 +79,8 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.4.5"
+    "typescript": "~3.4.5",
+    "@nrwl/workspace": "8.11.2",
+    "prettier": "1.18.2"
   }
 }
