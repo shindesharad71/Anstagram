@@ -1,18 +1,8 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
+import chalk from 'chalk';
+import { app } from './configs/app';
 
-import * as express from 'express';
-
-const app = express();
-
-app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to backend!' });
+// Start Server
+app.listen(5000, '0.0.0.0', () => {
+    console.log(chalk.green(`✗ Server started at http://0.0.0.0:5000`));
 });
 
-const port = process.env.port || 3333;
-const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}/api`);
-});
-server.on('error', console.error);
