@@ -1,0 +1,49 @@
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <h3 class="title is-3">Login</h3>
+        <ia-notification [className]="notificationType" [message]="errorMessage"></ia-notification>
+        <form [formGroup]="loginForm" (ngSubmit)="login()" (keydown.enter)="login()">
+          <div class="field">
+            <label class="label">Email or Username</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-medium" type="text" placeholder="Email or Username"
+                formControlName="loginInput" name="loginInput">
+              <span class="icon is-small is-left">
+                <fa-icon icon="envelope"></fa-icon>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-medium" type="password" name="password" placeholder="Password"
+                formControlName="password">
+              <span class="icon is-small is-left">
+                <fa-icon icon="lock"></fa-icon>
+              </span>
+            </div>
+          </div>
+
+          <div class="field is-grouped">
+            <div class="control">
+              <button type="button" class="button is-link" [disabled]="!loginForm.valid"
+                (click)="login()">Login</button>
+            </div>
+            <div class="control">
+              <button type="button" class="button is-text" routerLink="/register">Register</button>
+            </div>
+          </div>
+
+          <div class="field is-grouped">
+            <div class="control">
+              <button type="button" class="button is-text" routerLink="/forgot-password">forgot password?</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Anstagram</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1976d2">
+  <meta name="msapplication-TileColor" content="#1976d2">
+  <style>
+    @keyframes placeHolderShimmer {
+      0% {
+        background-position: -468px 0
+      }
+
+      100% {
+        background-position: 468px 0
+      }
+    }
+
+    .animate {
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+      animation-name: placeHolderShimmer;
+      animation-timing-function: linear;
+      background: #f6f7f8;
+      background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+      background-size: 1000px 104px;
+      overflow: hidden;
+    }
+
+    .wrapper {
+      text-align: center;
+      padding: 16px;
+    }
+
+    .logo-placeholder {
+      height: 100px;
+      width: 100px;
+      margin: 0 auto;
+    }
+
+    .input-placeholder {
+      height: 32px;
+      width: 100%;
+      max-width: 500px;
+      margin-top: 32px;
+    }
+  </style>
+</head>
+
+<body>
+  <ia-root>
+    <section class="section">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <div class="wrapper">
+              <div class="animate input-placeholder"></div>
+              <div class="animate input-placeholder"></div>
+              <div class="animate input-placeholder"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </ia-root>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
+</body>
+
+</html>
