@@ -1,4 +1,4 @@
-import express from 'express';
+import * as express from 'express';
 import { getProfileTabInfo, getUserProfile, updateProfilePic } from './profileController';
 
 const profileRouter = express.Router();

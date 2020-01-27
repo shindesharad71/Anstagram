@@ -1,5 +1,5 @@
-import { Request } from 'express';
-import jwt from 'jsonwebtoken';
+import * as express from 'express';
+import * as jwt from 'jsonwebtoken';
 
 const JWT_CONFIG = {
     JWT_SECRET: 'F&6j5WgTx"&mfn@',
@@ -8,7 +8,7 @@ const JWT_CONFIG = {
     ]
 };
 
-const requestValidator = (req: Request): boolean => {
+const requestValidator = (req: any): boolean => {
     let token = null;
     if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
         token = req.headers.authorization.split(' ')[1];

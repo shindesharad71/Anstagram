@@ -1,4 +1,4 @@
-import express from 'express';
+import * as express from 'express';
 import multer from 'multer';
 import { addFile, checkUsername, deleteFile, login, logout, register, verify } from './userController';
 

@@ -1,7 +1,7 @@
-import dotenv from "dotenv";
-import fs from 'fs';
+import * as dotenv from "dotenv";
+import * as fs from 'fs';
 import nodemailer from 'nodemailer';
-import path from 'path';
+import * as path from 'path';
 
 dotenv.config();
 const emailUser = process.env.EMAIL_USERNAME;

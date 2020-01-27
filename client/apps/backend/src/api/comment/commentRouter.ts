@@ -1,4 +1,4 @@
-import express from 'express';
+import * as express from 'express';
 import { addFeedComments, getFeedComments } from './commentController';
 
 const commentRouter = express.Router();

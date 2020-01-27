@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt-nodejs';
-import dotenv from "dotenv";
-import fs from 'fs';
+import * as dotenv from "dotenv";
+import * as fs from 'fs';
 import jwt from 'jsonwebtoken';
 import { JWT_CONFIG } from '../../configs/jwt';
 import { getSignedUrl, uploadFile } from '../../libs/gcpFileManagement';
