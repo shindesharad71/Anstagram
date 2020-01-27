@@ -20,5 +20,8 @@
     ],
     "paths": {},
     "rootDir": "."
+  },
+  "angularCompilerOptions": {
+    "disableTypeScriptVersionCheck": true
   }
 }
