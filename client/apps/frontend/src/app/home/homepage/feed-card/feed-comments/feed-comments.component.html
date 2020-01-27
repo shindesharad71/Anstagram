@@ -1,6 +1,0 @@
-<div class="comment-item" *ngIf="comment">
-  <p><span>{{ comment?.user?.username }}</span>
-    {{ comment.comment }}</p>
-  <img [className]="isThisCommentLiked ? 'feed-icons liked': 'feed-icons'" [src]="heartIcon"
-    (click)="commentLiked()" alt="like">
-</div>
