@@ -1,8 +1,8 @@
-import bodyParser from 'body-parser';
-import chalk from "chalk";
+import * as bodyParser from 'body-parser';
+import * as chalk from "chalk";
 import cors from 'cors';
-import dotenv from "dotenv";
-import express from "express";
+import * as dotenv from "dotenv";
+import * as express from "express";
 import jwt from 'express-jwt';
 import mongoose from "mongoose";
 

@@ -1,5 +1,5 @@
 import { Storage } from '@google-cloud/storage';
-import dotenv from "dotenv";
+import * as dotenv from "dotenv";
 
 dotenv.config();
 
