@@ -1,6 +1,6 @@
 ![Anstagram][logo]
 
-[logo]: https://github.com/shindesharad71/Anstagram/blob/master/client/src/assets/logo/anstagram-transperent-logo.png?raw=true "Anstragram"
+[logo]: https://github.com/shindesharad71/Anstagram/blob/master/apps/frontend/src/assets/logo/anstagram-transperent-logo.png?raw=true "Anstragram"
 
 # Anstagram [Work In Progress]
 
