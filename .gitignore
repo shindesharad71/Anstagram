@@ -16,6 +16,7 @@ gcp-config.json
 */yarn-debug.log*
 */yarn-error.log*
 */dist
+dist
 
 # Runtime data
 pids
