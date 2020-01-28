@@ -23,3 +23,4 @@ Instagram Clone with Angular, Node and Typescript started on 9 March 2019 (Porte
 - Google Cloud Instance Firewall and Domain Mappings
 - Ngnix Server and Reverse Proxy
 - Google Cloud Storage File Upload and Retrieve
+- Nrwl Tooling
