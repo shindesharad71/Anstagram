@@ -4,7 +4,7 @@
 
 # Anstagram [Work In Progress]
 
-Instagram Clone with Angular, Node and Typescript started on 9 March 2019.
+Instagram Clone with Angular, Node and Typescript started on 9 March 2019 (Ported to Nrwl tooling on 28 January 2020).
 
 #### Demo
 
