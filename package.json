@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "nx",
     "frontend": "ng serve frontend",
-    "backend": "ng serve backend",
+    "backend": "nx serve backend",
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --prod",

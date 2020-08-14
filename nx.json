@@ -8,7 +8,7 @@
 		"tsconfig.base.json": "*"
 	},
 	"projects": {
-		"Angular-Instagram": {
+		"fronted": {
 			"tags": []
 		},
 		"backend": {
