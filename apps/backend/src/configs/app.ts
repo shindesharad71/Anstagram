@@ -21,9 +21,6 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 mongoose.set("useNewUrlParser", true);
 
-console.log(process.env.MONGO_USERNAME);
-
-// tslint:disable-next-line: max-line-length
 mongoose.connect(
   `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_URL}${process.env.MONGO_DB_NAME}`,
   {
@@ -39,7 +36,6 @@ mongoose.connection.once("open", () => {
   gfs = new mongoose.mongo.GridFSBucket(mongoose.connection.db, {
     bucketName: "uploads"
   });
-  console.log('GridFSBucket created...');
 });
 
 mongoose.connection.on("error", err => {
