@@ -33,8 +33,7 @@
               "./node_modules/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css",
               "apps/frontend/src/styles.scss"
             ],
-            "scripts": [],
-            "es5BrowserSupport": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -46,7 +45,6 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
               "aot": true,
@@ -58,6 +56,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ],
               "serviceWorker": true,
@@ -110,7 +112,9 @@
               "apps/frontend/tsconfig.app.json",
               "apps/frontend/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -128,7 +132,10 @@
             "outputPath": "dist/apps/backend",
             "main": "apps/backend/src/main.ts",
             "tsConfig": "apps/backend/tsconfig.app.json",
-            "assets": ["apps/backend/src/assets"]
+            "assets": [
+              "apps/backend/src/assets"
+            ],
+            "buildLibsFromSource": true
           },
           "configurations": {
             "production": {
@@ -157,14 +164,17 @@
               "apps/backend/tsconfig.app.json",
               "apps/backend/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/backend/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/backend/**/*"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/backend/jest.config.js",
-            "tsConfig": "apps/backend/tsconfig.spec.json"
+            "passWithNoTests": true
           }
         }
       }
@@ -172,6 +182,7 @@
   },
   "defaultProject": "frontend",
   "cli": {
-    "defaultCollection": "@nrwl/express"
+    "defaultCollection": "@nrwl/express",
+    "analytics": false
   }
 }
