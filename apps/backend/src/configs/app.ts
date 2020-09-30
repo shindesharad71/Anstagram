@@ -3,11 +3,9 @@ import * as chalk from 'chalk';
 import cors from 'cors';
 import * as dotenv from 'dotenv';
 import * as express from 'express';
+import { NextFunction, Request, Response } from 'express';
 import jwt from 'express-jwt';
 import mongoose from 'mongoose';
-import * as GridFsStorage from 'multer-gridfs-storage';
-
-import { NextFunction, Request, Response } from 'express';
 import { Routes } from '../api';
 import { JWT_CONFIG, requestValidator } from './jwt';
 
