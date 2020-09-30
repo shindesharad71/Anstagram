@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { HomeModule } from './home/home.module';
 
-import { CookieService } from 'ngx-cookie-service';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -28,7 +27,6 @@ import { BottomNavbarComponent } from './bottom-navbar/bottom-navbar.component';
     HomeModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
