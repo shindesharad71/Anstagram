@@ -1,5 +1,13 @@
 {
-    "cSpell.words": [
-        "anstagram"
-    ]
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true,
+		"source.organizeImports": true
+	},
+	"eslint.validate": ["javascript", "typescript"],
+	"eslint.packageManager": "npm",
+	"prettier.tabWidth": 4,
+	"prettier.useTabs": true,
+	"prettier.singleQuote": true,
+	"cSpell.words": ["anstagram"]
 }
