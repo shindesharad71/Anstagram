@@ -24,3 +24,24 @@ Instagram Clone with Angular, Node and Typescript started on 9 March 2019 (Porte
 - Ngnix Server and Reverse Proxy
 - Google Cloud Storage File Upload and Retrieve
 - Nrwl Tooling
+
+### Installation and Setup
+Clone the project to your local machine
+```bash
+git clone https://github.com/shindesharad71/Anstagram.git
+```
+
+Change the directory to ```Anstagram```
+```bash
+cd Anstagram
+```
+
+Install the packages required
+```bash
+npm install
+```
+
+Start the application
+```bash
+npx nx serve
+```
