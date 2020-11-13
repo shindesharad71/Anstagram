@@ -1,19 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../../core/services/auth/auth.service';
-import { Router, ActivatedRoute } from '@angular/router';
 import { HttpService } from '../../core/services/http/http.service';
 
 @Component({
 	selector: 'ia-login',
 	templateUrl: './login.component.html',
-	styleUrls: ['./login.component.scss'],
+	styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 	loginForm: FormGroup;
 	errorMessage: string;
 	notificationType = 'is-danger';
+
+	// Icons
+	envelope = faEnvelope;
+	lock = faLock;
 
 	constructor(
 		private authService: AuthService,
@@ -32,7 +37,7 @@ export class LoginComponent implements OnInit {
 	ngOnInit() {
 		this.loginForm = new FormGroup({
 			loginInput: new FormControl('', [Validators.required]),
-			password: new FormControl('', [Validators.required]),
+			password: new FormControl('', [Validators.required])
 		});
 	}
 
@@ -45,13 +50,13 @@ export class LoginComponent implements OnInit {
 					(res: any) => {
 						this.authService.setToken(res.token);
 						this.authService.setUsername(res.username);
-						if (this.authService.checkToken()) { 
+						if (this.authService.checkToken()) {
 							this.router.navigateByUrl('/');
 						} else {
 							this.router.navigateByUrl('/login');
 						}
 					},
-					(err) => {
+					err => {
 						this.errorMessage = err.error.message;
 						console.log(err);
 					}
@@ -62,7 +67,7 @@ export class LoginComponent implements OnInit {
 	checkForEmailVerification() {
 		this.errorMessage = null;
 		let urlParams = null;
-		this.route.queryParams.subscribe((params) => {
+		this.route.queryParams.subscribe(params => {
 			urlParams = params;
 		});
 
@@ -74,7 +79,7 @@ export class LoginComponent implements OnInit {
 					this.errorMessage = res.message;
 					console.log(res);
 				},
-				(err) => {
+				err => {
 					this.errorMessage = err.error.message;
 					console.log(err);
 				}

@@ -19,8 +19,11 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useNewUrlParser', true);
 
+// Used MongoDB Atlas Service as Example
+// Example URL for ref.
+// mongodb+srv://user:<password>@cluster0.anxgp.mongodb.net/<dbname>?retryWrites=true&w=majority
 mongoose.connect(
-	`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_URL}${process.env.MONGO_DB_NAME}`,
+	`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_URL}${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`,
 	{
 		useNewUrlParser: true,
 		useUnifiedTopology: true
@@ -38,7 +41,7 @@ mongoose.connection.once('open', () => {
 
 mongoose.connection.on('error', err => {
 	console.error(err);
-	console.log(
+	console.error(
 		'%s MongoDB connection error. Please make sure MongoDB is running.',
 		chalk.red('✗')
 	);
@@ -86,4 +89,4 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 // Routes
 Routes.forEach(route => app.use(route.path, route.router));
 
-export { app };
+export default app;
