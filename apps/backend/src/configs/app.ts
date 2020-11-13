@@ -30,15 +30,6 @@ mongoose.connect(
 	}
 );
 
-let gfs;
-
-mongoose.connection.once('open', () => {
-	// init gfs
-	gfs = new mongoose.mongo.GridFSBucket(mongoose.connection.db, {
-		bucketName: 'uploads'
-	});
-});
-
 mongoose.connection.on('error', err => {
 	console.error(err);
 	console.error(
