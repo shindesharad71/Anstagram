@@ -1,6 +1,6 @@
 {
 	"name": "angular-instagram",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"scripts": {
 		"ng": "nx",
 		"frontend": "ng serve frontend",
@@ -45,7 +45,6 @@
 		"@fortawesome/angular-fontawesome": "^0.8.0",
 		"@fortawesome/fontawesome-svg-core": "^1.2.32",
 		"@fortawesome/free-solid-svg-icons": "^5.15.1",
-		"@google-cloud/storage": "^4.3.0",
 		"@nrwl/angular": "10.0.12",
 		"@nrwl/schematics": "^8.11.2",
 		"bcrypt-nodejs": "0.0.3",
