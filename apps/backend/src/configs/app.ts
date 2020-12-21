@@ -14,18 +14,12 @@ dotenv.config();
 
 const app = express();
 
-// Used MongoDB Atlas Service as Example
-// Example URL for ref.
-// mongodb+srv://user:<password>@cluster0.anxgp.mongodb.net/<dbname>?retryWrites=true&w=majority
-mongoose.connect(
-	`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_URL}${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`,
-	{
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-		useCreateIndex: true,
-		useFindAndModify: false
-	}
-);
+mongoose.connect(`${process.env.MONGO_URL}${process.env.MONGO_DB_NAME}`, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+	useCreateIndex: true,
+	useFindAndModify: false
+});
 
 mongoose.connection.on('error', err => {
 	console.error(err);
