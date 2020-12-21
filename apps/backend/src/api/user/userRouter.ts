@@ -11,7 +11,7 @@ import {
 	verify
 } from './userController';
 
-const mongoURI = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_URL}${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`;
+const mongoURI = `${process.env.MONGO_URL}${process.env.MONGO_DB_NAME}`;
 
 // Grid FS Storage
 const storage = new GridFsStorage({
