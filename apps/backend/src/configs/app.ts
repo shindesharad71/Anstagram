@@ -40,8 +40,8 @@ app.use(
 		parameterLimit: 50000
 	})
 );
-app.use('/uploads', express.static('/assets'));
-app.use(express.static(__dirname + '/assets'));
+
+app.use('/assets', express.static(__dirname + '/assets'));
 
 // Set Express JWT
 app.use(
