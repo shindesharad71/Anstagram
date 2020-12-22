@@ -1,6 +1,5 @@
 import * as express from 'express';
 import multer from 'multer';
-import GridFsStorage from 'multer-gridfs-storage';
 import {
 	addFile,
 	checkUsername,
@@ -11,21 +10,14 @@ import {
 	verify
 } from './userController';
 
-const mongoURI = `${process.env.MONGO_URL}${process.env.MONGO_DB_NAME}`;
-
-// Grid FS Storage
-const storage = new GridFsStorage({
-	url: mongoURI,
-	options: { useUnifiedTopology: true },
-	file: (req, file) => {
-		return new Promise(resolve => {
-			let filename = `${Date.now()}-${file.originalname}`;
-			filename = filename.split(' ').join('-');
-			const fileInfo = {
-				filename
-			};
-			resolve(fileInfo);
-		});
+const storage = multer.diskStorage({
+	destination(req, file, callback) {
+		callback(null, `${__dirname}/assets/uploads`);
+	},
+	filename: (req, file, cb) => {
+		let filename = `${Date.now()}_${file.originalname}`;
+		filename = filename.split(' ').join('-');
+		cb(null, filename);
 	}
 });
 
