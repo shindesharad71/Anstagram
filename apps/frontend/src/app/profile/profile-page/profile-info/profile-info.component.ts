@@ -1,23 +1,26 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { UserProfile } from '../../../app.constants';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { UserProfile } from '../../../app.constants';
 
 @Component({
-  selector: 'ia-profile-info',
-  templateUrl: './profile-info.component.html',
-  styleUrls: ['./profile-info.component.scss']
+	selector: 'ia-profile-info',
+	templateUrl: './profile-info.component.html',
+	styleUrls: ['./profile-info.component.scss']
 })
 export class ProfileInfoComponent implements OnInit {
-  @Input() userInfo;
-  username: string;
-  defaultAvatar = UserProfile.USER_DEFAULT_PROFILE_URL;
-  constructor(private router: Router) { }
+	@Input() userInfo;
+	username: string;
+	defaultAvatar = UserProfile.USER_DEFAULT_PROFILE_URL;
 
-  ngOnInit() {
-  }
+	// Icons
+	iconCog = faCog;
 
-  navigateToChangeProfile() {
-    this.router.navigateByUrl(`settings/change-profile-pic`);
-  }
+	constructor(private router: Router) {}
 
+	ngOnInit() {}
+
+	navigateToChangeProfile() {
+		this.router.navigateByUrl(`settings/change-profile-pic`);
+	}
 }

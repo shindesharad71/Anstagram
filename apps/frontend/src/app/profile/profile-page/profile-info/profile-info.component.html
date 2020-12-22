@@ -1,33 +1,51 @@
 <section class="section profile-section" *ngIf="userInfo">
-  <div class="container">
-    <div class="profile-section-wrapper">
-      <div class="profile-pic-wrapper">
-        <img class="profile-pic" (click)="navigateToChangeProfile()" routerLinkActive="router-link-active"  [src]="userInfo?.avatar ? userInfo?.avatar : defaultAvatar" alt="Image" alt="Image">
-      </div>
-      <div class="profile-info">
-        <p class="is-size-4">
-          {{ userInfo?.username }} <span><button type="button" class="button">Edit Profile</button></span> <span
-            class="settings-icon">
-            <fa-icon icon="cog"></fa-icon>
-          </span></p>
-        <p class="is-size-6"><span>0 Posts</span><span>0 Followers</span><span>0 Following</span></p>
-        <p class="is-size-5">{{ userInfo?.firstName }} {{ userInfo?.lastName }}</p>
-        <p class="is-size-6">{{ userInfo?.bio }}</p>
-      </div>
-    </div>
-  </div>
+	<div class="container">
+		<div class="profile-section-wrapper">
+			<div class="profile-pic-wrapper">
+				<img
+					class="profile-pic"
+					(click)="navigateToChangeProfile()"
+					routerLinkActive="router-link-active"
+					[src]="userInfo?.avatar ? userInfo?.avatar : defaultAvatar"
+					alt="Image"
+					alt="Image"
+				/>
+			</div>
+			<div class="profile-info">
+				<p class="is-size-4">
+					{{ userInfo?.username }}
+					<span
+						><button type="button" class="button">
+							Edit Profile
+						</button></span
+					>
+					<span class="settings-icon">
+						<fa-icon [icon]="iconCog"></fa-icon>
+					</span>
+				</p>
+				<p class="is-size-6">
+					<span>0 Posts</span><span>0 Followers</span
+					><span>0 Following</span>
+				</p>
+				<p class="is-size-5">
+					{{ userInfo?.firstName }} {{ userInfo?.lastName }}
+				</p>
+				<p class="is-size-6">{{ userInfo?.bio }}</p>
+			</div>
+		</div>
+	</div>
 </section>
 
 <section class="section" *ngIf="!userInfo">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-half">
-        <div class="wrapper">
-          <div class="animate input-placeholder"></div>
-          <div class="animate input-placeholder"></div>
-          <div class="animate input-placeholder"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="container">
+		<div class="columns is-centered">
+			<div class="column is-half">
+				<div class="wrapper">
+					<div class="animate input-placeholder"></div>
+					<div class="animate input-placeholder"></div>
+					<div class="animate input-placeholder"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
