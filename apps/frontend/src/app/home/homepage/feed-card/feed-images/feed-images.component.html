@@ -6,5 +6,13 @@
   </ng-container>
 </div> -->
 
-<slideshow (dblclick)="onDoubleClick()" [minHeight]="'450px'" [arrowSize]="'15px'" [showArrows]="media?.length > 1"
-  [imageUrls]="media" [lazyLoad]="media?.length > 1" [showDots]="media?.length > 1"></slideshow>
+<slideshow
+	*ngIf="media?.length"
+	(dblclick)="onDoubleClick()"
+	[minHeight]="'450px'"
+	[arrowSize]="'15px'"
+	[showArrows]="media?.length > 1"
+	[imageUrls]="media"
+	[lazyLoad]="media?.length > 1"
+	[showDots]="media?.length > 1"
+></slideshow>
