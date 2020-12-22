@@ -1,9 +1,9 @@
 <div class="columns" *ngIf="posts?.length">
-  <div class="column is-4" *ngFor="let item of posts">
-    <img [src]="item?.media[0]">
-  </div>
+	<div class="column is-4" *ngFor="let item of posts">
+		<img [src]="(item?.media)[0]" />
+	</div>
 </div>
 
-<div class="columns" *ngIf="!posts?.length">
-  <p class="has-text-centered">sorry, no data available</p>
+<div *ngIf="!posts?.length">
+	<h3 class="has-text-centered">Sorry, no data available</h3>
 </div>
