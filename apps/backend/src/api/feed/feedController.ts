@@ -21,7 +21,7 @@ const getUserFeed = async (req: any, res: any) => {
 				.limit(10)
 				.populate({
 					path: 'user',
-					select: 'firstName lastName username'
+					select: 'firstName lastName username avatar'
 				});
 		}
 
@@ -32,6 +32,11 @@ const getUserFeed = async (req: any, res: any) => {
 				for (const privateMedia of item.media) {
 					const signedUrl = `${process.env.ASSETS_URL}uploads/${privateMedia}`;
 					signedMedia.push(signedUrl);
+				}
+
+				const { user } = item;
+				if (user && user.avatar) {
+					user.avatar = `${process.env.ASSETS_URL}uploads/${user.avatar}`;
 				}
 
 				// Feed Comments
@@ -46,7 +51,8 @@ const getUserFeed = async (req: any, res: any) => {
 				const newItem: any = {
 					...item._doc,
 					media: signedMedia,
-					feedComments
+					feedComments,
+					...user
 				};
 				userFeed.push(newItem);
 			}
