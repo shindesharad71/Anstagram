@@ -16,6 +16,8 @@ Explore, Notifications, Profile, Settings are pending! contributions are always 
 
 ### :iphone: Responsive
 
+Trying to keep it up with mobile first! :sweat_smile:
+
 <p align="left">
   <img src="https://github.com/shindesharad71/Anstagram/blob/master/screenshots/register-anstagram.png?raw=true" width="31%" style="margin: 4px;" />
   <img src="https://github.com/shindesharad71/Anstagram/blob/master/screenshots/profile-anstagram.png?raw=true" width="31%" style="margin: 4px;" />
