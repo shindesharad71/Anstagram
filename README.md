@@ -43,13 +43,15 @@ git clone https://github.com/shindesharad71/Anstagram.git
 cd Anstagram
 ```
 
-3. Install the packages required
+3. Rename `env.example` file to `.env` and add required details
+
+4. Install the packages required
 
 ```bash
 npm install
 ```
 
-4. Start the application
+5. Start the application
 
 -   Frontend
 
