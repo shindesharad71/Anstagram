@@ -6,7 +6,7 @@
 
 Instagram Clone with Angular, Node and Typescript started on 9 March 2019 (Ported to Nrwl tooling on 28 January 2020).
 
-## Demo
+## :radio_button: Demo
 
 ![Demo](demo.gif)
 
@@ -18,7 +18,7 @@ Instagram Clone with Angular, Node and Typescript started on 9 March 2019 (Porte
   <img src="https://github.com/shindesharad71/Anstagram/blob/master/screenshots/upload-photos-anstagram.png?raw=true" width="31%" />
 </p>
 
-## Things Learned While Building Anstagram
+## :radio_button: Things Learned While Building Anstagram
 
 -   Angular App Architecture
 -   Setup Node App with TypeScript
@@ -29,7 +29,7 @@ Instagram Clone with Angular, Node and Typescript started on 9 March 2019 (Porte
 -   Google Cloud Storage File Upload and Retrieve
 -   Nrwl Tooling
 
-## Installation and Setup
+## :radio_button: Installation and Setup
 
 1. Clone the project to your local machine
 
@@ -65,4 +65,4 @@ npx nx serve
 npx nx serve backend
 ```
 
-_Feel free to tweak around code and add new features!_
+:grinning: _Feel free to tweak around code and add new features!_
