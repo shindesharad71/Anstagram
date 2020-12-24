@@ -51,14 +51,16 @@ npm install
 
 4. Start the application
 
-a. Frontend
+-   Frontend
 
 ```bash
 npx nx serve
 ```
 
-b. Backend
+-   Backend
 
 ```bash
 npx nx serve backend
 ```
+
+_Feel free to tweak around code and add new features!_
