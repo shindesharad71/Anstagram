@@ -2,7 +2,7 @@
 
 [logo]: https://github.com/shindesharad71/Anstagram/blob/master/apps/frontend/src/assets/logo/anstagram-transperent-logo.png?raw=true 'Anstragram'
 
-# Anstagram :love_you_gesture
+# :love_you_gesture: Anstagram
 
 Instagram Clone with Angular, Node and Typescript started on 9 March 2019 (Ported to Nrwl tooling on 28 January 2020).
 
@@ -71,4 +71,6 @@ npx nx serve
 npx nx serve backend
 ```
 
-:grinning: _Feel free to tweak around code and add new features!_
+## :radio_button: Contribution
+
+_Feel free to tweak around code and add new features!_ :grinning:
