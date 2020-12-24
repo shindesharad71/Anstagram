@@ -1,5 +1,12 @@
+.no-posts {
+	h1 {
+		text-align: center;
+		margin-top: 80px;
+	}
+}
+
 @media (max-width: 481px) {
-  .section {
-    padding: 3rem 0.7rem;
-  }
+	.section {
+		padding: 3rem 0.7rem;
+	}
 }

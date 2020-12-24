@@ -1,5 +1,11 @@
 <div class="container">
-  <div class="section" *ngIf="feedItems && feedItems?.length">
-    <ia-feed-card *ngFor="let feed of feedItems" [feed]="feed"></ia-feed-card>
-  </div>
+	<div class="section" *ngIf="feedItems?.length">
+		<ia-feed-card
+			*ngFor="let feed of feedItems"
+			[feed]="feed"
+		></ia-feed-card>
+	</div>
+	<div class="section no-posts" *ngIf="!feedItems?.length">
+		<h1>No posts found! Create a new!</h1>
+	</div>
 </div>
