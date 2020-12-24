@@ -10,6 +10,8 @@ _Work in progress! always!!_
 
 ## :clapper: Demo
 
+Explore, Notifications, Profile, Settings are pending! contributions are always welcome! :wink:
+
 ![Demo](demo.gif)
 
 ### :iphone: Responsive
