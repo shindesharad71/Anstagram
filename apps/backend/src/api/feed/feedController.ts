@@ -35,7 +35,11 @@ const getUserFeed = async (req: any, res: any) => {
 				}
 
 				const { user } = item;
-				if (user && user.avatar) {
+				if (
+					user &&
+					user.avatar &&
+					!user.avatar.includes(process.env.ASSETS_URL)
+				) {
 					user.avatar = `${process.env.ASSETS_URL}uploads/${user.avatar}`;
 				}
 
@@ -52,7 +56,7 @@ const getUserFeed = async (req: any, res: any) => {
 					...item._doc,
 					media: signedMedia,
 					feedComments,
-					...user
+					user
 				};
 				userFeed.push(newItem);
 			}
