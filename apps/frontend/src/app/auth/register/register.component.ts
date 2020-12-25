@@ -53,7 +53,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
 		this.registerForm = new FormGroup({
 			firstName: new FormControl('', [Validators.required]),
 			lastName: new FormControl('', [Validators.required]),
-			// tslint:disable-next-line: max-line-length
 			email: new FormControl('', [
 				Validators.required,
 				Validators.email,
@@ -120,7 +119,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
 	checkUsername() {
 		this.isUsernameAvailable = false;
-		// tslint:disable-next-line: max-line-length
 		this.isUsernameInvalid =
 			this.registerForm.controls.username.touched &&
 			this.registerForm.controls.username.dirty &&
