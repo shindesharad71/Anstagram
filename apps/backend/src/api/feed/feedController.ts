@@ -1,7 +1,8 @@
+import { Request, Response } from 'express';
 import { Comment } from '../comment/commentModel';
 import { Feed } from './feedModel';
 
-const getUserFeed = async (req: any, res: any) => {
+const getUserFeed = async (req: Request, res: Response) => {
 	try {
 		let feed: any;
 		const userFeed: any[] = [];
@@ -68,7 +69,7 @@ const getUserFeed = async (req: any, res: any) => {
 	}
 };
 
-const addUserFeed = async (req: any, res: any) => {
+const addUserFeed = async (req: Request, res: Response) => {
 	try {
 		if (req.body.media && req.body.media.length) {
 			const feed = new Feed({
