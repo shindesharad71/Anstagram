@@ -15,4 +15,4 @@ RUN npm install -g @nrwl/cli
 COPY . /app
 
 # start app
-CMD nx serve
+CMD ["npm", "start"]
