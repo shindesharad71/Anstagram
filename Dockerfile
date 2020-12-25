@@ -1,14 +1,13 @@
-# Docker File for Frontend
+FROM node:12-alpine
 
-# Step 1
-FROM node:12-alpine as build-step
-WORKDIR /app
-COPY package.json /app
-RUN npm install
-COPY . /app
-RUN npm run build
+# Copy dependency definitions
+COPY package.json ./
 
+## installing and Storing node modules on a separate layer will prevent unnecessary npm installs at each build
+RUN npm i
 
-# Step 2
-FROM nginx:1.17.1-alpine
-COPY --from=build-step app/dist/apps/frontend /usr/share/nginx/html
+COPY . .
+
+EXPOSE 4200 49153
+
+CMD ["npm", "start"]
