@@ -1,13 +1,18 @@
 FROM node:12-alpine
 
-# Copy dependency definitions
-COPY package.json ./
+# set working directory
+WORKDIR /app
 
-## installing and Storing node modules on a separate layer will prevent unnecessary npm installs at each build
-RUN npm i
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
 
-COPY . .
+# install and cache app dependencies
+COPY package.json /app/package.json
+RUN npm install
+RUN npm install -g @nrwl/cli
 
-EXPOSE 4200 49153
+# add app
+COPY . /app
 
-CMD ["npm", "start"]
+# start app
+CMD nx serve
