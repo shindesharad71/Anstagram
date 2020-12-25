@@ -1,12 +1,13 @@
-import { Request, Response } from 'express';
+import { Response } from 'express';
+import { IUser } from '../../libs/IUser';
 import { Comment } from '../comment/commentModel';
 import { Feed } from './feedModel';
 
-const getUserFeed = async (req: Request, res: Response) => {
+const getUserFeed = async (req: IUser, res: Response): Promise<void> => {
 	try {
-		let feed: any;
-		const userFeed: any[] = [];
-		const feedItemsToSkip: number = Number(req.params.feedItemsToSkip);
+		let feed = [];
+		const userFeed = [];
+		const feedItemsToSkip = Number(req.params.feedItemsToSkip);
 		if (feedItemsToSkip > 0) {
 			feed = await Feed.find({})
 				.sort({ createdAt: 'desc' })
@@ -69,7 +70,7 @@ const getUserFeed = async (req: Request, res: Response) => {
 	}
 };
 
-const addUserFeed = async (req: Request, res: Response) => {
+const addUserFeed = async (req: IUser, res: Response) => {
 	try {
 		if (req.body.media && req.body.media.length) {
 			const feed = new Feed({
