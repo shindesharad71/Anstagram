@@ -4,6 +4,15 @@
 			*ngFor="let feed of feedItems"
 			[feed]="feed"
 		></ia-feed-card>
+		<div class="has-text-centered mt-2 mb-1">
+			<button
+				type="button"
+				(click)="getFeed()"
+				class="button is-info is-small is-rounded"
+			>
+				Show More
+			</button>
+		</div>
 	</div>
 	<div class="section no-posts" *ngIf="!feedItems?.length">
 		<h1>No posts found! Create a new!</h1>

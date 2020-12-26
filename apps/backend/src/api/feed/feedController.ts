@@ -1,11 +1,16 @@
+import { RequestHandler, Response } from 'express';
+import { IUser } from '../../libs/IUser';
 import { Comment } from '../comment/commentModel';
 import { Feed } from './feedModel';
 
-const getUserFeed = async (req: any, res: any) => {
+export const getUserFeed: RequestHandler = async (
+	req: IUser,
+	res: Response
+): Promise<void> => {
 	try {
-		let feed: any;
-		const userFeed: any[] = [];
-		const feedItemsToSkip: number = Number(req.params.feedItemsToSkip);
+		let feed = [];
+		const userFeed = [];
+		const feedItemsToSkip = Number(req.params.feedItemsToSkip);
 		if (feedItemsToSkip > 0) {
 			feed = await Feed.find({})
 				.sort({ createdAt: 'desc' })
@@ -35,7 +40,11 @@ const getUserFeed = async (req: any, res: any) => {
 				}
 
 				const { user } = item;
-				if (user && user.avatar) {
+				if (
+					user &&
+					user.avatar &&
+					!user.avatar.includes(process.env.ASSETS_URL)
+				) {
 					user.avatar = `${process.env.ASSETS_URL}uploads/${user.avatar}`;
 				}
 
@@ -52,7 +61,7 @@ const getUserFeed = async (req: any, res: any) => {
 					...item._doc,
 					media: signedMedia,
 					feedComments,
-					...user
+					user
 				};
 				userFeed.push(newItem);
 			}
@@ -63,8 +72,10 @@ const getUserFeed = async (req: any, res: any) => {
 		throw error;
 	}
 };
-
-const addUserFeed = async (req: any, res: any) => {
+export const addUserFeed: RequestHandler = async (
+	req: IUser,
+	res: Response
+): Promise<void> => {
 	try {
 		if (req.body.media && req.body.media.length) {
 			const feed = new Feed({
@@ -83,5 +94,3 @@ const addUserFeed = async (req: any, res: any) => {
 		throw error;
 	}
 };
-
-export { getUserFeed, addUserFeed };

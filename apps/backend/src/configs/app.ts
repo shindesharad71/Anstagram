@@ -5,7 +5,7 @@ import * as dotenv from 'dotenv';
 import * as express from 'express';
 import { NextFunction, Request, Response } from 'express';
 import jwt from 'express-jwt';
-import mongoose from 'mongoose';
+import * as mongoose from 'mongoose';
 import { Routes } from '../api';
 import { JWT_CONFIG, requestValidator } from './jwt';
 

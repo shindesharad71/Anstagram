@@ -1,13 +1,15 @@
+import { Response } from 'express';
+import { IUser } from '../../libs/IUser';
 import { Feed } from '../feed/feedModel';
 import { User, UserType } from '../user/userModel';
 
-const getUserProfile = async (req: any, res: any) => {
+const getUserProfile = async (req: IUser, res: Response): Promise<any> => {
 	try {
-		const username = req.params.username;
-		const userInfo = (await User.findOne(
+		const { username } = req.params;
+		const userInfo: UserType = await User.findOne(
 			{ username },
 			'-password -verifyOtp -createdAt -updatedAt'
-		)) as UserType;
+		);
 		if (userInfo.avatar) {
 			userInfo.avatar = `${process.env.ASSETS_URL}uploads/${userInfo.avatar}`;
 		}
@@ -22,8 +24,8 @@ const getProfileTabInfo = async (req: any, res: any) => {
 	try {
 		let feed: any = [];
 		const finalFeed: any = [];
-		const user = req.user.user;
-		const tabType = req.params.tabType;
+		const { user } = req.user;
+		const { tabType } = req.params;
 		const feedItemsToSkip = 0;
 		if (tabType === 'Posts') {
 			feed = await Feed.find({ user })
