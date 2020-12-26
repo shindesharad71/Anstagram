@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import { JWT_CONFIG } from '../../configs/jwt';
 import { sendVerificationMail } from '../../libs/mailer';
 import { User, UserType } from './userModel';
+
 dotenv.config();
 
 const clientUrl = process.env.CLIENT_URL;
@@ -38,14 +39,14 @@ const register = async (req: any, res: any) => {
 	}
 };
 
-const login = async (req: any, res: any) => {
+const login = async (req: any, res: any): Promise<any> => {
 	try {
 		const loginInput = req.body.loginInput.toLowerCase();
-		const password = req.body.password;
+		const { password } = req.body;
 		const fieldName = loginInput.includes('@') ? 'email' : 'username';
-		const userFound = (await User.findOne({
+		const userFound: UserType | any = await User.findOne({
 			[fieldName]: loginInput
-		})) as UserType;
+		});
 
 		if (userFound && Object.keys(userFound).length > 1) {
 			if (userFound.isVerified) {
@@ -92,12 +93,7 @@ const logout = async (req: any, res: any) => {
 const createVerificationLink = async (email: string) => {
 	try {
 		const verifyOtp = Math.floor(100000 + Math.random() * 900000);
-		let verificationQuery = JSON.stringify(
-			Object.assign({
-				verifyOtp,
-				email
-			})
-		);
+		let verificationQuery = JSON.stringify({ verifyOtp, email });
 		verificationQuery = Buffer.from(verificationQuery).toString('base64');
 		const verificationLink = `${clientUrl}#/login?query=${verificationQuery}`;
 		return { verifyOtp, verificationLink };
@@ -108,11 +104,11 @@ const createVerificationLink = async (email: string) => {
 
 const verify = async (req: any, res: any) => {
 	try {
-		const query = req.body.query;
+		const { query } = req.body;
 		let params: any = Buffer.from(query, 'base64').toString('ascii');
 		params = JSON.parse(params);
-		const email = params.email;
-		const verifyOtp = params.verifyOtp;
+		const { email } = params;
+		const { verifyOtp } = params;
 		await User.updateOne(
 			{ email, verifyOtp },
 			{ $set: { isVerified: true } },
@@ -127,7 +123,7 @@ const verify = async (req: any, res: any) => {
 
 const checkUsername = async (req: any, res: any) => {
 	try {
-		const username = req.params.username;
+		const { username } = req.params;
 		const isUsernameExists = await User.findOne({ username }, 'username');
 		res.json(isUsernameExists);
 	} catch (error) {

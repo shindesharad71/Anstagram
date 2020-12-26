@@ -1,9 +1,10 @@
 import * as mongoose from 'mongoose';
 
-const Schema = mongoose.Schema;
-const ObjectId = Schema.Types.ObjectId;
+const { Schema } = mongoose;
+const { ObjectId } = Schema.Types;
 
-type UserType = mongoose.Document & {
+export interface UserType extends mongoose.Document {
+	_id: string;
 	id: string;
 	firstName: string;
 	lastName: string;
@@ -14,7 +15,7 @@ type UserType = mongoose.Document & {
 	avatar: string;
 	dateOfBirth: string;
 	isVerified: boolean;
-};
+}
 
 const userSchema = new Schema(
 	{
@@ -48,6 +49,4 @@ const userSchema = new Schema(
 	}
 );
 
-const User = mongoose.model('User', userSchema);
-
-export { UserType, User };
+export const User = mongoose.model('User', userSchema);
