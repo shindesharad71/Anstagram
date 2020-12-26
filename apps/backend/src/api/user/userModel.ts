@@ -1,7 +1,6 @@
 import * as mongoose from 'mongoose';
 
 const { Schema } = mongoose;
-const { ObjectId } = Schema.Types;
 
 export interface UserType extends mongoose.Document {
 	_id: string;
@@ -18,28 +17,32 @@ export interface UserType extends mongoose.Document {
 
 const userSchema = new Schema(
 	{
-		firstName: { type: String, trim: true, required: 'required firstName' },
-		lastName: { type: String, trim: true, required: 'required lastName' },
+		firstName: {
+			type: 'String',
+			trim: true,
+			required: true
+		},
+		lastName: { type: 'String', trim: true, required: true },
 		email: {
-			type: String,
+			type: 'String',
 			unique: true,
-			required: 'required email',
+			required: true,
 			index: true,
 			lowercase: true
 		},
 		username: {
-			type: String,
+			type: 'String',
 			unique: true,
-			required: 'required username',
+			required: true,
 			index: true,
 			lowercase: true
 		},
-		dateOfBirth: { type: Date, required: 'required dateOfBirth' },
-		gender: { type: String, required: 'required gender' },
-		password: { type: String, required: 'required password' },
-		avatar: { type: String },
-		resetOtp: { type: Number },
-		verifyOtp: { type: Number },
+		dateOfBirth: { type: Date, required: true },
+		gender: { type: 'String', required: true },
+		password: { type: 'String', required: true },
+		avatar: 'String',
+		resetOtp: Number,
+		verifyOtp: Number,
 		isVerified: { type: Boolean, default: false }
 	},
 	{
@@ -47,4 +50,7 @@ const userSchema = new Schema(
 	}
 );
 
-export const User = mongoose.model('User', userSchema);
+export const User = mongoose.model<UserType & mongoose.Document>(
+	'User',
+	userSchema
+);

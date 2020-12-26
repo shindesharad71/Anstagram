@@ -2,7 +2,7 @@
 	"editor.formatOnSave": true,
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
-		"source.organizeImports": true
+		"source.organizeImports": false
 	},
 	"eslint.validate": ["javascript", "typescript"],
 	"eslint.packageManager": "npm",

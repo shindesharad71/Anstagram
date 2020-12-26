@@ -1,20 +1,18 @@
 import * as mongoose from 'mongoose';
 
-const Schema = mongoose.Schema;
-const ObjectId = Schema.Types.ObjectId;
+const { Schema } = mongoose;
+const { ObjectId } = Schema.Types;
 
-type FeedType = mongoose.Document & {
-	id: string;
+export interface FeedType extends mongoose.Document {
 	userId: string;
 	media: [];
 	description: string;
-};
+}
 
 const feedSchema = new Schema(
 	{
-		id: { type: ObjectId, index: true },
 		user: { type: ObjectId, ref: 'User' },
-		media: { type: Array, required: 'required media' },
+		media: { type: Array, required: true },
 		description: { type: String, default: '' },
 		location: { type: String, default: '' }
 	},
@@ -23,6 +21,7 @@ const feedSchema = new Schema(
 	}
 );
 
-const Feed = mongoose.model('Feed', feedSchema);
-
-export { FeedType, Feed };
+export const Feed = mongoose.model<FeedType & mongoose.Document>(
+	'Feed',
+	feedSchema
+);
