@@ -5,7 +5,6 @@ const { ObjectId } = Schema.Types;
 
 export interface UserType extends mongoose.Document {
 	_id: string;
-	id: string;
 	firstName: string;
 	lastName: string;
 	gender: string;
@@ -19,7 +18,6 @@ export interface UserType extends mongoose.Document {
 
 const userSchema = new Schema(
 	{
-		id: { type: ObjectId, index: true },
 		firstName: { type: String, trim: true, required: 'required firstName' },
 		lastName: { type: String, trim: true, required: 'required lastName' },
 		email: {
