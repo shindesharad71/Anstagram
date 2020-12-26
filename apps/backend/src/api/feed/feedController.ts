@@ -1,9 +1,12 @@
-import { Response } from 'express';
+import { RequestHandler, Response } from 'express';
 import { IUser } from '../../libs/IUser';
 import { Comment } from '../comment/commentModel';
 import { Feed } from './feedModel';
 
-const getUserFeed = async (req: IUser, res: Response): Promise<void> => {
+export const getUserFeed: RequestHandler = async (
+	req: IUser,
+	res: Response
+): Promise<void> => {
 	try {
 		let feed = [];
 		const userFeed = [];
@@ -69,8 +72,10 @@ const getUserFeed = async (req: IUser, res: Response): Promise<void> => {
 		throw error;
 	}
 };
-
-const addUserFeed = async (req: IUser, res: Response) => {
+export const addUserFeed: RequestHandler = async (
+	req: IUser,
+	res: Response
+): Promise<void> => {
 	try {
 		if (req.body.media && req.body.media.length) {
 			const feed = new Feed({
@@ -89,5 +94,3 @@ const addUserFeed = async (req: IUser, res: Response) => {
 		throw error;
 	}
 };
-
-export { getUserFeed, addUserFeed };
