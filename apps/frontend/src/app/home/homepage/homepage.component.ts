@@ -1,38 +1,37 @@
-import { Component, OnInit, HostListener } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { HttpService } from '../../core/services/http/http.service';
 
 @Component({
-  selector: 'ia-homepage',
-  templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.scss']
+	selector: 'ia-homepage',
+	templateUrl: './homepage.component.html',
+	styleUrls: ['./homepage.component.scss']
 })
-
 export class HomepageComponent implements OnInit {
-  feedItems = [];
-  constructor(private router: Router, private titleService: Title, private httpService: HttpService) {
-    this.titleService.setTitle('Home');
-  }
+	feedItems = [];
 
-  ngOnInit() {
-    this.getFeed();
-  }
+	constructor(
+		private router: Router,
+		private titleService: Title,
+		private httpService: HttpService
+	) {
+		this.titleService.setTitle('Home');
+	}
 
-  @HostListener('window:scroll', [])
-  onScroll(): void {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-      console.log('at bottom');
-      this.getFeed();
-    }
-  }
+	ngOnInit(): void {
+		this.getFeed();
+	}
 
-  getFeed() {
-    this.httpService.get(`feed/${this.feedItems.length}`).subscribe((res: any) => {
-      console.log(res);
-      this.feedItems.push(...res);
-    }, err => {
-      console.log(err);
-    });
-  }
+	getFeed(): void {
+		this.httpService.get(`feed/${this.feedItems.length}`).subscribe(
+			(res: []) => {
+				const newItems = [...res];
+				this.feedItems = [...this.feedItems, ...newItems];
+			},
+			err => {
+				console.error(err);
+			}
+		);
+	}
 }
