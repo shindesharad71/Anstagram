@@ -1,6 +1,21 @@
 {
 	"name": "angular-instagram",
-	"version": "0.0.1",
+	"description": "Instagram Clone with Angular, Node and Typescript Using Nrwl Tooling.",
+	"version": "0.0.2",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/shindesharad71/Anstagram.git"
+	},
+	"keywords": [],
+	"author": {
+		"name": "Sharad Shinde",
+		"email": "shindesharad71@gmail.com",
+		"url": "https://shrd.in"
+	},
+	"homepage": "https://github.com/shindesharad71/Anstagram",
+	"bugs": {
+		"url": "https://github.com/shindesharad71/Anstagram/issues"
+	},
 	"scripts": {
 		"ng": "nx",
 		"frontend": "ng serve frontend",
